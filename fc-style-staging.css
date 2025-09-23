@@ -1,0 +1,649 @@
+/* =========================================================
+   VARIABLES (tipografia, brand, sezioni e header)
+   ========================================================= */
+:root {
+  /* Body sizes */
+  --fs-body-d: 18px;
+  --fs-body-m: 16px;
+
+  /* Brand */
+  --brand: #cc0133;
+
+  /* Section headings (slot-heading) */
+  --slot-heading-indent: 1.25rem; /* rientro testo + barretta */
+  --slot-heading-pad-block: 1.5rem; /* aria sopra/sotto il titolo */
+  --slot-bar-w: 2.33333rem; /* larghezza barretta */
+  --slot-bar-h-m: 0.11111rem; /* spessore barra mobile */
+  --slot-bar-h-d: 0.16667rem; /* spessore barra desktop */
+  --slot-bar-gap: 0.44444rem; /* distanza testo/barretta */
+
+  /* Primo Piano (fondino rosso) */
+  --slot-primo-bg-h-m: 7rem; /* altezza mobile */
+  --slot-primo-bg-h-d: 12rem; /* altezza desktop */
+  --slot-primo-bg-top-offset: -6rem; /* quanto “sale” sotto i primi blocchi */
+
+  /* Header (se servono in futuro) */
+  --hdr-bg: #fff;
+  --hdr-fg: #1f1f1f;
+}
+
+/* =========================================================
+   BASE TYPOGRAPHY
+   ========================================================= */
+body {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: var(--fs-body-d);
+  line-height: 1.6;
+  /* color: #111; */
+}
+
+#root-site .ace-dsk-wrapper {
+  padding-top: 0px;
+}
+
+a {
+  .u-break-anywhere {
+    overflow-wrap: anywhere;
+  }
+  .u-break-all {
+    word-break: break-all;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: var(--fs-body-m);
+  }
+}
+
+/* =========================================================
+   TEASER — TITLES & BYLINE (base + .top_news_9)
+   ========================================================= */
+
+/* Titoli base (fuori da .top_news_9 e default ovunque) */
+#root-site .teaser .teaser-title,
+#root-site .teaser .teaser-title > * {
+  font-family: "Inter Tight", "Inter", system-ui, sans-serif;
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.005em;
+  margin: 0 0 0.5em;
+  /* bilancia le righe senza rompere le parole */
+  text-wrap: balance;
+  hyphens: none;
+  -webkit-hyphens: none;
+  word-break: keep-all; /* non spezza parole latine */
+  overflow-wrap: normal; /* niente break “anywhere” */
+  white-space: normal; /* consenti a capo solo sugli spazi */
+}
+/* Dimensione solo se NON arriva inline dal CMS */
+#root-site .teaser .teaser-title:not([style*="font-size"]),
+#root-site .teaser .teaser-title:not([style*="font-size"]) > * {
+  font-size: clamp(16px, 2.1vw, 18px);
+}
+
+/* Byline base */
+#root-site .teaser .teaser-byline,
+#root-site .teaser .teaser-byline > * {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(16px, 1.6vw, 18px);
+  line-height: 1.5rem;
+  margin: 0 0 0.6em;
+}
+
+/* APERTURA (.top_news_9 .teaser-0) */
+#root-site .top_news_9 .teaser.teaser-0 .teaser-title,
+#root-site .top_news_9 .teaser.teaser-0 .teaser-title > * {
+  font-weight: 800;
+  font-size: clamp(34px, 6vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5em;
+  overflow-wrap: anywhere;
+  color: var(--hdr-fg);
+}
+#root-site .top_news_9 .teaser.teaser-0 .teaser-byline,
+#root-site .top_news_9 .teaser.teaser-0 .teaser-byline > * {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(17px, 1.8vw, 20px);
+  line-height: 1.5;
+}
+
+/* SPALLA - Secondari in .top_news_9 (escluso .teaser-0) */
+#root-site .top_news_9 .teaser:not(.teaser-0) .teaser-title,
+#root-site .top_news_9 .teaser:not(.teaser-0) .teaser-title > * {
+  font-family: "Inter Tight", "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.005em;
+  margin: 0 0 0.5em;
+}
+#root-site
+  .top_news_9
+  .teaser:not(.teaser-0)
+  .teaser-title:not([style*="font-size"]),
+#root-site
+  .top_news_9
+  .teaser:not(.teaser-0)
+  .teaser-title:not([style*="font-size"])
+  > * {
+  font-size: clamp(18px, 2.6vw, 22px);
+}
+#root-site .top_news_9 .teaser:not(.teaser-0) .teaser-byline,
+#root-site .top_news_9 .teaser:not(.teaser-0) .teaser-byline > * {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(16px, 1.7vw, 19px);
+  line-height: 1.5;
+}
+
+/* Autore nella byline (compatto, responsive) */
+#root-site .teaser .teaser-byline .author-name,
+#root-site .teaser .teaser-byline .author-name-text {
+  font-size: clamp(10px, 1.6vw, 12px);
+  font-weight: 500;
+  letter-spacing: 0.01111rem;
+  line-height: 1.17em;
+  color: #414141;
+}
+#root-site .teaser .teaser-byline .byline-name {
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+}
+
+/* Evita che stili inline del CMS disattivino la sillabazione */
+#root-site .teaser [style*="word-break"] {
+  word-break: initial !important;
+}
+#root-site .teaser [style*="white-space"] {
+  white-space: normal !important;
+}
+
+/* =========================================================
+   TEASER — COPY (.teaser-text & .teaser-summary)
+   ========================================================= */
+
+/* Base: stile compatto e robusto */
+#root-site .teaser .teaser-text,
+#root-site .teaser .teaser-text > *,
+#root-site .teaser .teaser-text p,
+#root-site .teaser .teaser-summary,
+#root-site .teaser .teaser-summary > *,
+#root-site .teaser .teaser-summary p {
+  color: #000;
+  margin: 0 0 0.5em;
+  font-size: clamp(12px, 1.6vw, 14px); /* ≈ 12–14px */
+  font-weight: 400;
+  letter-spacing: 0.01111rem;
+  line-height: 1.2rem;
+  overflow-wrap: break-word; /* prova prima i punti naturali */
+  hyphens: auto; /* sillabazione italiana */
+  -webkit-hyphens: auto;
+}
+
+/* APERTURA (.top_news_9) — colore + metrica dedicati */
+#root-site .top_news_9 .teaser.teaser-0 .teaser-text,
+#root-site .top_news_9 .teaser.teaser-0 .teaser-text p,
+#root-site .top_news_9 .teaser.teaser-0 .teaser-summary,
+#root-site .top_news_9 .teaser.teaser-0 .teaser-summary p {
+  color: #1f1f1f;
+  font-weight: 400;
+  letter-spacing: 0.01111rem;
+  line-height: 1.44444rem;
+  font-size: clamp(16px, 2vw, 18px);
+}
+
+/* SPALLA Secondari in .top_news_9 — più leggibili del base compatto */
+#root-site .top_news_9 .teaser:not(.teaser-0) .teaser-text,
+#root-site .top_news_9 .teaser:not(.teaser-0) .teaser-text p {
+  color: #000;
+  font-weight: 500;
+  font-size: clamp(15px, 1.9vw, 17px);
+  letter-spacing: normal;
+  line-height: 1.55;
+}
+#root-site .top_news_9 .teaser:not(.teaser-0) .teaser-summary,
+#root-site .top_news_9 .teaser:not(.teaser-0) .teaser-summary p {
+  color: #000;
+  font-weight: 400;
+  font-size: clamp(15px, 1.9vw, 18px);
+  letter-spacing: normal;
+  line-height: 1.6;
+}
+
+/* Micro-tuning mobile (più respiro ai sommari) */
+@media (max-width: 768px) {
+  #root-site .teaser .teaser-summary p {
+    margin-bottom: 0.7em;
+  }
+  #root-site .top_news_9 .teaser.teaser-0 .teaser-summary,
+  #root-site .top_news_9 .teaser:not(.teaser-0) .teaser-summary {
+    line-height: 1.65;
+  }
+}
+
+/* =========================================================
+   KICKER / BADGE (teaser-keyword)
+   ========================================================= */
+#root-site .teaser .teaser-keyword,
+#root-site .teaser .teaser-keyword > * {
+  color: var(--brand) !important;
+}
+#root-site .teaser .teaser-keyword {
+  display: inline-flex;
+  align-items: center;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-block: 10px;
+  padding: 6px 10px;
+  border: 1px solid currentColor;
+  background: transparent;
+  border-radius: 9999px;
+  vertical-align: middle;
+}
+#root-site .teaser .teaser-keyword > * {
+  display: inline-block;
+  line-height: 1;
+}
+
+/* Keyword cliccabile (link dentro .keyword-text) */
+#root-site .teaser .teaser-keyword .keyword-text > a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  border-radius: 9999px;
+}
+
+/* Transizioni morbide */
+#root-site .teaser .teaser-keyword,
+#root-site .teaser .teaser-keyword .keyword-text > a {
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  #root-site .teaser .teaser-keyword,
+  #root-site .teaser .teaser-keyword .keyword-text > a {
+    transition: none;
+  }
+}
+
+/* Stati hover/active/focus del link interno */
+#root-site .teaser .teaser-keyword .keyword-text > a:hover {
+  background-color: rgba(204, 1, 51, 0.5) !important;
+  box-shadow: 0 2px 8px rgba(204, 1, 51, 0.22);
+}
+#root-site .teaser .teaser-keyword .keyword-text > a:active {
+  background-color: var(--brand) !important;
+  color: #fff;
+  box-shadow: none;
+  opacity: 0.95;
+}
+#root-site .teaser .teaser-keyword .keyword-text > a:focus-visible {
+  outline: 2px solid rgba(204, 1, 51, 0.35) !important;
+  outline-offset: 2px;
+}
+#root-site .teaser .teaser-keyword .keyword-text > a > * {
+  color: inherit;
+}
+
+/* Progressive enhancement: rendi cliccabile tutta la pill se supportato */
+@supports (selector(:has(*))) {
+  #root-site .teaser .teaser-keyword:has(.keyword-text > a) {
+    padding: 0;
+    border: none;
+    background: transparent;
+  }
+  #root-site .teaser .teaser-keyword:has(.keyword-text > a) .keyword-text > a {
+    padding: 6px 10px;
+    border: 1px solid currentColor;
+    background: transparent;
+  }
+}
+
+/* Micro-tuning mobile keyword */
+@media (max-width: 768px) {
+  #root-site .teaser .teaser-byline,
+  #root-site .teaser .teaser-byline > * {
+    line-height: 1.55;
+  }
+  #root-site .teaser .teaser-keyword {
+    margin-block: 12px;
+  }
+}
+
+/* =========================================================
+   SECTION HEADINGS (.slot-heading)
+   ========================================================= */
+
+/* Tipografia base */
+#root-site .slot .slot-heading,
+#root-site .slot .slot-heading > * {
+  font-family: "Inter Tight", "Inter", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  line-height: 1.22222rem;
+  text-transform: uppercase;
+  margin: 0;
+  position: relative; /* per ::after */
+}
+/* Indent & aria */
+#root-site .slot .slot-heading {
+  padding-left: var(--slot-heading-indent);
+  padding-block: var(--slot-heading-pad-block);
+}
+/* Barretta */
+#root-site .slot .slot-heading::after {
+  content: " ";
+  display: block;
+  width: var(--slot-bar-w);
+  height: var(--slot-bar-h-m);
+  margin-top: var(--slot-bar-gap);
+}
+@media (min-width: 48em) {
+  #root-site .slot .slot-heading::after {
+    height: var(--slot-bar-h-d);
+  }
+}
+
+/* Default: testo/underline brand (no sfondo rosso) */
+#root-site
+  .slot:not(.fc-collezione-primo-piano-fullwidth-5-full_width_5)
+  .slot-heading
+  > a,
+#root-site
+  .slot:not(.fc-collezione-primo-piano-fullwidth-5-full_width_5)
+  .slot-heading
+  > span {
+  color: var(--brand);
+  text-decoration: none;
+}
+#root-site
+  .slot:not(.fc-collezione-primo-piano-fullwidth-5-full_width_5)
+  .slot-heading
+  > a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--brand);
+  text-underline-offset: 0.12em;
+  text-decoration-thickness: 2px;
+}
+#root-site
+  .slot:not(.fc-collezione-primo-piano-fullwidth-5-full_width_5)
+  .slot-heading::after {
+  background-color: var(--brand);
+}
+
+/* SOLO “Primo Piano”: testo bianco + barretta bianca + fondino diagonale */
+#root-site
+  .fc-collezione-primo-piano-fullwidth-5-full_width_5
+  .slot-heading
+  > a,
+#root-site
+  .fc-collezione-primo-piano-fullwidth-5-full_width_5
+  .slot-heading
+  > span {
+  color: #fff;
+  text-decoration: none;
+}
+#root-site
+  .fc-collezione-primo-piano-fullwidth-5-full_width_5
+  .slot-heading::after {
+  background-color: #fff;
+}
+
+/* Fondino rosso sotto il titolo (solo per questa collezione) */
+#root-site .fc-collezione-primo-piano-fullwidth-5-full_width_5 .slot-layout {
+  position: relative;
+  overflow: visible;
+  z-index: 0;
+}
+#root-site
+  .fc-collezione-primo-piano-fullwidth-5-full_width_5
+  .slot-layout::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: var(--slot-primo-bg-h-m);
+  background: linear-gradient(225deg, #e21b25, #9a1f1f);
+  z-index: -1;
+}
+@media (min-width: 48em) {
+  #root-site
+    .fc-collezione-primo-piano-fullwidth-5-full_width_5
+    .slot-layout::before {
+    height: var(--slot-primo-bg-h-d);
+  }
+}
+/* Offset del fondino sotto ai primi blocchi (solo prima slot in .l-offset) */
+.l-offset
+  #root-site
+  .fc-collezione-primo-piano-fullwidth-5-full_width_5
+  .slot-layout:first-child::before {
+  top: var(--slot-primo-bg-top-offset);
+}
+@media (min-width: 48em) {
+  .l-offset
+    #root-site
+    .fc-collezione-primo-piano-fullwidth-5-full_width_5
+    .slot-layout:first-child::before {
+    top: var(--slot-primo-bg-top-offset);
+  }
+}
+/* Contenuto sopra al fondino */
+#root-site
+  .fc-collezione-primo-piano-fullwidth-5-full_width_5
+  .slot-layout
+  .content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============ OVERRIDE COLLEZIONI ============ */
+/* ============ PRIMO PIANO (full_width_5) ============ */
+
+#root-site .fc-collezione-primo-piano-fullwidth-5-full_width_5 .flex-container {
+  align-items: stretch;
+}
+
+#root-site
+  .fc-collezione-primo-piano-fullwidth-5-full_width_5
+  .full_width_5
+  .teaser {
+  background: white;
+}
+
+#root-site
+  .fc-collezione-primo-piano-fullwidth-5-full_width_5
+  .full_width_5
+  .teaser.teaser-1,
+#root-site
+  .fc-collezione-primo-piano-fullwidth-5-full_width_5
+  .full_width_5
+  .teaser.teaser-2 {
+  border: 1px solid #000;
+}
+
+/* ============ OVERRIDE COLLEZIONI ============ */
+/* ============ RIFLESSIONI (full_width_7) ============ */
+
+/* 1) Titoli teaser più piccoli (~17px) su griglia 4-col */
+#root-site
+  .fc-collezione-riflessioni-fullwidth-7-full_width_7
+  .teaser
+  .teaser-title:not([style*="font-size"]),
+#root-site
+  .fc-collezione-riflessioni-fullwidth-7-full_width_7
+  .teaser
+  .teaser-title:not([style*="font-size"])
+  > * {
+  font-size: clamp(13px, 1.55vw, 16px);
+}
+
+/* 2) Slot heading senza rientri/aria extra per questa collezione */
+#root-site .fc-collezione-riflessioni-fullwidth-7-full_width_7 .slot-heading {
+  padding-left: 0;
+  /* padding-block: 0; */
+}
+
+#root-site
+  .fc-collezione-riflessioni-fullwidth-7-full_width_7
+  .slot-heading
+  > a,
+#root-site
+  .fc-collezione-riflessioni-fullwidth-7-full_width_7
+  .slot-heading
+  > span {
+  color: #fff !important;
+  text-decoration: none;
+}
+#root-site
+  .fc-collezione-riflessioni-fullwidth-7-full_width_7
+  .slot-heading::after {
+  background-color: #fff !important;
+}
+
+/* Barretta */
+#root-site
+  .fc-collezione-riflessioni-fullwidth-7-full_width_7
+  .slot-heading::after {
+  content: " ";
+  display: block;
+  width: var(--slot-bar-w);
+  height: var(--slot-bar-h-m);
+  margin-top: var(--slot-bar-gap);
+  position: absolute;
+  display: none;
+}
+@media (min-width: 48em) {
+  #root-site
+    .fc-collezione-riflessioni-fullwidth-7-full_width_7
+    .slot-heading::after {
+    height: var(--slot-bar-h-d);
+  }
+}
+
+/* (facoltativo) underline del titolo se vuoi mantenere lo spacing standard */
+#root-site
+  .fc-collezione-riflessioni-fullwidth-7-full_width_7
+  .slot-heading::after {
+  margin-top: 0.44444rem;
+}
+
+/* =========================================================
+   HEADER NAV (barra rossa desktop + hamburger mobile)
+   ========================================================= */
+
+/* Barra rossa solo sull’area link sezioni (desktop) */
+#root-site .section-links-container {
+  background: var(--brand);
+  color: #fff;
+  padding-block: 8px;
+}
+
+/* Voci menu desktop: maiuscole + underline animata al bottom */
+#root-site .section-links-container .inline-navigation-list .menu-item > a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  font-weight: 500;
+  font-size: 0.775rem;
+  position: relative;
+  display: inline-block;
+}
+#root-site
+  .section-links-container
+  .inline-navigation-list
+  .menu-item
+  > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 100%;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.18s ease;
+}
+#root-site
+  .section-links-container
+  .inline-navigation-list
+  .menu-item
+  > a:hover {
+  opacity: 0.95;
+}
+#root-site
+  .section-links-container
+  .inline-navigation-list
+  .menu-item
+  > a:hover::after {
+  transform: scaleX(1);
+}
+#root-site
+  .section-links-container
+  .inline-navigation-list
+  .menu-item.is-active
+  > a::after {
+  transform: scaleX(1);
+}
+#root-site
+  .section-links-container
+  .inline-navigation-list
+  .menu-item
+  > a:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.55);
+  outline-offset: 2px;
+}
+/* Icone nella barra rossa */
+#root-site .section-links-container .topmenu-hamburger {
+  color: #fff;
+}
+#root-site .section-links-container .topmenu-hamburger .accent {
+  stroke: currentColor !important;
+}
+
+/* .navigation-actions visibile solo fino a 1024px (tablet/smartphone) */
+#root-site .navigation-actions {
+  display: none;
+}
+@media (max-width: 1024px) {
+  #root-site .navigation-actions {
+    display: block;
+  }
+}
+
+/* Mobile/Tablet: hamburger con sfondo rosso brand */
+@media (max-width: 1024px) {
+  #root-site .navmenu-hamburger,
+  #root-site .navmenu-hamburger .topmenu-hamburger {
+    background: var(--brand);
+  }
+
+  /* Mantieni lo stroke dell’icona leggibile su sfondo rosso */
+  #root-site .navmenu-hamburger .accent {
+    stroke: #fff !important;
+  }
+
+  #root-site .navmenu-hamburger .topmenu-hamburger:hover {
+    opacity: 0.9;
+  }
+  #root-site .navmenu-hamburger .topmenu-hamburger:focus-visible {
+    outline: 2px solid rgba(204, 1, 51, 0.35);
+    outline-offset: 2px;
+  }
+}
