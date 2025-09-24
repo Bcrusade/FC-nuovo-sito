@@ -1,0 +1,28 @@
+ /* See https://atexmedia.atlassian.net/wiki/external/YjZkNWMzZjRlZmQ0NDNkM2I5NzIzZTk2Y2IxMmM0OWM */
+ 
+                    .whole-menu .topmenu .topmenu-inner .topmenu-links ul li {
+                        border: none;
+                        border-radius: none;
+                    }
+
+                    .whole-menu .topmenu .topmenu-inner .topmenu-links ul li:first-child a {
+                        border: 2px solid var(--brand-primary-color);
+                        border-radius: 15px;
+                    }
+
+                    .whole-menu .topmenu .topmenu-inner .topmenu-links ul li:nth-child(2) a {
+                        background-color: var(--brand-primary-color);
+                        color: #fff;
+                        border: 2px solid var(--brand-primary-color);
+                        border-radius: 15px;
+                    }
+                    @media (min-width: 1024px) {
+                        header:after {
+                            top: 59px;
+                        }
+                    }
+
+                    /* Media Query per l'immagine mobile */
+                    @media (max-width: 525px) {
+
+                    }

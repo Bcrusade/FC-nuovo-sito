@@ -8,6 +8,8 @@
 
   /* Brand */
   --brand: #cc0133;
+  --bg-site-light:#f8f8f8;
+  --bg-site-d-light:#f1f1f1;
 
   /* Section headings (slot-heading) */
   --slot-heading-indent: 1.25rem; /* rientro testo + barretta */
@@ -25,7 +27,17 @@
   /* Header (se servono in futuro) */
   --hdr-bg: #fff;
   --hdr-fg: #1f1f1f;
+
+/* Teaser (se servono in futuro) */
+  --tsr-bgw: #fff;
+
 }
+
+/* Utilities (CSS non annidato) */
+.u-break-anywhere { overflow-wrap: anywhere; }
+.u-break-all      { word-break: break-all; }
+/* Evita overflow su stringhe patologiche mantenendo i titoli legibili */
+.u-allow-softwrap { overflow-wrap: anywhere; word-break: normal; }  
 
 /* =========================================================
    BASE TYPOGRAPHY
@@ -35,20 +47,42 @@ body {
     "Helvetica Neue", Arial, sans-serif;
   font-size: var(--fs-body-d);
   line-height: 1.6;
-  /* color: #111; */
+  /* color:var(--bg-site-light); */
+  background: var(--bg-site-light);
 }
 
+/* Paddig contentiore */
 #root-site .ace-dsk-wrapper {
   padding-top: 0px;
 }
 
+/* Colore Contenitore */
+#root-site .ace-dsk-wrapper {
+  background-color: var(--bg-site-light);
+}
+/* Colore tutti i Teser */
+#root-site .teaser {
+  background: var(--tsr-bgw) !important;
+}
+/* Bottone Load More Mega Slot */
+.load-more {
+  color: var(--brand);
+}
+
+/* Colore Breadcrumb */
+#root-site .breadcrumb-container {color: var(--brand);}
+/* Colore Data */
+#root-site .navigation-date {color: var(--hdr-fg)}
+
 a {
-  .u-break-anywhere {
+
     overflow-wrap: anywhere;
-  }
-  .u-break-all {
     word-break: break-all;
-  }
+
+}
+
+.teaser-keyword a:hover, .teaser-title a:hover, .byline-name a:hover {
+    opacity: 1;
 }
 
 @media (max-width: 768px) {
@@ -58,10 +92,10 @@ a {
 }
 
 /* =========================================================
-   TEASER — TITLES & BYLINE (base + .top_news_9)
+   TEASER — TITLES & BYLINE (base + .fc-apertura-big)
    ========================================================= */
 
-/* Titoli base (fuori da .top_news_9 e default ovunque) */
+/* Titoli base (fuori da .fc-apertura-big e default ovunque) */
 #root-site .teaser .teaser-title,
 #root-site .teaser .teaser-title > * {
   font-family: "Inter Tight", "Inter", system-ui, sans-serif;
@@ -91,49 +125,112 @@ a {
   font-size: clamp(16px, 1.6vw, 18px);
   line-height: 1.5rem;
   margin: 0 0 0.6em;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;   /* cambia 2 -> 3, 4... */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* APERTURA (.top_news_9 .teaser-0) */
-#root-site .top_news_9 .teaser.teaser-0 .teaser-title,
-#root-site .top_news_9 .teaser.teaser-0 .teaser-title > * {
+
+/* APERTURA BIG (.fc-apertura-big .teaser-0) */
+#root-site .fc-apertura-big .teaser.teaser-0 .teaser-title,
+#root-site .fc-apertura-big .teaser.teaser-0 .teaser-title > * {
   font-weight: 800;
-  font-size: clamp(34px, 6vw, 56px);
+  font-size: clamp(26px, 5.2vw, 36px);
   line-height: 1.08;
   letter-spacing: -0.01em;
   margin: 0 0 0.5em;
   overflow-wrap: anywhere;
   color: var(--hdr-fg);
 }
-#root-site .top_news_9 .teaser.teaser-0 .teaser-byline,
-#root-site .top_news_9 .teaser.teaser-0 .teaser-byline > * {
+#root-site .fc-apertura-big .teaser.teaser-0 .teaser-byline,
+#root-site .fc-apertura-big .teaser.teaser-0 .teaser-byline > * {
   font-family: "Inter", system-ui, sans-serif;
   font-weight: 500;
   font-size: clamp(17px, 1.8vw, 20px);
   line-height: 1.5;
 }
 
-/* SPALLA - Secondari in .top_news_9 (escluso .teaser-0) */
-#root-site .top_news_9 .teaser:not(.teaser-0) .teaser-title,
-#root-site .top_news_9 .teaser:not(.teaser-0) .teaser-title > * {
-  font-family: "Inter Tight", "Inter", system-ui, sans-serif;
+/* SPALLA APERTURA BIG - Secondari in .fc-apertura-big (escluso .teaser-0) */
+#root-site .fc-apertura-big .teaser:not(.teaser-0) .teaser-title,
+#root-site .fc-apertura-big .teaser:not(.teaser-0) .teaser-title > * {
   font-weight: 700;
+  font-size: clamp(18px, 2.6vw, 22px);
   line-height: 1.12;
   letter-spacing: -0.005em;
   margin: 0 0 0.5em;
 }
-#root-site
-  .top_news_9
+#root-site .fc-apertura-big .teaser:not(.teaser-0) .teaser-byline,
+#root-site .fc-apertura-big .teaser:not(.teaser-0) .teaser-byline > * {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(16px, 1.7vw, 19px);
+  line-height: 1.5;
+}
+
+/* #root-site
+  .fc-apertura-big
   .teaser:not(.teaser-0)
   .teaser-title:not([style*="font-size"]),
 #root-site
-  .top_news_9
+  .fc-apertura-big
   .teaser:not(.teaser-0)
   .teaser-title:not([style*="font-size"])
   > * {
   font-size: clamp(18px, 2.6vw, 22px);
+} */
+
+/* APERTURA LEFT BIG IMAGE (.fc-apertura-left-image-big  .teaser-0) */
+#root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-title,
+#root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-title > * {
+  font-weight: 800;
+  font-size: clamp(26px, 5.2vw, 36px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5em;
+  overflow-wrap: anywhere;
+  color: var(--hdr-fg);
 }
-#root-site .top_news_9 .teaser:not(.teaser-0) .teaser-byline,
-#root-site .top_news_9 .teaser:not(.teaser-0) .teaser-byline > * {
+#root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-byline,
+#root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-byline > * {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(17px, 1.8vw, 20px);
+  line-height: 1.5;
+}
+
+
+/* APERTURA LEFT SMALL IMAGE (.fc-apertura-left-image-small  .teaser-0) */
+#root-site .fc-apertura-left-image-small .teaser.teaser-0 .teaser-title,
+#root-site .fc-apertura-left-image-small .teaser.teaser-0 .teaser-title > * {
+  font-weight: 800;
+  font-size: clamp(26px, 5.2vw, 36px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5em;
+  overflow-wrap: anywhere;
+  color: var(--hdr-fg);
+}
+#root-site .fc-apertura-left-image-small .teaser.teaser-0 .teaser-byline,
+#root-site .fc-apertura-left-image-small .teaser.teaser-0 .teaser-byline > * {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(17px, 1.8vw, 20px);
+  line-height: 1.5;
+}
+
+/* SPALLA APERTURA LEFT SMALL IMAGE - Secondari in .fc-apertura-left-image-small (escluso .teaser-0) */
+#root-site .fc-apertura-left-image-small .teaser:not(.teaser-0) .teaser-title,
+#root-site .fc-apertura-left-image-small .teaser:not(.teaser-0) .teaser-title > * {
+  font-weight: 700;
+  font-size: clamp(18px, 2.6vw, 22px);
+  line-height: 1.12;
+  letter-spacing: -0.005em;
+  margin: 0 0 0.5em;
+}
+#root-site .fc-apertura-left-image-small .teaser:not(.teaser-0) .teaser-byline,
+#root-site .fc-apertura-left-image-small .teaser:not(.teaser-0) .teaser-byline > * {
   font-family: "Inter", system-ui, sans-serif;
   font-weight: 500;
   font-size: clamp(16px, 1.7vw, 19px);
@@ -183,13 +280,18 @@ a {
   overflow-wrap: break-word; /* prova prima i punti naturali */
   hyphens: auto; /* sillabazione italiana */
   -webkit-hyphens: auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;   /* cambia 2 -> 3, 4... */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* APERTURA (.top_news_9) — colore + metrica dedicati */
-#root-site .top_news_9 .teaser.teaser-0 .teaser-text,
-#root-site .top_news_9 .teaser.teaser-0 .teaser-text p,
-#root-site .top_news_9 .teaser.teaser-0 .teaser-summary,
-#root-site .top_news_9 .teaser.teaser-0 .teaser-summary p {
+/* APERTURA BIG (.fc-apertura-big) — colore + metrica dedicati */
+#root-site .fc-apertura-big .teaser.teaser-0 .teaser-text,
+#root-site .fc-apertura-big .teaser.teaser-0 .teaser-text p,
+#root-site .fc-apertura-big .teaser.teaser-0 .teaser-summary,
+#root-site .fc-apertura-big .teaser.teaser-0 .teaser-summary p {
   color: #1f1f1f;
   font-weight: 400;
   letter-spacing: 0.01111rem;
@@ -197,17 +299,92 @@ a {
   font-size: clamp(16px, 2vw, 18px);
 }
 
-/* SPALLA Secondari in .top_news_9 — più leggibili del base compatto */
-#root-site .top_news_9 .teaser:not(.teaser-0) .teaser-text,
-#root-site .top_news_9 .teaser:not(.teaser-0) .teaser-text p {
+/* SPALLA APERTURA BIG - Secondari in .fc-apertura-big — più leggibili del base compatto */
+#root-site .fc-apertura-big .teaser:not(.teaser-0) .teaser-text,
+#root-site .fc-apertura-big .teaser:not(.teaser-0) .teaser-text p {
   color: #000;
   font-weight: 500;
   font-size: clamp(15px, 1.9vw, 17px);
   letter-spacing: normal;
   line-height: 1.55;
+    display: -webkit-box;
+  -webkit-line-clamp: 3;   /* cambia 2 -> 3, 4... */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-#root-site .top_news_9 .teaser:not(.teaser-0) .teaser-summary,
-#root-site .top_news_9 .teaser:not(.teaser-0) .teaser-summary p {
+#root-site .fc-apertura-big .teaser:not(.teaser-0) .teaser-summary,
+#root-site .fc-apertura-big .teaser:not(.teaser-0) .teaser-summary p {
+  color: #000;
+  font-weight: 400;
+  font-size: clamp(15px, 1.9vw, 18px);
+  letter-spacing: normal;
+  line-height: 1.6;
+}
+
+/* APERTURA LEFT BIG IMAGE (.fc-apertura-left-image-big) — colore + metrica dedicati */
+#root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-text,
+#root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-text p,
+#root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-summary,
+#root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-summary p {
+  color: #1f1f1f;
+  font-weight: 400;
+  letter-spacing: 0.01111rem;
+  line-height: 1.44444rem;
+  font-size: clamp(16px, 2vw, 18px);
+}
+
+/* SPALLA APERTURA LEFT BIG IMAGE - Secondari in .fc-apertura-left-image-big — più leggibili del base compatto */
+#root-site .fc-apertura-left-image-big .teaser:not(.teaser-0) .teaser-text,
+#root-site .fc-apertura-left-image-big .teaser:not(.teaser-0) .teaser-text p {
+  color: #000;
+  font-weight: 500;
+  font-size: clamp(15px, 1.9vw, 17px);
+  letter-spacing: normal;
+  line-height: 1.55;
+    display: -webkit-box;
+  -webkit-line-clamp: 3;   /* cambia 2 -> 3, 4... */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#root-site .fc-apertura-left-image-big .teaser:not(.teaser-0) .teaser-summary,
+#root-site .fc-apertura-left-image-big .teaser:not(.teaser-0) .teaser-summary p {
+  color: #000;
+  font-weight: 400;
+  font-size: clamp(15px, 1.9vw, 18px);
+  letter-spacing: normal;
+  line-height: 1.6;
+}
+
+/* APERTURA LEFT SMALL IMAGE (.fc-apertura-left-image-small) — colore + metrica dedicati */
+#root-site .fc-apertura-left-image-small .teaser.teaser-0 .teaser-text,
+#root-site .fc-apertura-left-image-small .teaser.teaser-0 .teaser-text p,
+#root-site .fc-apertura-left-image-small .teaser.teaser-0 .teaser-summary,
+#root-site .fc-apertura-left-image-small .teaser.teaser-0 .teaser-summary p {
+  color: #1f1f1f;
+  font-weight: 400;
+  letter-spacing: 0.01111rem;
+  line-height: 1.44444rem;
+  font-size: clamp(16px, 2vw, 18px);
+}
+
+/* SPALLA APERTURA LEFT BIG IMAGE - Secondari in .fc-apertura-left-image-small — più leggibili del base compatto */
+#root-site .fc-apertura-left-image-small .teaser:not(.teaser-0) .teaser-text,
+#root-site .fc-apertura-left-image-small .teaser:not(.teaser-0) .teaser-text p {
+  color: #000;
+  font-weight: 500;
+  font-size: clamp(15px, 1.9vw, 17px);
+  letter-spacing: normal;
+  line-height: 1.55;
+    display: -webkit-box;
+  -webkit-line-clamp: 3;   /* cambia 2 -> 3, 4... */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#root-site .fc-apertura-left-image-small .teaser:not(.teaser-0) .teaser-summary,
+#root-site .fc-apertura-left-image-small .teaser:not(.teaser-0) .teaser-summary p {
   color: #000;
   font-weight: 400;
   font-size: clamp(15px, 1.9vw, 18px);
@@ -220,8 +397,8 @@ a {
   #root-site .teaser .teaser-summary p {
     margin-bottom: 0.7em;
   }
-  #root-site .top_news_9 .teaser.teaser-0 .teaser-summary,
-  #root-site .top_news_9 .teaser:not(.teaser-0) .teaser-summary {
+  #root-site .fc-apertura-big .teaser.teaser-0 .teaser-summary,
+  #root-site .fc-apertura-big .teaser:not(.teaser-0) .teaser-summary {
     line-height: 1.65;
   }
 }
@@ -358,18 +535,18 @@ a {
 
 /* Default: testo/underline brand (no sfondo rosso) */
 #root-site
-  .slot:not(.fc-collezione-primo-piano-fullwidth-5-full_width_5)
+  .slot:not(.fc-primo-piano)
   .slot-heading
   > a,
 #root-site
-  .slot:not(.fc-collezione-primo-piano-fullwidth-5-full_width_5)
+  .slot:not(.fc-primo-piano)
   .slot-heading
   > span {
   color: var(--brand);
   text-decoration: none;
 }
 #root-site
-  .slot:not(.fc-collezione-primo-piano-fullwidth-5-full_width_5)
+  .slot:not(.fc-primo-piano)
   .slot-heading
   > a:hover {
   text-decoration: underline;
@@ -378,37 +555,37 @@ a {
   text-decoration-thickness: 2px;
 }
 #root-site
-  .slot:not(.fc-collezione-primo-piano-fullwidth-5-full_width_5)
+  .slot:not(.fc-primo-piano)
   .slot-heading::after {
   background-color: var(--brand);
 }
 
 /* SOLO “Primo Piano”: testo bianco + barretta bianca + fondino diagonale */
 #root-site
-  .fc-collezione-primo-piano-fullwidth-5-full_width_5
+  .fc-primo-piano
   .slot-heading
   > a,
 #root-site
-  .fc-collezione-primo-piano-fullwidth-5-full_width_5
+  .fc-primo-piano
   .slot-heading
   > span {
   color: #fff;
   text-decoration: none;
 }
 #root-site
-  .fc-collezione-primo-piano-fullwidth-5-full_width_5
+  .fc-primo-piano
   .slot-heading::after {
   background-color: #fff;
 }
 
 /* Fondino rosso sotto il titolo (solo per questa collezione) */
-#root-site .fc-collezione-primo-piano-fullwidth-5-full_width_5 .slot-layout {
+#root-site .fc-primo-piano .slot-layout {
   position: relative;
   overflow: visible;
   z-index: 0;
 }
 #root-site
-  .fc-collezione-primo-piano-fullwidth-5-full_width_5
+  .fc-primo-piano
   .slot-layout::before {
   content: "";
   position: absolute;
@@ -421,7 +598,7 @@ a {
 }
 @media (min-width: 48em) {
   #root-site
-    .fc-collezione-primo-piano-fullwidth-5-full_width_5
+    .fc-primo-piano
     .slot-layout::before {
     height: var(--slot-primo-bg-h-d);
   }
@@ -429,21 +606,21 @@ a {
 /* Offset del fondino sotto ai primi blocchi (solo prima slot in .l-offset) */
 .l-offset
   #root-site
-  .fc-collezione-primo-piano-fullwidth-5-full_width_5
+  .fc-primo-piano
   .slot-layout:first-child::before {
   top: var(--slot-primo-bg-top-offset);
 }
 @media (min-width: 48em) {
   .l-offset
     #root-site
-    .fc-collezione-primo-piano-fullwidth-5-full_width_5
+    .fc-primo-piano
     .slot-layout:first-child::before {
     top: var(--slot-primo-bg-top-offset);
   }
 }
 /* Contenuto sopra al fondino */
 #root-site
-  .fc-collezione-primo-piano-fullwidth-5-full_width_5
+  .fc-primo-piano
   .slot-layout
   .content {
   position: relative;
@@ -453,23 +630,23 @@ a {
 /* ============ OVERRIDE COLLEZIONI ============ */
 /* ============ PRIMO PIANO (full_width_5) ============ */
 
-#root-site .fc-collezione-primo-piano-fullwidth-5-full_width_5 .flex-container {
+#root-site .fc-primo-piano .flex-container {
   align-items: stretch;
 }
 
 #root-site
-  .fc-collezione-primo-piano-fullwidth-5-full_width_5
+  .fc-primo-piano
   .full_width_5
   .teaser {
   background: white;
 }
 
 #root-site
-  .fc-collezione-primo-piano-fullwidth-5-full_width_5
+  .fc-primo-piano
   .full_width_5
   .teaser.teaser-1,
 #root-site
-  .fc-collezione-primo-piano-fullwidth-5-full_width_5
+  .fc-primo-piano
   .full_width_5
   .teaser.teaser-2 {
   border: 1px solid #000;
@@ -480,11 +657,11 @@ a {
 
 /* 1) Titoli teaser più piccoli (~17px) su griglia 4-col */
 #root-site
-  .fc-collezione-riflessioni-fullwidth-7-full_width_7
+  .fc-riflessioni
   .teaser
   .teaser-title:not([style*="font-size"]),
 #root-site
-  .fc-collezione-riflessioni-fullwidth-7-full_width_7
+  .fc-riflessioni
   .teaser
   .teaser-title:not([style*="font-size"])
   > * {
@@ -492,31 +669,31 @@ a {
 }
 
 /* 2) Slot heading senza rientri/aria extra per questa collezione */
-#root-site .fc-collezione-riflessioni-fullwidth-7-full_width_7 .slot-heading {
+#root-site .fc-riflessioni .slot-heading {
   padding-left: 0;
   /* padding-block: 0; */
 }
 
 #root-site
-  .fc-collezione-riflessioni-fullwidth-7-full_width_7
+  .fc-riflessioni
   .slot-heading
   > a,
 #root-site
-  .fc-collezione-riflessioni-fullwidth-7-full_width_7
+  .fc-riflessioni
   .slot-heading
   > span {
   color: #fff !important;
   text-decoration: none;
 }
 #root-site
-  .fc-collezione-riflessioni-fullwidth-7-full_width_7
+  .fc-riflessioni
   .slot-heading::after {
   background-color: #fff !important;
 }
 
 /* Barretta */
 #root-site
-  .fc-collezione-riflessioni-fullwidth-7-full_width_7
+  .fc-riflessioni
   .slot-heading::after {
   content: " ";
   display: block;
@@ -528,7 +705,7 @@ a {
 }
 @media (min-width: 48em) {
   #root-site
-    .fc-collezione-riflessioni-fullwidth-7-full_width_7
+    .fc-riflessioni
     .slot-heading::after {
     height: var(--slot-bar-h-d);
   }
@@ -536,7 +713,7 @@ a {
 
 /* (facoltativo) underline del titolo se vuoi mantenere lo spacing standard */
 #root-site
-  .fc-collezione-riflessioni-fullwidth-7-full_width_7
+  .fc-riflessioni
   .slot-heading::after {
   margin-top: 0.44444rem;
 }
@@ -544,6 +721,11 @@ a {
 /* =========================================================
    HEADER NAV (barra rossa desktop + hamburger mobile)
    ========================================================= */
+
+#root-site .navmenu {
+  align-items: center;
+  align-content: center;
+}
 
 /* Barra rossa solo sull’area link sezioni (desktop) */
 #root-site .section-links-container {
