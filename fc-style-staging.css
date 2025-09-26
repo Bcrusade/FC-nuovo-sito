@@ -8,8 +8,8 @@
 
   /* Brand */
   --brand: #cc0133;
-  --bg-site-light:#f8f8f8;
-  --bg-site-d-light:#f1f1f1;
+  --bg-site-light: #f8f8f8;
+  --bg-site-d-light: #f1f1f1;
 
   /* Section headings (slot-heading) */
   --slot-heading-indent: 1.25rem; /* rientro testo + barretta */
@@ -28,16 +28,26 @@
   --hdr-bg: #fff;
   --hdr-fg: #1f1f1f;
 
-/* Teaser (se servono in futuro) */
+  /* Teaser (se servono in futuro) */
   --tsr-bgw: #fff;
 
+  /* === Apertura left image big — controllo altezza === */
+  --apertura-maxh-m: 260px; /* mobile */
+  --apertura-maxh-d: 380px; /* desktop */
 }
 
 /* Utilities (CSS non annidato) */
-.u-break-anywhere { overflow-wrap: anywhere; }
-.u-break-all      { word-break: break-all; }
+.u-break-anywhere {
+  overflow-wrap: anywhere;
+}
+.u-break-all {
+  word-break: break-all;
+}
 /* Evita overflow su stringhe patologiche mantenendo i titoli legibili */
-.u-allow-softwrap { overflow-wrap: anywhere; word-break: normal; }  
+.u-allow-softwrap {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
 
 /* =========================================================
    BASE TYPOGRAPHY
@@ -70,19 +80,23 @@ body {
 }
 
 /* Colore Breadcrumb */
-#root-site .breadcrumb-container {color: var(--brand);}
+#root-site .breadcrumb-container {
+  color: var(--brand);
+}
 /* Colore Data */
-#root-site .navigation-date {color: var(--hdr-fg)}
-
-a {
-
-    overflow-wrap: anywhere;
-    word-break: break-all;
-
+#root-site .navigation-date {
+  color: var(--hdr-fg);
 }
 
-.teaser-keyword a:hover, .teaser-title a:hover, .byline-name a:hover {
-    opacity: 1;
+a {
+  overflow-wrap: anywhere;
+  word-break: break-all;
+}
+
+.teaser-keyword a:hover,
+.teaser-title a:hover,
+.byline-name a:hover {
+  opacity: 1;
 }
 
 @media (max-width: 768px) {
@@ -126,12 +140,11 @@ a {
   line-height: 1.5rem;
   margin: 0 0 0.6em;
   display: -webkit-box;
-  -webkit-line-clamp: 3;   /* cambia 2 -> 3, 4... */
+  -webkit-line-clamp: 3; /* cambia 2 -> 3, 4... */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 
 /* APERTURA BIG (.fc-apertura-big .teaser-0) */
 #root-site .fc-apertura-big .teaser.teaser-0 .teaser-title,
@@ -199,7 +212,28 @@ a {
   font-size: clamp(17px, 1.8vw, 20px);
   line-height: 1.5;
 }
+/* 1) Elimina l'altezza inline del teaser */
+#root-site .fc-apertura-left-image-big .teaser.teaser-0 {
+  height: auto !important;
+}
+/* 2) Imposta la max-height del blocco (mobile/desktop) */
+#root-site .fc-apertura-left-image-big .flex-container {
+  max-height: var(--apertura-maxh-m);
+  overflow: hidden; /* taglia tutto ciò che eccede */
+}
+@media (min-width: 48em) {
+  #root-site .fc-apertura-left-image-big .flex-container {
+    max-height: var(--apertura-maxh-d);
+  }
+}
 
+/* 3) Propaga la limitazione ai wrapper intermedi (senza cambiare layout) */
+#root-site .fc-apertura-left-image-big .landscape-molecule,
+#root-site .fc-apertura-left-image-big .with-big-fonts,
+#root-site .fc-apertura-left-image-big .with-byline {
+  max-height: inherit;
+  overflow: hidden;
+}
 
 /* APERTURA LEFT SMALL IMAGE (.fc-apertura-left-image-small  .teaser-0) */
 #root-site .fc-apertura-left-image-small .teaser.teaser-0 .teaser-title,
@@ -222,7 +256,11 @@ a {
 
 /* SPALLA APERTURA LEFT SMALL IMAGE - Secondari in .fc-apertura-left-image-small (escluso .teaser-0) */
 #root-site .fc-apertura-left-image-small .teaser:not(.teaser-0) .teaser-title,
-#root-site .fc-apertura-left-image-small .teaser:not(.teaser-0) .teaser-title > * {
+#root-site
+  .fc-apertura-left-image-small
+  .teaser:not(.teaser-0)
+  .teaser-title
+  > * {
   font-weight: 700;
   font-size: clamp(18px, 2.6vw, 22px);
   line-height: 1.12;
@@ -230,7 +268,11 @@ a {
   margin: 0 0 0.5em;
 }
 #root-site .fc-apertura-left-image-small .teaser:not(.teaser-0) .teaser-byline,
-#root-site .fc-apertura-left-image-small .teaser:not(.teaser-0) .teaser-byline > * {
+#root-site
+  .fc-apertura-left-image-small
+  .teaser:not(.teaser-0)
+  .teaser-byline
+  > * {
   font-family: "Inter", system-ui, sans-serif;
   font-weight: 500;
   font-size: clamp(16px, 1.7vw, 19px);
@@ -278,10 +320,10 @@ a {
   letter-spacing: 0.01111rem;
   line-height: 1.2rem;
   overflow-wrap: break-word; /* prova prima i punti naturali */
-  hyphens: auto; /* sillabazione italiana */
-  -webkit-hyphens: auto;
+  hyphens: none; /* sillabazione italiana */
+  -webkit-hyphens: none;
   display: -webkit-box;
-  -webkit-line-clamp: 3;   /* cambia 2 -> 3, 4... */
+  -webkit-line-clamp: 3; /* cambia 2 -> 3, 4... */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -307,8 +349,8 @@ a {
   font-size: clamp(15px, 1.9vw, 17px);
   letter-spacing: normal;
   line-height: 1.55;
-    display: -webkit-box;
-  -webkit-line-clamp: 3;   /* cambia 2 -> 3, 4... */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* cambia 2 -> 3, 4... */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -342,14 +384,18 @@ a {
   font-size: clamp(15px, 1.9vw, 17px);
   letter-spacing: normal;
   line-height: 1.55;
-    display: -webkit-box;
-  -webkit-line-clamp: 3;   /* cambia 2 -> 3, 4... */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* cambia 2 -> 3, 4... */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 #root-site .fc-apertura-left-image-big .teaser:not(.teaser-0) .teaser-summary,
-#root-site .fc-apertura-left-image-big .teaser:not(.teaser-0) .teaser-summary p {
+#root-site
+  .fc-apertura-left-image-big
+  .teaser:not(.teaser-0)
+  .teaser-summary
+  p {
   color: #000;
   font-weight: 400;
   font-size: clamp(15px, 1.9vw, 18px);
@@ -377,14 +423,18 @@ a {
   font-size: clamp(15px, 1.9vw, 17px);
   letter-spacing: normal;
   line-height: 1.55;
-    display: -webkit-box;
-  -webkit-line-clamp: 3;   /* cambia 2 -> 3, 4... */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* cambia 2 -> 3, 4... */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 #root-site .fc-apertura-left-image-small .teaser:not(.teaser-0) .teaser-summary,
-#root-site .fc-apertura-left-image-small .teaser:not(.teaser-0) .teaser-summary p {
+#root-site
+  .fc-apertura-left-image-small
+  .teaser:not(.teaser-0)
+  .teaser-summary
+  p {
   color: #000;
   font-weight: 400;
   font-size: clamp(15px, 1.9vw, 18px);
@@ -534,47 +584,28 @@ a {
 }
 
 /* Default: testo/underline brand (no sfondo rosso) */
-#root-site
-  .slot:not(.fc-primo-piano)
-  .slot-heading
-  > a,
-#root-site
-  .slot:not(.fc-primo-piano)
-  .slot-heading
-  > span {
+#root-site .slot:not(.fc-primo-piano) .slot-heading > a,
+#root-site .slot:not(.fc-primo-piano) .slot-heading > span {
   color: var(--brand);
   text-decoration: none;
 }
-#root-site
-  .slot:not(.fc-primo-piano)
-  .slot-heading
-  > a:hover {
+#root-site .slot:not(.fc-primo-piano) .slot-heading > a:hover {
   text-decoration: underline;
   text-decoration-color: var(--brand);
   text-underline-offset: 0.12em;
   text-decoration-thickness: 2px;
 }
-#root-site
-  .slot:not(.fc-primo-piano)
-  .slot-heading::after {
+#root-site .slot:not(.fc-primo-piano) .slot-heading::after {
   background-color: var(--brand);
 }
 
 /* SOLO “Primo Piano”: testo bianco + barretta bianca + fondino diagonale */
-#root-site
-  .fc-primo-piano
-  .slot-heading
-  > a,
-#root-site
-  .fc-primo-piano
-  .slot-heading
-  > span {
+#root-site .fc-primo-piano .slot-heading > a,
+#root-site .fc-primo-piano .slot-heading > span {
   color: #fff;
   text-decoration: none;
 }
-#root-site
-  .fc-primo-piano
-  .slot-heading::after {
+#root-site .fc-primo-piano .slot-heading::after {
   background-color: #fff;
 }
 
@@ -584,9 +615,7 @@ a {
   overflow: visible;
   z-index: 0;
 }
-#root-site
-  .fc-primo-piano
-  .slot-layout::before {
+#root-site .fc-primo-piano .slot-layout::before {
   content: "";
   position: absolute;
   left: 0;
@@ -597,32 +626,21 @@ a {
   z-index: -1;
 }
 @media (min-width: 48em) {
-  #root-site
-    .fc-primo-piano
-    .slot-layout::before {
+  #root-site .fc-primo-piano .slot-layout::before {
     height: var(--slot-primo-bg-h-d);
   }
 }
 /* Offset del fondino sotto ai primi blocchi (solo prima slot in .l-offset) */
-.l-offset
-  #root-site
-  .fc-primo-piano
-  .slot-layout:first-child::before {
+.l-offset #root-site .fc-primo-piano .slot-layout:first-child::before {
   top: var(--slot-primo-bg-top-offset);
 }
 @media (min-width: 48em) {
-  .l-offset
-    #root-site
-    .fc-primo-piano
-    .slot-layout:first-child::before {
+  .l-offset #root-site .fc-primo-piano .slot-layout:first-child::before {
     top: var(--slot-primo-bg-top-offset);
   }
 }
 /* Contenuto sopra al fondino */
-#root-site
-  .fc-primo-piano
-  .slot-layout
-  .content {
+#root-site .fc-primo-piano .slot-layout .content {
   position: relative;
   z-index: 1;
 }
@@ -634,37 +652,21 @@ a {
   align-items: stretch;
 }
 
-#root-site
-  .fc-primo-piano
-  .full_width_5
-  .teaser {
+#root-site .fc-primo-piano .full_width_5 .teaser {
   background: white;
 }
 
-#root-site
-  .fc-primo-piano
-  .full_width_5
-  .teaser.teaser-1,
-#root-site
-  .fc-primo-piano
-  .full_width_5
-  .teaser.teaser-2 {
+/* #root-site .fc-primo-piano .full_width_5 .teaser.teaser-1,
+#root-site .fc-primo-piano .full_width_5 .teaser.teaser-2 {
   border: 1px solid #000;
-}
+} */
 
 /* ============ OVERRIDE COLLEZIONI ============ */
 /* ============ RIFLESSIONI (full_width_7) ============ */
 
 /* 1) Titoli teaser più piccoli (~17px) su griglia 4-col */
-#root-site
-  .fc-riflessioni
-  .teaser
-  .teaser-title:not([style*="font-size"]),
-#root-site
-  .fc-riflessioni
-  .teaser
-  .teaser-title:not([style*="font-size"])
-  > * {
+#root-site .fc-riflessioni .teaser .teaser-title:not([style*="font-size"]),
+#root-site .fc-riflessioni .teaser .teaser-title:not([style*="font-size"]) > * {
   font-size: clamp(13px, 1.55vw, 16px);
 }
 
@@ -674,27 +676,17 @@ a {
   /* padding-block: 0; */
 }
 
-#root-site
-  .fc-riflessioni
-  .slot-heading
-  > a,
-#root-site
-  .fc-riflessioni
-  .slot-heading
-  > span {
+#root-site .fc-riflessioni .slot-heading > a,
+#root-site .fc-riflessioni .slot-heading > span {
   color: #fff !important;
   text-decoration: none;
 }
-#root-site
-  .fc-riflessioni
-  .slot-heading::after {
+#root-site .fc-riflessioni .slot-heading::after {
   background-color: #fff !important;
 }
 
 /* Barretta */
-#root-site
-  .fc-riflessioni
-  .slot-heading::after {
+#root-site .fc-riflessioni .slot-heading::after {
   content: " ";
   display: block;
   width: var(--slot-bar-w);
@@ -704,17 +696,13 @@ a {
   display: none;
 }
 @media (min-width: 48em) {
-  #root-site
-    .fc-riflessioni
-    .slot-heading::after {
+  #root-site .fc-riflessioni .slot-heading::after {
     height: var(--slot-bar-h-d);
   }
 }
 
 /* (facoltativo) underline del titolo se vuoi mantenere lo spacing standard */
-#root-site
-  .fc-riflessioni
-  .slot-heading::after {
+#root-site .fc-riflessioni .slot-heading::after {
   margin-top: 0.44444rem;
 }
 
