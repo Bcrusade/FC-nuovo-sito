@@ -706,6 +706,86 @@ a {
   margin-top: 0.44444rem;
 }
 
+/* ============ OVERRIDE COLLEZIONI ============ */
+/* ============ IN EVIDENZA ==================== */
+
+#root-site .fc-evidenza {
+  /* palette locale della sezione */
+  --ev-bg: #fff7df; /* giallo tenue di sfondo */
+  --ev-border: #f2c255; /* giallo/arancio per bordi */
+  --ev-fg: #111; /* testo principale (nero) */
+  --ev-radius: 16px; /* raggio contenitore */
+}
+
+/* Contenitore giallo con bordo arrotondato */
+#root-site .fc-evidenza .slot-layout {
+  background: var(--ev-bg) !important;
+  border: 1px solid var(--ev-border);
+  border-radius: var(--ev-radius);
+  padding: 16px 20px; /* respiro interno */
+}
+
+/* Titolo principale della sezione (IN EVIDENZA) */
+#root-site .fc-evidenza > .slot-layout > .slot-heading,
+#root-site .fc-evidenza > .slot-layout > .slot-heading > * {
+  color: var(--ev-fg) !important; /* nero */
+}
+
+#root-site .fc-evidenza > .slot-layout > .slot-heading::after {
+  background-color: var(--ev-border); /* barretta giallo/arancio */
+}
+
+/* Titoli interni delle colonne/sotto-slot (diversi dal principale) */
+#root-site .fc-evidenza .slot .slot-heading,
+#root-site .fc-evidenza .slot .slot-heading > * {
+  color: var(--ev-fg) !important; /* nero */
+  font-weight: 700;
+  font-size: 0.9rem; /* più piccoli del principale */
+  letter-spacing: 0.06rem;
+  text-transform: uppercase;
+  padding-left: 0; /* niente rientro */
+  padding-block: 0.75rem; /* meno aria */
+}
+
+/* barretta dei titoli interni: sottile e corta */
+#root-site .fc-evidenza .slot .slot-heading::after {
+  background-color: var(--ev-border);
+  width: 1.5rem;
+  height: 0.12rem;
+  margin-top: 0.35rem;
+}
+
+/* Titoli dei teaser in nero (non brand) */
+#root-site .fc-evidenza .teaser .teaser-title a,
+#root-site .fc-evidenza .teaser .teaser-title > a > * {
+  color: var(--ev-fg) !important;
+  text-decoration: none;
+}
+#root-site .fc-evidenza .teaser .teaser-title a:hover {
+  text-decoration: underline; /* feedback semplice */
+  text-underline-offset: 0.12em;
+}
+
+/* (opzionale) card interne un filo più “finite” */
+#root-site .fc-evidenza .teaser {
+  border: 1px solid color-mix(in srgb, var(--ev-border) 65%, white);
+  border-radius: 12px;
+  background: #fff; /* stacca sul giallo tenue */
+}
+
+/* (opzionale) numerini elenco “bullet” più coerenti con la palette */
+#root-site .fc-evidenza .number-box {
+  background: #fff;
+  color: var(--ev-fg);
+  border: 1px solid var(--ev-border);
+  border-radius: 9999px;
+  min-width: 28px;
+  min-height: 28px;
+  display: inline-grid;
+  place-items: center;
+  font-weight: 700;
+}
+
 /* =========================================================
    HEADER NAV (barra rossa desktop + hamburger mobile)
    ========================================================= */
