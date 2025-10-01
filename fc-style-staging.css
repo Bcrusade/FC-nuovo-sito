@@ -194,7 +194,12 @@ a {
   font-size: clamp(18px, 2.6vw, 22px);
 } */
 
-/* APERTURA LEFT BIG IMAGE (.fc-apertura-left-image-big  .teaser-0) */
+/* =======================
+   APERTURA LEFT BIG IMAGE
+   — Fix overflow mobile
+   ======================= */
+
+/* Titolo/Byline: ok come prima */
 #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-title,
 #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-title > * {
   font-weight: 800;
@@ -202,8 +207,11 @@ a {
   line-height: 1.08;
   letter-spacing: -0.01em;
   margin: 0 0 0.5em;
-  overflow-wrap: anywhere;
   color: var(--hdr-fg);
+  /* niente overflow-wrap:anywhere sui titoli per non spezzare parole */
+  overflow-wrap: normal;
+  word-break: keep-all;
+  text-wrap: balance;
 }
 #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-byline,
 #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-byline > * {
@@ -212,14 +220,16 @@ a {
   font-size: clamp(17px, 1.8vw, 20px);
   line-height: 1.5;
 }
-/* 1) Elimina l'altezza inline del teaser */
+
+/* 1) Elimina eventuali altezze inline del teaser */
 #root-site .fc-apertura-left-image-big .teaser.teaser-0 {
   height: auto !important;
 }
-/* 2) Imposta la max-height del blocco (mobile/desktop) */
+
+/* 2) Desktop: consenti il cap in altezza come prima */
 #root-site .fc-apertura-left-image-big .flex-container {
   max-height: var(--apertura-maxh-m);
-  overflow: hidden; /* taglia tutto ciò che eccede */
+  overflow: hidden;
 }
 @media (min-width: 48em) {
   #root-site .fc-apertura-left-image-big .flex-container {
@@ -227,13 +237,64 @@ a {
   }
 }
 
-/* 3) Propaga la limitazione ai wrapper intermedi (senza cambiare layout) */
+/* 3) Wrapper ereditano il cap solo su desktop */
 #root-site .fc-apertura-left-image-big .landscape-molecule,
 #root-site .fc-apertura-left-image-big .with-big-fonts,
 #root-site .fc-apertura-left-image-big .with-byline {
   max-height: inherit;
   overflow: hidden;
 }
+
+/* ===== Mobile fixes ===== */
+@media (max-width: 767.98px) {
+  /* NIENTE cap in altezza sul flusso mobile */
+  #root-site .fc-apertura-left-image-big .flex-container,
+  #root-site .fc-apertura-left-image-big .landscape-molecule,
+  #root-site .fc-apertura-left-image-big .with-big-fonts,
+  #root-site .fc-apertura-left-image-big .with-byline {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* Isola la card: impedisce che roba “di sotto” ci si sovrapponga */
+  /* #root-site .fc-apertura-left-image-big .slot-layout,
+  #root-site .fc-apertura-left-image-big .teaser.teaser-0 {
+    position: relative;
+    isolation: isolate;
+    z-index: 0;
+  } */
+
+  /* Assicura che l’immagine partecipi al flusso (niente abs/sticky ereditati) */
+  #root-site .fc-apertura-left-image-big .teaser .teaser-image,
+  #root-site .fc-apertura-left-image-big .teaser .teaser-image > a,
+  #root-site .fc-apertura-left-image-big .teaser .ace-image,
+  #root-site .fc-apertura-left-image-big .teaser .ace-image * {
+    /* position: static !important; */
+    aspect-ratio: 1.82927 / 1;
+  }
+
+  /* Limita verticalmente con le clamp (invece del max-height del container) */
+  #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;   /* regola se serve */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;   /* regola se serve */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* (opzionale) Piccolo margine di sicurezza sotto la card, per evitare aderenze */
+#root-site .fc-apertura-left-image-big {
+  margin-bottom: 0.75rem;
+}
+
 
 /* APERTURA LEFT SMALL IMAGE (.fc-apertura-left-image-small  .teaser-0) */
 #root-site .fc-apertura-left-image-small .teaser.teaser-0 .teaser-title,
@@ -554,7 +615,10 @@ a {
 
 /* Tipografia base */
 #root-site .slot .slot-heading,
-#root-site .slot .slot-heading > * {
+#root-site .slot .slot-heading > *,
+/* Titoli Sezioni interne */
+#root-site .section-heading .slot-heading,
+#root-site .section-heading .slot-heading > * {
   font-family: "Inter Tight", "Inter", system-ui, sans-serif;
   font-weight: 800;
   font-size: 1rem;
@@ -563,43 +627,82 @@ a {
   text-transform: uppercase;
   margin: 0;
   position: relative; /* per ::after */
+  hyphens: none;
+  -webkit-hyphens: none;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  white-space: normal;
 }
-/* Indent & aria */
-#root-site .slot .slot-heading {
-  padding-left: var(--slot-heading-indent);
+
+/* Titoli Sezioni interne */
+#root-site .section-heading .slot-heading,
+#root-site .section-heading .slot-heading > * {
+  background: var(--bg-site-light);
+}
+
+/* Rientro & aria: applicati al CONTENITORE (non all’ancora) */
+#root-site .slot .slot-heading,
+/* Titoli Sezioni interne */
+#root-site .section-heading .slot-heading {
+  padding-inline: var(--slot-heading-indent);
   padding-block: var(--slot-heading-pad-block);
+  box-sizing: border-box;
 }
+
+/* Elimina padding sugli inline che rompe l’allineamento multilinea */
+#root-site .slot .slot-heading > a,
+#root-site .slot .slot-heading > span
+/* Titoli Sezioni interne */
+#root-site .section-heading .slot-heading > a,
+#root-site .section-heading .slot-heading > span {
+  padding: 0; /* niente rientro sull’inline */
+}
+
+
 /* Barretta */
-#root-site .slot .slot-heading::after {
-  content: " ";
+#root-site .slot .slot-heading::after,
+/* Titoli Sezioni interne */
+#root-site .section-heading .slot-heading::after {
+  content: "";
   display: block;
   width: var(--slot-bar-w);
   height: var(--slot-bar-h-m);
   margin-top: var(--slot-bar-gap);
+  margin-inline-start: -10px;
 }
 @media (min-width: 48em) {
-  #root-site .slot .slot-heading::after {
+  #root-site .slot .slot-heading::after,
+  /* Titoli Sezioni interne */
+#root-site .section-heading .slot-heading::after {
     height: var(--slot-bar-h-d);
   }
 }
 
 /* Default: testo/underline brand (no sfondo rosso) */
 #root-site .slot:not(.fc-primo-piano) .slot-heading > a,
-#root-site .slot:not(.fc-primo-piano) .slot-heading > span {
+#root-site .slot:not(.fc-primo-piano) .slot-heading > span,
+ /* Titoli Sezioni interne */
+#root-site .section-heading .slot-heading > a,
+#root-site .section-heading .slot-heading > span {
   color: var(--brand);
   text-decoration: none;
 }
-#root-site .slot:not(.fc-primo-piano) .slot-heading > a:hover {
+#root-site .slot:not(.fc-primo-piano) .slot-heading > a:hover,
+ /* Titoli Sezioni interne */
+#root-site .section-heading .slot-heading > a:hover
+  {
   text-decoration: underline;
   text-decoration-color: var(--brand);
   text-underline-offset: 0.12em;
   text-decoration-thickness: 2px;
 }
-#root-site .slot:not(.fc-primo-piano) .slot-heading::after {
+#root-site .slot:not(.fc-primo-piano) .slot-heading::after,
+ /* Titoli Sezioni interne */
+ #root-site .section-heading .slot-heading::after {
   background-color: var(--brand);
 }
 
-/* SOLO “Primo Piano”: testo bianco + barretta bianca + fondino diagonale */
+/* SOLO “Primo Piano”: testo bianco + barretta bianca */
 #root-site .fc-primo-piano .slot-heading > a,
 #root-site .fc-primo-piano .slot-heading > span {
   color: #fff;
@@ -670,11 +773,6 @@ a {
   font-size: clamp(13px, 1.55vw, 16px);
 }
 
-/* 2) Slot heading senza rientri/aria extra per questa collezione */
-#root-site .fc-riflessioni .slot-heading {
-  padding-left: 0;
-  /* padding-block: 0; */
-}
 
 #root-site .fc-riflessioni .slot-heading > a,
 #root-site .fc-riflessioni .slot-heading > span {
@@ -699,6 +797,23 @@ a {
   #root-site .fc-riflessioni .slot-heading::after {
     height: var(--slot-bar-h-d);
   }
+  /* 2) Slot heading senza rientri/aria extra per questa collezione */
+  #root-site .fc-riflessioni .slot-heading {
+  padding-left: 0;
+  /* padding-block: 0; */
+  padding-inline: inherit;
+}
+}
+
+@media (max-width: 1024px) {
+/* Rientro & aria: applicati al CONTENITORE (non all’ancora) */
+#root-site .slot.fc-riflessioni .slot-heading {
+  padding-inline: 0px;
+}
+#root-site .slot.fc-riflessioni .slot-heading > a,
+#root-site .slot.fc-riflessioni .slot-heading > span {
+  padding: 21px; /* niente rientro sull’inline */
+}
 }
 
 /* (facoltativo) underline del titolo se vuoi mantenere lo spacing standard */
@@ -710,43 +825,91 @@ a {
 /* ============ IN EVIDENZA ==================== */
 
 #root-site .fc-evidenza {
-  /* palette locale della sezione */
-  --ev-bg: #fff7df; /* giallo tenue di sfondo */
-  --ev-border: #f2c255; /* giallo/arancio per bordi */
-  --ev-fg: #111; /* testo principale (nero) */
-  --ev-radius: 16px; /* raggio contenitore */
+  /* palette e metrica locali */
+  --ev-bg: #fff5da;       /* giallo tenue sfondo macro */
+  --ev-card-bg: #fffaf0;  /* fondo card interne */
+  --ev-border: #f2c55f;   /* giallo/arancio bordi */
+  --ev-fg: #111;          /* testo nero */
+  --ev-radius: 18px;
+  /* --ev-gap: 11px; */
+  --ev-pad: 24px;
+  margin-top: 1.5em;
 }
 
-/* Contenitore giallo con bordo arrotondato */
-#root-site .fc-evidenza .slot-layout {
-  background: var(--ev-bg) !important;
-  border: 1px solid var(--ev-border);
+/* Contenitore grande */
+#root-site .fc-evidenza > .slot-layout.three_column_grid {
+  background: var(--ev-bg);
+  border: 2px solid var(--ev-border);
   border-radius: var(--ev-radius);
-  padding: 16px 20px; /* respiro interno */
+  padding: var(--ev-pad);
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-/* Titolo principale della sezione (IN EVIDENZA) */
+/* Fix overflow del flex e spaziatura uniforme */
+#root-site .fc-evidenza > .slot-layout.three_column_grid > .content,
+#root-site .fc-evidenza > .slot-layout.three_column_grid .flex-container {
+  box-sizing: border-box;
+  gap: var(--ev-gap);
+}
+#root-site .fc-evidenza > .slot-layout.three_column_grid .flex-container > * {
+  min-width: 0; /* consente lo shrink degli item ed evita che escano dal container */
+}
+
+/* ===== Titolo principale della sezione (IN EVIDENZA) ===== */
 #root-site .fc-evidenza > .slot-layout > .slot-heading,
 #root-site .fc-evidenza > .slot-layout > .slot-heading > * {
   color: var(--ev-fg) !important; /* nero */
 }
-
+#root-site .fc-evidenza > .slot-layout > .slot-heading {
+  padding-left: 0;
+  margin-bottom: 10px;
+}
 #root-site .fc-evidenza > .slot-layout > .slot-heading::after {
   background-color: var(--ev-border); /* barretta giallo/arancio */
+  width: 48px;
+  height: 3px;
+  margin-top: 10px;
 }
 
-/* Titoli interni delle colonne/sotto-slot (diversi dal principale) */
+/* ===== Cards/colonne interne ===== */
+#root-site .fc-evidenza .slot .slot-layout {
+  background: var(--ev-card-bg);
+  border: 1px solid var(--ev-border);
+  border-radius: calc(var(--ev-radius) - 4px);
+  padding: 14px;
+  overflow: hidden;
+}
+
+#root-site .fc-evidenza .teaser {
+  box-shadow: none;
+  border: 0;
+  max-width: 100%;
+}
+
+
+@media (min-width: 1024px) {
+    #root-site .fc-evidenza .teaser.teaser-type-opinion,
+    #root-site .fc-evidenza .teaser.teaser-has-media.teaser-type-opinion .teaser-content {
+        max-width: 100%;
+        min-height: unset !important;
+    }
+}
+
+/* ===== Titoli interni delle colonne/sotto-slot (diversi dal principale) ===== */
 #root-site .fc-evidenza .slot .slot-heading,
 #root-site .fc-evidenza .slot .slot-heading > * {
-  color: var(--ev-fg) !important; /* nero */
+  color: var(--ev-fg) !important;     /* nero */
   font-weight: 700;
-  font-size: 0.9rem; /* più piccoli del principale */
+  font-size: 0.9rem;                   /* più piccoli del principale */
   letter-spacing: 0.06rem;
   text-transform: uppercase;
-  padding-left: 0; /* niente rientro */
-  padding-block: 0.75rem; /* meno aria */
 }
-
+#root-site .fc-evidenza .slot .slot-heading {
+  padding-left: 10px;                     /* niente rientro */
+  padding-block: 0.75rem;              /* meno aria */
+  margin-bottom: 12px;
+}
 /* barretta dei titoli interni: sottile e corta */
 #root-site .fc-evidenza .slot .slot-heading::after {
   background-color: var(--ev-border);
@@ -755,36 +918,51 @@ a {
   margin-top: 0.35rem;
 }
 
-/* Titoli dei teaser in nero (non brand) */
-#root-site .fc-evidenza .teaser .teaser-title a,
-#root-site .fc-evidenza .teaser .teaser-title > a > * {
-  color: var(--ev-fg) !important;
+/* ===== Titoli dei teaser in nero (non brand) ===== */
+#root-site .fc-evidenza .teaser .teaser-title {
   text-decoration: none;
+  text-wrap: balance;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  display: -webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 #root-site .fc-evidenza .teaser .teaser-title a:hover {
-  text-decoration: underline; /* feedback semplice */
+  text-decoration: underline;          /* feedback semplice */
   text-underline-offset: 0.12em;
 }
 
-/* (opzionale) card interne un filo più “finite” */
-#root-site .fc-evidenza .teaser {
-  border: 1px solid color-mix(in srgb, var(--ev-border) 65%, white);
+/* Immagini con angoli arrotondati */
+#root-site .fc-evidenza .teaser-has-media .teaser-image {
   border-radius: 12px;
-  background: #fff; /* stacca sul giallo tenue */
+  overflow: hidden;
 }
 
-/* (opzionale) numerini elenco “bullet” più coerenti con la palette */
-#root-site .fc-evidenza .number-box {
-  background: #fff;
-  color: var(--ev-fg);
-  border: 1px solid var(--ev-border);
-  border-radius: 9999px;
-  min-width: 28px;
-  min-height: 28px;
-  display: inline-grid;
-  place-items: center;
-  font-weight: 700;
+/* Keyword pill none */
+#root-site .fc-evidenza .teaser .teaser-keyword {
+  display: none;
 }
+
+/* Basetta decorativa in fondo alle cards (opzionale) */
+/* #root-site .fc-evidenza .slot .slot-layout::after {
+  content: "";
+  display: block;
+  height: 8px;
+  border-radius: 0 0 10px 10px;
+  background: linear-gradient(90deg, #f3d07a 0, #f2c55f 100%);
+  margin: 10px -14px -14px;
+} */
+
+/* IN EVIDENZA — sfondo teaser trasparente (non ereditare var(--tsr-bgw)) */
+#root-site .fc-evidenza .slot .slot-layout * {
+  background: transparent !important;   /* batte la regola globale con !important */
+}
+
+
+
 
 /* =========================================================
    HEADER NAV (barra rossa desktop + hamburger mobile)
