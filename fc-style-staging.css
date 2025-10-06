@@ -998,16 +998,27 @@ a {
   box-shadow: none !important;
 }
 
-#root-site .fc-slot-promo .heading {
-background: var(--brand) !important;
+#root-site .fc-slot-promo {
+
+}
+
+#root-site .fc-slot-promo .heading, 
+#root-site .fc-slot-promo .heading * {
+    background: var(--brand) !important;
+    font-family: "Inter Tight", "Inter", system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.06rem;
+    text-transform: uppercase;
+    line-height: 2.3;
 }
 
 #root-site .fc-slot-promo .bullet {
 background: #cc013493 !important
 }
 
-#root-site .fc-slot-promo .teaser-title {
-  color: #fff;
+#root-site .fc-slot-promo .teaser-content * {
+    color: #fff !important;
 }
 /* Promo rivista/abbonamenti */
 #root-site .fc-slot-rivista-promo .teaser,
@@ -1016,6 +1027,7 @@ background: #cc013493 !important
   background: transparent !important;
   box-shadow: none !important;
 }
+
 
 #root-site .fc-slot-promo .fc-slot-rivista-promo .abbonati-content * {
     font-family: "Inter Tight", "Inter", system-ui, sans-serif;
