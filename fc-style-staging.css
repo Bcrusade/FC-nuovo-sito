@@ -71,8 +71,34 @@ body {
   background-color: var(--bg-site-light);
 }
 /* Colore tutti i Teser */
-#root-site .teaser {
+#root-site .teaser
+{
   background: var(--tsr-bgw) !important;
+}
+
+/* ===== Teaser SENZA fondo in sidebar/promo ===== */
+/* Sidebar "Ultime notizie" */
+#root-site .fc-slot-section-sidebar-news .teaser,
+#root-site .fc-slot-section-sidebar-news .teaser .teaser-content,
+#root-site .fc-slot-section-sidebar-news .teaser .teaser-image {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+
+
+/* (opzionale) Se le “righe” dei bullet/divider portano un bg */
+#root-site .fc-slot-section-sidebar-news .divider,
+#root-site .fc-slot-promo .divider,
+#root-site .fc-slot-rivista-promo .divider {
+  background: transparent !important;
+}
+
+/* (opzionale) Se qualche tema dà un bg al contenitore interno */
+#root-site .fc-slot-section-sidebar-news .content,
+#root-site .fc-slot-promo .content,
+#root-site .fc-slot-rivista-promo .content {
+  background: transparent !important;
 }
 /* Bottone Load More Mega Slot */
 .load-more {
@@ -961,6 +987,52 @@ a {
   background: transparent !important;   /* batte la regola globale con !important */
 }
 
+
+/* ============ OVERRIDE COLLEZIONI ============ */
+/* ============ PROMO ==================== */
+
+#root-site .fc-slot-promo .teaser,
+#root-site .fc-slot-promo .teaser .teaser-content,
+#root-site .fc-slot-promo .teaser .teaser-image {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#root-site .fc-slot-promo .heading {
+background: var(--brand) !important;
+}
+
+#root-site .fc-slot-promo .bullet {
+background: #cc013493 !important
+}
+
+#root-site .fc-slot-promo .teaser-title {
+  color: #fff;
+}
+/* Promo rivista/abbonamenti */
+#root-site .fc-slot-rivista-promo .teaser,
+#root-site .fc-slot-rivista-promo .teaser .teaser-content,
+#root-site .fc-slot-rivista-promo .teaser .teaser-image {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#root-site .fc-slot-promo .fc-slot-rivista-promo .abbonati-content * {
+    font-family: "Inter Tight", "Inter", system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    line-height: 2rem;
+    text-transform: uppercase;
+    margin: 0;
+    position: relative;
+    hyphens: none;
+    -webkit-hyphens: none;
+    word-break: normal;
+    overflow-wrap: normal;
+    white-space: normal;
+    text-wrap: balance;
+}
 
 
 
