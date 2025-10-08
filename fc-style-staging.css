@@ -1013,7 +1013,7 @@ a {
     line-height: 2.3;
 }
 
-#root-site .fc-slot-promo .bullet {
+#root-site .fc-slot-promo .bullet, #root-site .fc-slot-promo .slot-group-space-filler {
 background: #cc013493 !important
 }
 
@@ -1055,6 +1055,13 @@ background: #cc013493 !important
 #root-site .navmenu {
   align-items: center;
   align-content: center;
+
+}
+
+#root-site .navmenu .navbar {   padding-block-end: 1rem; }
+
+#root-site .is-sticky .whole-menu .section-links-container .navbar {
+  display: block;
 }
 
 /* Barra rossa solo sull’area link sezioni (desktop) */
