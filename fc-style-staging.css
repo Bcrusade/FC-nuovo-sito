@@ -61,6 +61,16 @@ body {
   background: var(--bg-site-light);
 }
 
+@media (min-width: 1024px) {
+  .root.jsx-2615648728 .teaser,
+  .root.jsx-2615648728 .teaser.teaser-type-opinion,
+  .root.jsx-2615648728
+    .teaser.teaser-has-media.teaser-type-opinion
+    .teaser-content {
+    max-width: inherit;
+  }
+}
+
 /* Paddig contentiore */
 #root-site .ace-dsk-wrapper {
   padding-top: 0px;
@@ -71,8 +81,7 @@ body {
   background-color: var(--bg-site-light);
 }
 /* Colore tutti i Teser */
-#root-site .teaser
-{
+#root-site .teaser {
   background: var(--tsr-bgw) !important;
 }
 
@@ -84,8 +93,6 @@ body {
   background: transparent !important;
   box-shadow: none !important;
 }
-
-
 
 /* (opzionale) Se le “righe” dei bullet/divider portano un bg */
 #root-site .fc-slot-section-sidebar-news .divider,
@@ -302,14 +309,14 @@ a {
   /* Limita verticalmente con le clamp (invece del max-height del container) */
   #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-title {
     display: -webkit-box;
-    -webkit-line-clamp: 3;   /* regola se serve */
+    -webkit-line-clamp: 3; /* regola se serve */
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-text {
     display: -webkit-box;
-    -webkit-line-clamp: 2;   /* regola se serve */
+    -webkit-line-clamp: 2; /* regola se serve */
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -320,7 +327,6 @@ a {
 #root-site .fc-apertura-left-image-big {
   margin-bottom: 0.75rem;
 }
-
 
 /* APERTURA LEFT SMALL IMAGE (.fc-apertura-left-image-small  .teaser-0) */
 #root-site .fc-apertura-left-image-small .teaser.teaser-0 .teaser-title,
@@ -684,7 +690,6 @@ a {
   padding: 0; /* niente rientro sull’inline */
 }
 
-
 /* Barretta */
 #root-site .slot .slot-heading::after,
 /* Titoli Sezioni interne */
@@ -715,8 +720,7 @@ a {
 }
 #root-site .slot:not(.fc-primo-piano, .fc-evidenza) .slot-heading > a:hover,
  /* Titoli Sezioni interne */
-#root-site .section-heading .slot-heading > a:hover
-  {
+#root-site .section-heading .slot-heading > a:hover {
   text-decoration: underline;
   text-decoration-color: var(--brand);
   text-underline-offset: 0.12em;
@@ -799,7 +803,6 @@ a {
   font-size: clamp(13px, 1.55vw, 16px);
 }
 
-
 #root-site .fc-riflessioni .slot-heading > a,
 #root-site .fc-riflessioni .slot-heading > span {
   color: #fff !important;
@@ -825,21 +828,21 @@ a {
   }
   /* 2) Slot heading senza rientri/aria extra per questa collezione */
   #root-site .fc-riflessioni .slot-heading {
-  padding-left: 0;
-  /* padding-block: 0; */
-  padding-inline: inherit;
-}
+    padding-left: 0;
+    /* padding-block: 0; */
+    padding-inline: inherit;
+  }
 }
 
 @media (max-width: 1024px) {
-/* Rientro & aria: applicati al CONTENITORE (non all’ancora) */
-#root-site .slot.fc-riflessioni .slot-heading {
-  padding-inline: 0px;
-}
-#root-site .slot.fc-riflessioni .slot-heading > a,
-#root-site .slot.fc-riflessioni .slot-heading > span {
-  padding: 21px; /* niente rientro sull’inline */
-}
+  /* Rientro & aria: applicati al CONTENITORE (non all’ancora) */
+  #root-site .slot.fc-riflessioni .slot-heading {
+    padding-inline: 0px;
+  }
+  #root-site .slot.fc-riflessioni .slot-heading > a,
+  #root-site .slot.fc-riflessioni .slot-heading > span {
+    padding: 21px; /* niente rientro sull’inline */
+  }
 }
 
 /* (facoltativo) underline del titolo se vuoi mantenere lo spacing standard */
@@ -852,10 +855,10 @@ a {
 
 #root-site .fc-evidenza {
   /* palette e metrica locali */
-  --ev-bg: #fff5da;       /* giallo tenue sfondo macro */
-  --ev-card-bg: #fffaf0;  /* fondo card interne */
-  --ev-border: #f2c55f;   /* giallo/arancio bordi */
-  --ev-fg: #111;          /* testo nero */
+  --ev-bg: #fff5da; /* giallo tenue sfondo macro */
+  --ev-card-bg: #fffaf0; /* fondo card interne */
+  --ev-border: #f2c55f; /* giallo/arancio bordi */
+  --ev-fg: #111; /* testo nero */
   --ev-radius: 18px;
   /* --ev-gap: 11px; */
   --ev-pad: 24px;
@@ -913,27 +916,29 @@ a {
   max-width: 100%;
 }
 
-
 @media (min-width: 1024px) {
-    #root-site .fc-evidenza .teaser.teaser-type-opinion,
-    #root-site .fc-evidenza .teaser.teaser-has-media.teaser-type-opinion .teaser-content {
-        max-width: 100%;
-        min-height: unset !important;
-    }
+  #root-site .fc-evidenza .teaser.teaser-type-opinion,
+  #root-site
+    .fc-evidenza
+    .teaser.teaser-has-media.teaser-type-opinion
+    .teaser-content {
+    max-width: 100%;
+    min-height: unset !important;
+  }
 }
 
 /* ===== Titoli interni delle colonne/sotto-slot (diversi dal principale) ===== */
 #root-site .fc-evidenza .slot .slot-heading,
 #root-site .fc-evidenza .slot .slot-heading > * {
-  color: var(--ev-fg) !important;     /* nero */
+  color: var(--ev-fg) !important; /* nero */
   font-weight: 700;
-  font-size: 0.9rem;                   /* più piccoli del principale */
+  font-size: 0.9rem; /* più piccoli del principale */
   letter-spacing: 0.06rem;
   text-transform: uppercase;
 }
 #root-site .fc-evidenza .slot .slot-heading {
-  padding-left: 10px;                     /* niente rientro */
-  padding-block: 0.75rem;              /* meno aria */
+  padding-left: 10px; /* niente rientro */
+  padding-block: 0.75rem; /* meno aria */
   margin-bottom: 12px;
 }
 /* barretta dei titoli interni: sottile e corta */
@@ -951,7 +956,7 @@ a {
   word-break: keep-all;
   overflow-wrap: normal;
   display: -webkit-box;
-  -webkit-line-clamp:2;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -984,69 +989,144 @@ a {
 
 /* IN EVIDENZA — sfondo teaser trasparente (non ereditare var(--tsr-bgw)) */
 #root-site .fc-evidenza .slot .slot-layout * {
-  background: transparent !important;   /* batte la regola globale con !important */
+  background: transparent !important; /* batte la regola globale con !important */
 }
-
 
 /* ============ OVERRIDE COLLEZIONI ============ */
 /* ============ PROMO ==================== */
-
-#root-site .fc-slot-promo .teaser,
-#root-site .fc-slot-promo .teaser .teaser-content,
-#root-site .fc-slot-promo .teaser .teaser-image {
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
 #root-site .fc-slot-promo {
-
+  --promo-accent: var(--brand);
+  --promo-bullet-bg: #cc013493;
+  --promo-text: #fff;
+  --promo-radius: 18px;
+  padding-block: var(--slot-heading-pad-block);
 }
 
-#root-site .fc-slot-promo .heading, 
+/* Testi bianchi dentro PROMO (vince su default neri) */
+#root-site .fc-slot-promo .teaser .teaser-title,
+#root-site .fc-slot-promo .teaser .teaser-title a,
+#root-site .fc-slot-promo .teaser .teaser-text,
+#root-site .fc-slot-promo .teaser .teaser-byline,
+#root-site .fc-slot-promo .teaser .teaser-byline *,
+#root-site .fc-slot-promo .bullet .item,
+#root-site .fc-slot-promo .bullet .item *,
+#root-site .fc-slot-promo .heading,
 #root-site .fc-slot-promo .heading * {
-    background: var(--brand) !important;
-    font-family: "Inter Tight", "Inter", system-ui, sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: 0.06rem;
-    text-transform: uppercase;
-    line-height: 2.3;
+  color: #fff !important;
 }
 
-#root-site .fc-slot-promo .bullet, #root-site .fc-slot-promo .slot-group-space-filler {
-background: #cc013493 !important
+/* Hover dei titoli: resta bianco, solo underline per feedback */
+#root-site .fc-slot-promo .teaser .teaser-title a:hover {
+  color: #fff !important;
+  text-decoration: none;
+  text-underline-offset: 0.12em;
+  text-decoration-thickness: 2px;
 }
 
-#root-site .fc-slot-promo .teaser-content * {
-    color: #fff !important;
+/* Flag pill centrata nei box PROMO */
+#root-site .fc-slot-promo .flag-heading {
+  align-self: center;
 }
-/* Promo rivista/abbonamenti */
-#root-site .fc-slot-rivista-promo .teaser,
-#root-site .fc-slot-rivista-promo .teaser .teaser-content,
-#root-site .fc-slot-rivista-promo .teaser .teaser-image {
+
+#root-site .fc-slot-promo .flag-heading .heading {
+  margin-inline: auto; /* centra anche senza flex */
+  text-align: center;
+}
+
+/* colori bianchi coerenti */
+#root-site .fc-slot-promo .flag-heading .heading,
+#root-site .fc-slot-promo .flag-heading .heading * {
+  color: #fff !important;
+}
+
+/* 0) FIX layout: niente centratura, pieni al 100% */
+#root-site .fc-slot-promo .slot-layout > .content > .root {
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+  align-content: stretch !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+#root-site .fc-slot-promo .bullet,
+#root-site .fc-slot-promo .bullet > .item,
+#root-site .fc-slot-promo .teaser {
+  width: 100% !important;
+}
+
+/* 1) Niente card look dentro Promo + Rivista */
+#root-site :is(.fc-slot-promo, .fc-slot-rivista-promo) .teaser,
+#root-site :is(.fc-slot-promo, .fc-slot-rivista-promo) .teaser .teaser-content,
+#root-site :is(.fc-slot-promo, .fc-slot-rivista-promo) .teaser .teaser-image {
   background: transparent !important;
   box-shadow: none !important;
 }
 
-
-#root-site .fc-slot-promo .fc-slot-rivista-promo .abbonati-content * {
-    font-family: "Inter Tight", "Inter", system-ui, sans-serif;
-    font-weight: 400;
-    font-size: 1.5rem;
-    letter-spacing: 0.1rem;
-    line-height: 2rem;
-    text-transform: uppercase;
-    margin: 0;
-    position: relative;
-    hyphens: none;
-    -webkit-hyphens: none;
-    word-break: normal;
-    overflow-wrap: normal;
-    white-space: normal;
-    text-wrap: balance;
+/* 2) Heading stile “pill” rosso */
+#root-site .fc-slot-promo .heading,
+#root-site .fc-slot-promo .heading * {
+  background: var(--promo-accent) !important;
+  font-family: "Inter Tight", "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.06rem;
+  text-transform: uppercase;
+  line-height: 2.3;
 }
 
+/* 3) Blocchi elenco/bullet con fondo */
+#root-site .fc-slot-promo .bullet,
+#root-site .fc-slot-promo .slot-group-space-filler {
+  background: var(--promo-bullet-bg) !important;
+}
 
+#root-site .fc-slot-promo .bullet:first-child {
+  border-top-left-radius: var(--promo-radius);
+  border-top-right-radius: var(--promo-radius);
+}
+
+#root-site .fc-slot-promo .slot-group-space-filler {
+  border-bottom-left-radius: var(--promo-radius);
+  border-bottom-right-radius: var(--promo-radius);
+}
+
+/* 4) Colore testo: eredità dal contenitore, no selettore universale */
+#root-site .fc-slot-promo .content,
+#root-site .fc-slot-promo .bullet,
+#root-site .fc-slot-promo .teaser .teaser-content {
+  color: var(--promo-text) !important;
+}
+#root-site .fc-slot-promo .teaser .teaser-title a {
+  color: inherit !important;
+}
+#root-site .fc-slot-promo .teaser .teaser-byline,
+#root-site .fc-slot-promo .teaser .teaser-text {
+  color: inherit !important;
+}
+
+/* 5) Promo rivista/abbonamenti – tipografia */
+#root-site .fc-slot-promo .fc-slot-rivista-promo .abbonati-content * {
+  font-family: "Inter Tight", "Inter", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  line-height: 2rem;
+  text-transform: uppercase;
+  margin: 0;
+  position: relative;
+  hyphens: none;
+  -webkit-hyphens: none;
+  word-break: normal;
+  overflow-wrap: normal;
+  white-space: normal;
+  text-wrap: balance;
+}
+
+#root-site .fc-slot-promo .fc-slot-rivista-promo .teaser .ace-image img {
+  border-radius: var(--promo-radius) !important;
+}
 
 /* =========================================================
    HEADER NAV (barra rossa desktop + hamburger mobile)
@@ -1055,10 +1135,11 @@ background: #cc013493 !important
 #root-site .navmenu {
   align-items: center;
   align-content: center;
-
 }
 
-#root-site .navmenu .navbar {   padding-block-end: 1rem; }
+#root-site .is-sticky .navmenu {
+  padding-block-end: 1rem;
+}
 
 #root-site .is-sticky .whole-menu .section-links-container .navbar {
   display: block;
@@ -1167,15 +1248,14 @@ background: #cc013493 !important
   }
 }
 
-
 /* ============================
    MOBILE SIDEBAR MENU (overlay)
    ============================ */
 
 /* Pannello/overlay: sfondo bianco */
-#root-site .sidebar-overlay.open .sidebar-content{
-  background:#fff !important;
-  color:#1f1f1f;
+#root-site .sidebar-overlay.open .sidebar-content {
+  background: #fff !important;
+  color: #1f1f1f;
 }
 
 /* Tutte le voci del menu mobile in MAIUSCOLO */
@@ -1184,7 +1264,7 @@ background: #cc013493 !important
 #root-site .sidebar-overlay.open .menu-submenu > .menu-item > a,        /* voci sotto-menu */
 #root-site .sidebar-overlay.open .submenu-toolbar.sidebar-buttons.top-menu-wrapper a.top-menu-item {
   text-transform: uppercase;
-  letter-spacing: .04em; /* migliora leggibilità del maiuscolo */
+  letter-spacing: 0.04em; /* migliora leggibilità del maiuscolo */
 }
 
 #root-site .sidebar-overlay.open .sidebar-buttons button,
@@ -1192,83 +1272,109 @@ background: #cc013493 !important
   text-transform: uppercase;
 }
 
-
 /* ============ PRIMO BLOCCO: voci di sezione (mega-menu-wrapper) ============ */
 /* Impila verticalmente le voci (niente flex orizzontale) */
-#root-site .sidebar-overlay.open .submenu-toolbar[toolbar-target~="navmenu-links"] ul{
-  display:block !important;
-  padding-inline-start:0;
-  margin:15px 0;
+#root-site
+  .sidebar-overlay.open
+  .submenu-toolbar[toolbar-target~="navmenu-links"]
+  ul {
+  display: block !important;
+  padding-inline-start: 0;
+  margin: 15px 0;
 }
-#root-site .sidebar-overlay.open .submenu-toolbar[toolbar-target~="navmenu-links"] ul > li{
-  list-style:none;
-  margin:0 0 8px 0;
+#root-site
+  .sidebar-overlay.open
+  .submenu-toolbar[toolbar-target~="navmenu-links"]
+  ul
+  > li {
+  list-style: none;
+  margin: 0 0 8px 0;
 }
 
 /* Sotto-menu: <ul class="menu-submenu"> */
-#root-site .sidebar-overlay.open .menu-submenu{
-  padding:0;
-  margin:6px 0 0 0;
+#root-site .sidebar-overlay.open .menu-submenu {
+  padding: 0;
+  margin: 6px 0 0 0;
 }
-#root-site .sidebar-overlay.open .menu-submenu > .menu-item{
-  list-style:none;
-  margin:0 0 6px 0;
+#root-site .sidebar-overlay.open .menu-submenu > .menu-item {
+  list-style: none;
+  margin: 0 0 6px 0;
 }
 
 /* Link interni alle voci del sotto-menu */
-#root-site .sidebar-overlay.open .menu-submenu > .menu-item > a{
-  display:block;
-  background-color:#f8f8f8;
-  color:#1f1f1f;
+#root-site .sidebar-overlay.open .menu-submenu > .menu-item > a {
+  display: block;
+  background-color: #f8f8f8;
+  color: #1f1f1f;
   font-family: SkyHeadline, SkyText, Arial, Tahoma, Verdana, sans-serif;
-  font-size:1.1rem;
-  font-weight:600;
-  line-height:1rem;
-  padding:.77778rem 1.11111rem;
-  border-radius:8px;
-  text-decoration:none;
-  transition:.3s;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1rem;
+  padding: 0.77778rem 1.11111rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
 }
 #root-site .sidebar-overlay.open .menu-submenu > .menu-item > a:hover,
-#root-site .sidebar-overlay.open .menu-submenu > .menu-item > a:focus{
-  filter:brightness(0.96);
+#root-site .sidebar-overlay.open .menu-submenu > .menu-item > a:focus {
+  filter: brightness(0.96);
 }
 
 /* ============ SECONDO BLOCCO: top-menu-wrapper (bottoni rossi) ============ */
-#root-site .sidebar-overlay.open .submenu-toolbar.sidebar-buttons.top-menu-wrapper ul{
-  display:block !important;   /* override del flex */
-  padding-inline-start:0;
-  margin:15px 0;
+#root-site
+  .sidebar-overlay.open
+  .submenu-toolbar.sidebar-buttons.top-menu-wrapper
+  ul {
+  display: block !important; /* override del flex */
+  padding-inline-start: 0;
+  margin: 15px 0;
 }
-#root-site .sidebar-overlay.open .submenu-toolbar.sidebar-buttons.top-menu-wrapper ul > li{
-  list-style:none;
-  margin:0 0 8px 0;
+#root-site
+  .sidebar-overlay.open
+  .submenu-toolbar.sidebar-buttons.top-menu-wrapper
+  ul
+  > li {
+  list-style: none;
+  margin: 0 0 8px 0;
 }
 
 /* Link “Top menu” in rosso, testo bianco */
-#root-site .sidebar-overlay.open .submenu-toolbar.sidebar-buttons.top-menu-wrapper a.top-menu-item{
-  display:inline-block;
-  background-color:#a21f20;
-  color:#fff !important;
-  padding:.16667rem .5rem;
-  border-radius:6px;
-  text-decoration:none;
-  line-height:1.7;
-  transition:.3s;
+#root-site
+  .sidebar-overlay.open
+  .submenu-toolbar.sidebar-buttons.top-menu-wrapper
+  a.top-menu-item {
+  display: inline-block;
+  background-color: #a21f20;
+  color: #fff !important;
+  padding: 0.16667rem 0.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  line-height: 1.7;
+  transition: 0.3s;
 }
-#root-site .sidebar-overlay.open .submenu-toolbar.sidebar-buttons.top-menu-wrapper a.top-menu-item:hover,
-#root-site .sidebar-overlay.open .submenu-toolbar.sidebar-buttons.top-menu-wrapper a.top-menu-item:focus{
-  filter:brightness(0.95);
+#root-site
+  .sidebar-overlay.open
+  .submenu-toolbar.sidebar-buttons.top-menu-wrapper
+  a.top-menu-item:hover,
+#root-site
+  .sidebar-overlay.open
+  .submenu-toolbar.sidebar-buttons.top-menu-wrapper
+  a.top-menu-item:focus {
+  filter: brightness(0.95);
 }
 
 /* (facoltativo) Logo/chiudi: leggero spacing coerente */
-#root-site .sidebar-overlay.open .sidebar-header{ padding:8px 12px; }
-#root-site .sidebar-overlay.open .close-btn{ margin:6px 8px 0 0; }
+#root-site .sidebar-overlay.open .sidebar-header {
+  padding: 8px 12px;
+}
+#root-site .sidebar-overlay.open .close-btn {
+  margin: 6px 8px 0 0;
+}
 
 /* (sicurezza) rimuovi eventuali gap flex residui sui <ul> già presenti */
-#root-site .sidebar-overlay.open nav ul{
-  gap:0 !important;
-  -webkit-flex-wrap:nowrap !important;
-  -ms-flex-wrap:nowrap !important;
-  flex-wrap:nowrap !important;
+#root-site .sidebar-overlay.open nav ul {
+  gap: 0 !important;
+  -webkit-flex-wrap: nowrap !important;
+  -ms-flex-wrap: nowrap !important;
+  flex-wrap: nowrap !important;
 }
