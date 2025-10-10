@@ -1248,6 +1248,147 @@ a {
   }
 }
 
+/* =========================================================
+   FOOTER THEME (skin only, no layout)
+   ========================================================= */
+
+/* Token tema footer (modificabili) */
+#root-site footer.page-footer {
+  --ft-bg: #fff;                         /* sfondo footer */
+  --ft-title-fg: var(--brand, #a21f20);  /* titoli di categoria + ribbon */
+  --ft-link-fg: #1f1f1f;                 /* voci di menu */
+  --ft-link-hover: var(--brand, #a21f20);
+
+  /* Logo & ribbon */
+  --ft-ribbon-h: 8px;        /* altezza banda rossa sopra il footer */
+  --ft-logo-h-m: 40px;       /* altezza logo mobile */
+  --ft-logo-h-d: 56px;       /* altezza logo desktop */
+
+  background: var(--ft-bg);
+  color: var(--ft-link-fg);
+}
+
+/* -----------------------------
+   Ribbon (banda rossa in alto)
+   ----------------------------- */
+#root-site footer.page-footer .footer-ribbon {
+  background: var(--ft-title-fg);
+  height: var(--ft-ribbon-h);
+  /* opzionali, puramente estetici */
+  border: 0;
+  margin: 0;
+}
+
+/* -----------------------------
+   Logo (dimensione visuale)
+   ----------------------------- */
+#root-site footer.page-footer .footer-logo-container {
+  /* niente layout, solo skin: altezza “slot” del logo */
+  height: var(--ft-logo-h-m);
+}
+@media (min-width: 48em) {
+  #root-site footer.page-footer .footer-logo-container {
+    height: var(--ft-logo-h-d);
+  }
+}
+/* Evita filtri o effetti indesiderati sul logo */
+#root-site footer.page-footer .footer-logo-container img {
+  filter: none !important;
+  opacity: 1;
+}
+
+/* ---------------------------------------------------------
+   Titoli di categoria (stile come slot-heading "IN EVIDENZA")
+   --------------------------------------------------------- */
+#root-site footer.page-footer .footer-infos .section-title .headline,
+#root-site footer.page-footer .footer-infos .list-item-first > a {
+  font-family: "Inter Tight", "Inter", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  line-height: 1.25;
+  text-transform: uppercase;
+  color: var(--ft-title-fg);
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------------
+   Voci di menu (come keyword-text: uppercase + tracking)
+   --------------------------------------------------------- */
+#root-site footer.page-footer .footer-infos .menu-section-children .list-item a,
+#root-site footer.page-footer .footer-infos .menu-section-children .list-item span {
+  font-family: "Inter Tight", "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.06rem;
+  text-transform: uppercase;
+  color: var(--ft-link-fg);
+  text-decoration: none;
+}
+
+/* Hover/active per i link del footer */
+
+/* Link voci di menu */
+#root-site footer.page-footer .footer-infos a:hover,
+#root-site footer.page-footer .footer-infos a:focus {
+  color: var(--ft-link-hover) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 0.12em !important;
+  text-decoration-thickness: 2px !important;
+}
+
+/* Titoli di colonna cliccabili (se sono <a>) */
+#root-site footer.page-footer .footer-infos .list-item-first > a:hover,
+#root-site footer.page-footer .footer-infos .list-item-first > a:focus {
+  color: var(--ft-title-fg) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 0.12em !important;
+  text-decoration-thickness: 2px !important;
+}
+
+/* Social (SVG) al passaggio */
+#root-site footer.page-footer .social-icons .socials-link:hover,
+#root-site footer.page-footer .social-icons .socials-link:focus {
+  color: var(--ft-link-hover) !important;       /* per SVG con currentColor */
+}
+#root-site footer.page-footer .social-icons .socials-link:hover .accent,
+#root-site footer.page-footer .social-icons .socials-link:focus .accent {
+  fill: var(--ft-link-hover) !important;        /* per path .accent */
+}
+
+/* Opzionale: mantenere colore nero default icone */
+#root-site footer.page-footer .social-icons .socials-link {
+  color: #000 !important;
+}
+#root-site footer.page-footer .social-icons .accent {
+  fill: #000 !important;
+}
+
+
+/* ---------------------------------------------------------
+   Social: icone nere (SVG che usano currentColor o .accent)
+   --------------------------------------------------------- */
+#root-site footer.page-footer .social-icons .socials-link {
+  color: #000; /* per SVG con currentColor */
+}
+#root-site footer.page-footer .social-icons .accent {
+  fill: #000 !important;
+}
+
+/* ---------------------------------------------------------
+   Vari utilità
+   --------------------------------------------------------- */
+#root-site footer.page-footer .footer-logos { color: inherit; }
+#root-site footer.page-footer .footer-infos .menu-section-children .list-item span {
+  color: var(--ft-link-fg);
+}
+#root-site footer.page-footer .footer-infos .no-uppercase {
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+
+
 /* ============================
    MOBILE SIDEBAR MENU (overlay)
    ============================ */
