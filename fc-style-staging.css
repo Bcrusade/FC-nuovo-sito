@@ -49,6 +49,99 @@
   word-break: normal;
 }
 
+/* ===== Desktop: Mega menu full-screen + scroll interno ===== */
+@media (min-width: 1024px) {
+  /* blocca lo scroll della pagina quando il menu è aperto */
+  #root-site.noscroll {
+    overflow: hidden !important;
+  }
+
+  /* overlay full-screen: annullo centering esistente */
+  .mega-menu.open {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+
+    /* neutralizza le regole esistenti */
+    transform: none !important;
+    -webkit-transform: none !important;
+
+    /* allineo il contenuto dall’alto, non centrato verticalmente */
+    align-items: flex-start !important;
+    justify-content: center !important;
+
+    background-color: var(--header-footer-background, #fff) !important;
+    z-index: 1000 !important;
+  }
+
+  /* se vuoi lasciare visibile l’header fisso sopra, usa un padding-top pari all’altezza header */
+  .mega-menu.open {
+    /* imposta l'altezza header che hai in tema, es. 80px */
+    --header-h: 80px;
+    padding-top: var(--header-h) !important;
+  }
+
+  /* area scorrevole interna: usa tutta l’altezza disponibile sotto l’header */
+  .mega-menu.open .mega-menu-content {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 240px;
+    gap: 48px !important;
+
+    width: 100% !important;
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+    padding: 48px 32px 64px !important;
+
+    height: calc(100vh - var(--header-h)) !important;
+    overflow: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* ===== Sottovoci orizzontali (wrap) ===== */
+  .mega-menu .menu-section-children > ul {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px 24px !important;
+    margin-top: 10px !important;
+  }
+  .mega-menu .menu-section-children .list-item {
+    display: inline-flex !important;
+    margin: 0 !important;
+  }
+  .mega-menu .menu-section-children .list-item > a {
+    display: inline-block !important;
+    line-height: 1.6 !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid transparent !important;
+  }
+
+  /* titolo sezione più compatto */
+  .mega-menu .section-title > a,
+  .mega-menu .section-title > .headline {
+    display: inline-block !important;
+    margin-bottom: 6px !important;
+  }
+
+  /* Social in alto a destra e “sticky” durante lo scroll del menu */
+  #mega-menu-social {
+    align-self: start !important;
+    position: sticky !important;
+    top: 24px !important;
+  }
+
+  /* Hover forzati */
+  .mega-menu a:hover {
+    color: #e30613 !important;
+    border-color: #e30613 !important;
+  }
+}
+
 /* =========================================================
    BASE TYPOGRAPHY
    ========================================================= */
@@ -1219,7 +1312,7 @@ a {
 
 /* .navigation-actions visibile solo fino a 1024px (tablet/smartphone) */
 #root-site .navigation-actions {
-  display: none;
+  /* display: none; */
 }
 @media (max-width: 1024px) {
   #root-site .navigation-actions {
@@ -1254,15 +1347,15 @@ a {
 
 /* Token tema footer (modificabili) */
 #root-site footer.page-footer {
-  --ft-bg: #fff;                         /* sfondo footer */
-  --ft-title-fg: var(--brand, #a21f20);  /* titoli di categoria + ribbon */
-  --ft-link-fg: #1f1f1f;                 /* voci di menu */
+  --ft-bg: #fff; /* sfondo footer */
+  --ft-title-fg: var(--brand, #a21f20); /* titoli di categoria + ribbon */
+  --ft-link-fg: #1f1f1f; /* voci di menu */
   --ft-link-hover: var(--brand, #a21f20);
 
   /* Logo & ribbon */
-  --ft-ribbon-h: 8px;        /* altezza banda rossa sopra il footer */
-  --ft-logo-h-m: 40px;       /* altezza logo mobile */
-  --ft-logo-h-d: 56px;       /* altezza logo desktop */
+  --ft-ribbon-h: 8px; /* altezza banda rossa sopra il footer */
+  --ft-logo-h-m: 40px; /* altezza logo mobile */
+  --ft-logo-h-d: 56px; /* altezza logo desktop */
 
   background: var(--ft-bg);
   color: var(--ft-link-fg);
@@ -1316,7 +1409,12 @@ a {
    Voci di menu (come keyword-text: uppercase + tracking)
    --------------------------------------------------------- */
 #root-site footer.page-footer .footer-infos .menu-section-children .list-item a,
-#root-site footer.page-footer .footer-infos .menu-section-children .list-item span {
+#root-site
+  footer.page-footer
+  .footer-infos
+  .menu-section-children
+  .list-item
+  span {
   font-family: "Inter Tight", "Inter", system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.95rem;
@@ -1349,11 +1447,11 @@ a {
 /* Social (SVG) al passaggio */
 #root-site footer.page-footer .social-icons .socials-link:hover,
 #root-site footer.page-footer .social-icons .socials-link:focus {
-  color: var(--ft-link-hover) !important;       /* per SVG con currentColor */
+  color: var(--ft-link-hover) !important; /* per SVG con currentColor */
 }
 #root-site footer.page-footer .social-icons .socials-link:hover .accent,
 #root-site footer.page-footer .social-icons .socials-link:focus .accent {
-  fill: var(--ft-link-hover) !important;        /* per path .accent */
+  fill: var(--ft-link-hover) !important; /* per path .accent */
 }
 
 /* Opzionale: mantenere colore nero default icone */
@@ -1363,7 +1461,6 @@ a {
 #root-site footer.page-footer .social-icons .accent {
   fill: #000 !important;
 }
-
 
 /* ---------------------------------------------------------
    Social: icone nere (SVG che usano currentColor o .accent)
@@ -1378,16 +1475,21 @@ a {
 /* ---------------------------------------------------------
    Vari utilità
    --------------------------------------------------------- */
-#root-site footer.page-footer .footer-logos { color: inherit; }
-#root-site footer.page-footer .footer-infos .menu-section-children .list-item span {
+#root-site footer.page-footer .footer-logos {
+  color: inherit;
+}
+#root-site
+  footer.page-footer
+  .footer-infos
+  .menu-section-children
+  .list-item
+  span {
   color: var(--ft-link-fg);
 }
 #root-site footer.page-footer .footer-infos .no-uppercase {
   text-transform: none !important;
   letter-spacing: normal !important;
 }
-
-
 
 /* ============================
    MOBILE SIDEBAR MENU (overlay)
