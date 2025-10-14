@@ -8,7 +8,8 @@
 
   /* Brand */
   --brand: #cc0133;
-  --bg-site-light: #f8f8f8;
+  --bg-site-light: #fff;
+    /* --bg-site-light: #f8f8f8; */
   --bg-site-d-light: #f1f1f1;
 
   /* Section headings (slot-heading) */
@@ -24,6 +25,14 @@
   --slot-primo-bg-h-d: 12rem; /* altezza desktop */
   --slot-primo-bg-top-offset: -6rem; /* quanto “sale” sotto i primi blocchi */
 
+  /* padding generale dei teaser su desktop */
+  --tsr-pad-d: 0.5rem;
+  /* padding inline-start extra quando dentro .mega-slot-grid */
+  --tsr-mega-inline-start: 10px;
+
+  /* usa il valore dei titoli sezione di "In evidenza" se presente, altrimenti 1.25rem */
+  --section-heading-mt: var(--ev-heading-mt, 1.25rem);
+
   /* Header (se servono in futuro) */
   --hdr-bg: #fff;
   --hdr-fg: #1f1f1f;
@@ -34,6 +43,9 @@
   /* === Apertura left image big — controllo altezza === */
   --apertura-maxh-m: 260px; /* mobile */
   --apertura-maxh-d: 380px; /* desktop */
+
+  /* === Bordo arrotondato === */
+  --ev-radius: 18px;
 }
 
 /* Utilities (CSS non annidato) */
@@ -47,6 +59,50 @@
 .u-allow-softwrap {
   overflow-wrap: anywhere;
   word-break: normal;
+}
+
+/* Clamp a 2 righe il testo solo nei mega-slot della sezione indicata */
+#root-site
+  .fc-global-slot-group-default-section-megaslot
+  .mega-slot-grid
+  .teaser
+  .teaser-content
+  .teaser-text,
+#root-site
+  .fc-global-slot-group-default-section-megaslot
+  .mega-slot-grid
+  .teaser
+  .teaser-content
+  .teaser-text
+  > * {
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 2 !important;
+  overflow: hidden !important;
+}
+
+@media (min-width: 1024px) {
+  /* padding globale su tutti i .teaser-content */
+  #root-site .teaser .teaser-content {
+    padding: var(--tsr-pad-d) !important;
+  }
+
+  /* se .teaser-content è dentro .mega-slot-grid aggiungo rientro a sinistra */
+  #root-site .mega-slot-grid .teaser .teaser-content,
+  #root-site .mega-slot-grid .teaser-content {
+    padding-inline-start: var(--tsr-mega-inline-start) !important;
+  }
+
+  /* Aspect ratio 1.5 solo nei mega-slot dentro la sezione fc-global-slot-group-default-section-megaslot */
+  #root-site
+    .fc-global-slot-group-default-section-megaslot
+    .mega-slot-grid
+    .teaser
+    .teaser-image
+    .ace-image
+    img {
+    aspect-ratio: 1.5 !important;
+  }
 }
 
 /* ===== Desktop: Mega menu full-screen + scroll interno ===== */
@@ -103,6 +159,10 @@
     -webkit-overflow-scrolling: touch !important;
   }
 
+  .mega-menu.open .menu-links-list {
+    width: 90%;
+  }
+
   /* ===== Sottovoci orizzontali (wrap) ===== */
   .mega-menu .menu-section-children > ul {
     display: flex !important;
@@ -140,9 +200,6 @@
     color: #e30613 !important;
     border-color: #e30613 !important;
   }
-}
-
-@media (min-width: 1024px) {
   /* ===== Fissa la X SOLO quando il mega menu è aperto ===== */
   /* Caso 1: il menu usa la classe .open */
   body:has(.mega-menu.open) .navigation-actions #hamburger-menu-desktop,
@@ -160,6 +217,16 @@
   body:has(#mega-menu--normal:not([hidden])) #mega-menu-close-icon--normal {
     position: relative !important;
     z-index: 1006 !important;
+  }
+
+  body:has(.mega-menu.open) .navmenu-logo-wrapper.navmenu-logo-wrapper--open,
+  body:has(#mega-menu--normal:not([hidden]))
+    .navmenu-logo-wrapper.navmenu-logo-wrapper--open {
+    position: fixed !important;
+    top: 16px !important;
+    left: 24px !important;
+    z-index: 1005 !important;
+    pointer-events: auto !important;
   }
 }
 
@@ -190,7 +257,8 @@
   .mega-menu.open .menu-section-children > ul {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 8px 22px !important;    
+    flex-direction: column !important;
+    gap: 12px 28px !important;
     margin: 0 0 18px 0 !important;
     padding: 0 !important;
   }
@@ -202,15 +270,15 @@
   .mega-menu.open .menu-section-children a {
     background: transparent !important;
     color: var(--hdr-fg, #1f1f1f) !important;
-    font-size: calc(var(--fs-body-d) * 0.9) !important;   /* ~16px */
+    font-size: calc(var(--fs-body-d) * 0.8) !important; /* ~16px */
     line-height: 1.6 !important;
     font-weight: 600 !important;
-    text-transform: uppercase !important;        /* MAIUSCOLO su desktop */
-    letter-spacing: 0.01em !important;      /* tracking minimo */
+    text-transform: uppercase !important; /* MAIUSCOLO su desktop */
+    letter-spacing: 0.01em !important; /* tracking minimo */
     text-decoration: none !important;
     border-bottom: 1px solid transparent !important;
     padding: 0 !important;
-    transition: color .2s ease, border-color .2s ease !important;
+    transition: color 0.2s ease, border-color 0.2s ease !important;
   }
 
   /* Hover/focus (forzati) */
@@ -251,10 +319,11 @@
     .mega-menu.open nav.top-menu-wrapper > ul {
       padding-inline-start: 0 !important;
       margin: 12px 0 !important;
+      gap: 18px;
     }
     .mega-menu.open nav.top-menu-wrapper > ul > li.top-menu-item {
       list-style: none !important;
-      margin: 0 10px 8px 0 !important; /* respiro tra i bottoni */
+      /* margin: 0 10px !important; respiro tra i bottoni */
     }
 
     /* link: bottone rosso brand, testo bianco uppercase */
@@ -352,7 +421,7 @@ body {
   color: var(--hdr-fg);
 }
 
-a {
+#root-site .teaser a {
   overflow-wrap: anywhere;
   word-break: break-all;
 }
@@ -462,7 +531,12 @@ a {
    APERTURA LEFT BIG IMAGE
    — Fix overflow mobile
    ======================= */
-
+@media (min-width: 1024px) {
+  #root-site .fc-apertura-left-image-big .teaser .teaser-content {
+    max-width: 630px;
+    padding-inline-start: 10px;
+  }
+}
 /* Titolo/Byline: ok come prima */
 #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-title,
 #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-title > * {
@@ -956,6 +1030,7 @@ a {
   text-decoration-color: var(--brand);
   text-underline-offset: 0.12em;
   text-decoration-thickness: 2px;
+  opacity: 1;
 }
 #root-site .slot:not(.fc-primo-piano) .slot-heading::after,
  /* Titoli Sezioni interne */
@@ -1027,6 +1102,24 @@ a {
 
 /* ============ OVERRIDE COLLEZIONI ============ */
 /* ============ RIFLESSIONI (full_width_7) ============ */
+
+#root-site .fc-riflessioni {
+  --rf-bg: #cc0133; /* background sezione */
+  --rf-radius: 18px; /* raggio bordi sezione */
+  margin-top: 1.5em;
+}
+
+/* Applica bg e raggio alla “scatola” della sezione */
+#root-site .fc-riflessioni .slot-layout {
+  background: var(--rf-bg) !important;
+  border-radius: var(--rf-radius);
+  overflow: hidden; /* per clip degli angoli arrotondati */
+}
+
+/* Content trasparente (quello con class="... content") */
+#root-site .fc-riflessioni .content {
+  background: transparent !important;
+}
 
 /* 1) Titoli teaser più piccoli (~17px) su griglia 4-col */
 #root-site .fc-riflessioni .teaser .teaser-title:not([style*="font-size"]),
@@ -1359,6 +1452,139 @@ a {
   border-radius: var(--promo-radius) !important;
 }
 
+/* =======================================================
+   OVERRIDE COLLEZIONI
+   FOTO E VIDEO (full_width_7)
+   ======================================================= */
+
+#root-site .fc-foto-e-video {
+  --fv-bg: #005e9c; /* background sezione */
+  --fv-radius: 18px; /* raggio bordi sezione */
+  margin-top: 1.5em;
+  align-items: center;
+}
+
+/* Contenitore principale dei teaser */
+#root-site .fc-foto-e-video .flex-container {
+  align-items: center ;
+}
+
+/* Contenuto interno trasparente */
+#root-site .fc-foto-e-video .content {
+  background: transparent ;
+}
+
+/* Ogni molecule o atom può avere un’altezza massima */
+#root-site .fc-foto-e-video .molecule-5,
+#root-site .fc-foto-e-video .atom-5 {
+  max-height: 250px ;
+  min-height: 0 ;
+}
+
+/* Teaser all’interno: altezza forzata a 250px */
+#root-site .fc-foto-e-video .teaser {
+  height: 250px ;
+  min-height: 0 ;
+}
+
+/* Immagini quadrate (1:1) come nei tuoi inline */
+#root-site .fc-foto-e-video .ace-image {
+  --image-aspect-ratio: 1 ;
+  --image-object-fit: cover ;
+  --image-object-position: 50% 50% ;
+}
+
+/* Padding e spazi coerenti */
+#root-site .fc-foto-e-video .teaser-content {
+  padding-top: 10px ; /* come richiesto in precedenza */
+}
+
+/* Gestione responsive */
+@media (max-width: 768px) {
+  #root-site .fc-foto-e-video .molecule-5,
+  #root-site .fc-foto-e-video .atom-5,
+  #root-site .fc-foto-e-video .teaser {
+    max-height: none;
+    height: auto ;
+  }
+}
+
+/* Applica bg e raggio alla “scatola” della sezione */
+#root-site .fc-foto-e-video .slot-layout {
+  background: var(--fv-bg) ;
+  border-radius: var(--fv-radius);
+  overflow: hidden; /* per clip degli angoli arrotondati */
+}
+
+/* Content trasparente (quello con class="... content") */
+#root-site .fc-foto-e-video .content {
+  background: transparent !important;
+}
+
+#root-site .fc-foto-e-video .teaser .teaser-content {
+  padding: 8px !important;
+}
+
+/* 1) Titoli teaser più piccoli (~17px) su griglia 4-col */
+#root-site .fc-foto-e-video .teaser .teaser-title:not([style*="font-size"]),
+#root-site
+  .fc-foto-e-video
+  .teaser
+  .teaser-title:not([style*="font-size"])
+  > * {
+  font-size: clamp(13px, 1.55vw, 16px);
+}
+
+/* 2) Titolo principale (slot-heading) bianco e senza underline nativa */
+#root-site .fc-foto-e-video .slot-heading > a,
+#root-site .fc-foto-e-video .slot-heading > span {
+  color: #fff !important;
+  text-decoration: none;
+}
+
+/* 3) Barretta decorativa (inizialmente disattiva per evitare doppioni) */
+#root-site .fc-foto-e-video .slot-heading::after {
+  content: " ";
+  display: block;
+  width: var(--slot-bar-w);
+  height: var(--slot-bar-h-m);
+  margin-top: var(--slot-bar-gap);
+  position: absolute;
+  background-color: #fff !important;
+  display: none; /* nascosta per coerenza con riflessioni */
+}
+
+/* Desktop */
+@media (min-width: 48em) {
+  #root-site .fc-foto-e-video .slot-heading::after {
+    height: var(--slot-bar-h-d);
+  }
+
+  /* Slot heading senza padding extra */
+  #root-site .fc-foto-e-video .slot-heading {
+    padding-left: 0;
+    padding-inline: inherit;
+  }
+}
+
+/* Mobile */
+@media (max-width: 1024px) {
+  /* Rimuove rientro e margini interni extra */
+  #root-site .slot.fc-foto-e-video .slot-heading {
+    padding-inline: 0px;
+  }
+
+  #root-site .slot.fc-foto-e-video .slot-heading > a,
+  #root-site .slot.fc-foto-e-video .slot-heading > span {
+    padding: 21px; /* allineato a riflessioni */
+  }
+}
+
+/* Facoltativo: mantiene spacing sotto il titolo se la barretta viene riattivata */
+#root-site .fc-foto-e-video .slot-heading::after {
+  margin-top: 0.44444rem;
+}
+
 /* =========================================================
    HEADER NAV (barra rossa desktop + hamburger mobile)
    ========================================================= */
@@ -1554,7 +1780,7 @@ a {
   .list-item
   span {
   font-family: "Inter Tight", "Inter", system-ui, sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 0.95rem;
   letter-spacing: 0.06rem;
   text-transform: uppercase;
