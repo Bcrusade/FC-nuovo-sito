@@ -142,6 +142,144 @@
   }
 }
 
+@media (min-width: 1024px) {
+  /* ===== Fissa la X SOLO quando il mega menu è aperto ===== */
+  /* Caso 1: il menu usa la classe .open */
+  body:has(.mega-menu.open) .navigation-actions #hamburger-menu-desktop,
+  /* Caso 2: il menu è visibile perché #mega-menu--normal NON è hidden */
+  body:has(#mega-menu--normal:not([hidden])) .navigation-actions #hamburger-menu-desktop {
+    position: fixed !important;
+    top: 16px !important; /* regola se serve */
+    right: 24px !important; /* regola se serve */
+    z-index: 1005 !important; /* sopra al mega-menu */
+    pointer-events: auto !important;
+  }
+
+  /* assicura che l’icona X sia sopra tutto */
+  body:has(.mega-menu.open) #mega-menu-close-icon--normal,
+  body:has(#mega-menu--normal:not([hidden])) #mega-menu-close-icon--normal {
+    position: relative !important;
+    z-index: 1006 !important;
+  }
+}
+
+/* ============================
+   MEGA MENU — Tipografia desktop
+   ============================ */
+@media (min-width: 1024px) {
+  /* Fondo/colore testo coerenti con header */
+  .mega-menu.open {
+    background: var(--hdr-bg, #fff) !important;
+    color: var(--hdr-fg, #1f1f1f) !important;
+  }
+
+  /* ---- Titoli gruppo (ATTUALITÀ, PAPA, …) ---- */
+  .mega-menu.open .section-title,
+  .mega-menu.open .section-title > .headline,
+  .mega-menu.open .section-title > a {
+    color: var(--brand) !important;
+    font-size: calc(var(--fs-body-d) * 1.25) !important; /* ≈ 22–23px */
+    line-height: 1.25 !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    margin: 0 0 12px 0 !important;
+  }
+
+  /* ---- Lista voci (orizzontale, pulita) ---- */
+  .mega-menu.open .menu-section-children > ul {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px 28px !important;
+    margin: 0 0 18px 0 !important;
+    padding: 0 !important;
+  }
+  .mega-menu.open .menu-section-children .list-item {
+    margin: 0 !important;
+  }
+
+  /* ---- Voci (solo testo) ---- */
+  .mega-menu.open .menu-section-children a {
+    background: transparent !important;
+    color: var(--hdr-fg, #1f1f1f) !important;
+    font-size: var(--fs-body-d) !important; /* 18px desktop */
+    font-weight: 600 !important;
+    line-height: 1.5 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid transparent !important; /* underline on hover */
+    padding: 0 !important;
+    transition: border-color 0.2s ease, color 0.2s ease !important;
+  }
+
+  /* Hover/focus (forzati) */
+  .mega-menu.open .menu-section-children a:hover,
+  .mega-menu.open .menu-section-children a:focus {
+    color: var(--brand) !important;
+    border-color: var(--brand) !important;
+  }
+  .mega-menu.open .menu-section-children a:focus-visible {
+    outline: 2px dashed var(--brand) !important;
+    outline-offset: 2px !important;
+  }
+
+  /* Variante voci “singole” (es. PAPA) un filo più marcate */
+  .mega-menu.open .menu-section--single .menu-section-children a {
+    font-weight: 700 !important;
+  }
+
+  /* ---- Colonna Social ---- */
+  .mega-menu.open #mega-menu-social .section-title,
+  .mega-menu.open #mega-menu-social .section-title > .headline {
+    color: var(--brand) !important;
+  }
+  .mega-menu.open #mega-menu-social a,
+  .mega-menu.open #mega-menu-social svg {
+    color: var(--hdr-fg, #1f1f1f) !important;
+    fill: currentColor !important;
+  }
+  .mega-menu.open #mega-menu-social a:hover {
+    color: var(--brand) !important; /* hover forzato */
+  }
+
+  /* ============================
+   TOP MENU WRAPPER — Desktop (mega menu aperto)
+   ============================ */
+  @media (min-width: 1024px) {
+    /* lista: niente bullet e spacing regolare */
+    .mega-menu.open nav.top-menu-wrapper > ul {
+      padding-inline-start: 0 !important;
+      margin: 12px 0 !important;
+    }
+    .mega-menu.open nav.top-menu-wrapper > ul > li.top-menu-item {
+      list-style: none !important;
+      margin: 0 10px 8px 0 !important; /* respiro tra i bottoni */
+    }
+
+    /* link: bottone rosso brand, testo bianco uppercase */
+    .mega-menu.open nav.top-menu-wrapper > ul > li.top-menu-item > a {
+      display: inline-block !important;
+      background-color: var(--brand) !important;
+      color: #fff !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.04em !important;
+      line-height: 1.7 !important;
+      font-weight: 700 !important;
+      padding: 0.16667rem 0.5rem !important;
+      border-radius: 6px !important;
+      text-decoration: none !important;
+      transition: filter 0.25s ease !important;
+    }
+
+    /* hover/focus coerenti */
+    .mega-menu.open nav.top-menu-wrapper > ul > li.top-menu-item > a:hover,
+    .mega-menu.open nav.top-menu-wrapper > ul > li.top-menu-item > a:focus {
+      filter: brightness(0.95) !important;
+    }
+  }
+}
+
 /* =========================================================
    BASE TYPOGRAPHY
    ========================================================= */
