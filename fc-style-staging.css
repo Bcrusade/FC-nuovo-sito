@@ -178,11 +178,11 @@
   .mega-menu.open .section-title > .headline,
   .mega-menu.open .section-title > a {
     color: var(--brand) !important;
-    font-size: calc(var(--fs-body-d) * 1.25) !important; /* ≈ 22–23px */
+    font-size: calc(var(--fs-body-d) * 1.05) !important; /* ≈ 19px */
     line-height: 1.25 !important;
     font-weight: 800 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.04em !important;
+    letter-spacing: 0.02em !important;
     margin: 0 0 12px 0 !important;
   }
 
@@ -190,7 +190,7 @@
   .mega-menu.open .menu-section-children > ul {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 10px 28px !important;
+    gap: 8px 22px !important;    
     margin: 0 0 18px 0 !important;
     padding: 0 !important;
   }
@@ -202,15 +202,15 @@
   .mega-menu.open .menu-section-children a {
     background: transparent !important;
     color: var(--hdr-fg, #1f1f1f) !important;
-    font-size: var(--fs-body-d) !important; /* 18px desktop */
+    font-size: calc(var(--fs-body-d) * 0.9) !important;   /* ~16px */
+    line-height: 1.6 !important;
     font-weight: 600 !important;
-    line-height: 1.5 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;        /* MAIUSCOLO su desktop */
+    letter-spacing: 0.01em !important;      /* tracking minimo */
     text-decoration: none !important;
-    border-bottom: 1px solid transparent !important; /* underline on hover */
+    border-bottom: 1px solid transparent !important;
     padding: 0 !important;
-    transition: border-color 0.2s ease, color 0.2s ease !important;
+    transition: color .2s ease, border-color .2s ease !important;
   }
 
   /* Hover/focus (forzati) */
@@ -1725,7 +1725,7 @@ a {
   .submenu-toolbar.sidebar-buttons.top-menu-wrapper
   a.top-menu-item {
   display: inline-block;
-  background-color: #a21f20;
+  background-color: var(--brand);
   color: #fff !important;
   padding: 0.16667rem 0.5rem;
   border-radius: 6px;
