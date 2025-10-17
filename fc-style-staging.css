@@ -81,7 +81,12 @@
   overflow: hidden !important;
 }
 
-@media (max-width: 768px) {  /* padding globale su tutti i .teaser-content */
+.byline-horizontal-separator {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* padding globale su tutti i .teaser-content */
   #root-site .teaser .teaser-content {
     padding: 0.3rem;
   }
@@ -112,7 +117,20 @@
     img {
     aspect-ratio: 1.5 !important;
   }
+
+  .article-keyword,
+  .teaser-keyword {
+    font-family: var(--fonts-primary-family);
+    font-size: 11px;
+    font-weight: var(--fonts-primary-bold-weight);
+    line-height: 1;
+    letter-spacing: 0px;
+  }
 }
+
+/* ============================
+   MEGA MENU
+   ============================ */
 
 /* ===== Desktop: Mega menu full-screen + scroll interno ===== */
 @media (min-width: 1024px) {
@@ -511,7 +529,10 @@ body {
   line-height: 1.5;
 }
 
-/* SPALLA APERTURA BIG - Secondari in .fc-apertura-big (escluso .teaser-0) */
+/* ================================================
+  SPALLA APERTURA BIG - 
+  Secondari in .fc-apertura-big (escluso .teaser-0)
+   ================================================ */
 #root-site .fc-apertura-big .teaser:not(.teaser-0) .teaser-title,
 #root-site .fc-apertura-big .teaser:not(.teaser-0) .teaser-title > * {
   font-weight: 700;
@@ -646,7 +667,10 @@ body {
   margin-bottom: 0.75rem;
 }
 
-/* APERTURA LEFT SMALL IMAGE (.fc-apertura-left-image-small  .teaser-0) */
+/*  ========================================
+     APERTURA LEFT SMALL IMAGE 
+     (.fc-apertura-left-image-small  .teaser-0) 
+============================================ */
 #root-site .fc-apertura-left-image-small .teaser.teaser-0 .teaser-title,
 #root-site .fc-apertura-left-image-small .teaser.teaser-0 .teaser-title > * {
   font-weight: 800;
@@ -665,7 +689,10 @@ body {
   line-height: 1.5;
 }
 
-/* SPALLA APERTURA LEFT SMALL IMAGE - Secondari in .fc-apertura-left-image-small (escluso .teaser-0) */
+/*  ========================================
+  SPALLA APERTURA LEFT SMALL IMAGE - 
+  Secondari in .fc-apertura-left-image-small (escluso .teaser-0)
+  ========================================== */
 #root-site .fc-apertura-left-image-small .teaser:not(.teaser-0) .teaser-title,
 #root-site
   .fc-apertura-left-image-small
@@ -1876,7 +1903,13 @@ body {
 } */
 
 #root-site .full_width_2_images_benessere .teaser .teaser-keyword,
-#root-site .full_width_2_images_benessere .teaser .teaser-keyword > * {
+#root-site .full_width_2_images_benessere .teaser .teaser-keyword > *,
+#root-site .full_width_2_images_benessere .teaser .teaser-byline .author-name,
+#root-site
+  .full_width_2_images_benessere
+  .teaser
+  .teaser-byline
+  .author-name-text {
   color: #fff !important;
 }
 #root-site
@@ -1910,6 +1943,92 @@ body {
   border-bottom: 2px solid #fff !important;
 }
 
+/* ============================
+   EMBED "Leggi anche" — correzioni definitive
+   ============================ */
+
+@media (min-width: 1024px) {
+  .embed-article {
+    margin-block: 25px;
+    padding: 20px 25px;
+  }
+}
+
+/* 1) Link nell'embed: bordo e line-height richiesti */
+.embed-article a {
+  text-decoration: none;
+  border-bottom: 1px solid #000;
+  line-height: 1.6rem;
+  color: inherit;
+}
+
+/* 3) TUTTO il contenuto di .teaser-keyword deve avere lo stile della keyword */
+.embed-article .teaser .teaser-keyword,
+.embed-article .teaser .teaser-keyword *,
+.embed-article .teaser .teaser-keyword .keyword-text,
+.embed-article .teaser .teaser-keyword .keyword-text *,
+.embed-article .teaser .teaser-keyword::before {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--brand);
+  line-height: 1;
+  font-size: 12px;
+  margin-inline: 0;
+}
+
+/* aspetto “pill” unico, senza testi aggiunti artificialmente */
+.embed-article .teaser .teaser-keyword {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.25rem;
+  border: 2px solid var(--brand);
+  border-radius: 9999px;
+  background: transparent;
+}
+
+/* 5) Allineamenti del blocco testo */
+.embed-article .teaser .teaser-content {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+}
+
+/* 6) Titolo e byline: nessuna barretta, comportamento lineare */
+.embed-article .teaser .teaser-title {
+  line-height: 1.1;
+  margin: 0 !important;
+  border-inline-start: none !important;
+  border-inline-end: none !important;
+  padding: 0 !important;
+}
+.embed-article .teaser .teaser-byline {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0 !important;
+  line-height: 1.1 !important;
+}
+
+#root-site .embed-article .teaser .teaser-byline > * {
+  margin: 0 !important;
+  line-height: 1.1 !important;
+}
+
+.embed-article .teaser .teaser-byline::before {
+  content: none !important; /* rimuove “—” se non lo desideri; lascia se lo vuoi */
+}
+
+/* 7) (opzionale) Se non vuoi l’immagine in questa card */
+.embed-article .teaser-image {
+  /* display: none !important; */
+}
+
 /* =========================================================
    HEADER NAV (barra rossa desktop + hamburger mobile)
    ========================================================= */
@@ -1921,6 +2040,11 @@ body {
 
 #root-site .is-sticky .navmenu {
   padding-block-end: 1rem;
+  padding-block-start: 1rem;
+}
+
+#root-site .is-sticky .topmenu {
+  display: none;
 }
 
 #root-site .is-sticky .whole-menu .section-links-container .navbar {
