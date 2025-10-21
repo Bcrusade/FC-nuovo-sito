@@ -931,17 +931,20 @@ body {
   font-size: 12px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  line-height: 1;
-  margin-block: .3rem;
+  line-height: .9;
+  margin-block: 0.3rem;
   padding: 6px 10px;
   border: 1px solid currentColor;
   background: transparent;
   border-radius: 9999px;
   vertical-align: middle;
+  max-width: 300px;
 }
 #root-site .teaser .teaser-keyword > * {
   display: inline-block;
-  line-height: 1;
+  word-break: keep-all;
+    overflow-wrap: normal;
+    white-space: normal;
 }
 
 /* Keyword cliccabile (link dentro .keyword-text) */
@@ -950,8 +953,10 @@ body {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  line-height: 1;
   border-radius: 9999px;
+  word-break: keep-all;
+    overflow-wrap: normal;
+    white-space: normal;
 }
 
 /* Transizioni morbide */
@@ -1775,7 +1780,6 @@ body {
   img {
   border-radius: var(--promo-radius) !important;
 }
-
 
 /* =======================================================
    OVERRIDE COLLEZIONI
