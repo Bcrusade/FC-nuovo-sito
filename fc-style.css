@@ -952,8 +952,7 @@ body {
 }
 
 /* Keyword cliccabile (link dentro .keyword-text) */
-#root-site .teaser .teaser-keyword .keyword-text > a,
-#root-site .teaser .teaser-keyword .keyword-text > span {
+#root-site .teaser .teaser-keyword .keyword-text > a {
   color: inherit;
   text-decoration: none;
   display: inline-flex;
