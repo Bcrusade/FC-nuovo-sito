@@ -1,0 +1,24 @@
+/* See https://atexmedia.atlassian.net/wiki/external/YjZkNWMzZjRlZmQ0NDNkM2I5NzIzZTk2Y2IxMmM0OWM */
+
+.autopromo_container {
+  width: 100%;
+}
+
+.autopromo_link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Aggiungi una classe per gestire la larghezza dell'immagine */
+.autopromo_image {
+  width: 100%;
+  height: auto;
+}
+
+/* Media Query per l'immagine mobile */
+@media (max-width: 525px) {
+  .autopromo_image {
+    content: url("https://images.benessere-magazine.it/news-kit-resources/App-Italpress-TV--300x250px.gif");
+  }
+}

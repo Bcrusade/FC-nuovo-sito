@@ -1012,6 +1012,23 @@ body {
   }
 }
 
+@supports (selector(:has(*))) {
+  #root-site .teaser .teaser-keyword:has(.keyword-text > span) {
+    padding: 0;
+    border: none;
+    background: transparent;
+  }
+  #root-site
+    .teaser
+    .teaser-keyword:has(.keyword-text > span)
+    .keyword-text
+    > span {
+    padding: 6px 10px;
+    border: 1px solid currentColor;
+    background: transparent;
+  }
+}
+
 /* Micro-tuning mobile keyword */
 @media (max-width: 768px) {
   #root-site .teaser .teaser-byline,

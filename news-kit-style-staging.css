@@ -1,0 +1,70 @@
+/* See https://atexmedia.atlassian.net/wiki/external/YjZkNWMzZjRlZmQ0NDNkM2I5NzIzZTk2Y2IxMmM0OWM */
+
+.whole-menu .topmenu .topmenu-inner .topmenu-links ul li {
+  border: none;
+  border-radius: none;
+}
+
+.whole-menu .topmenu .topmenu-inner .topmenu-links ul li:first-child a {
+  border: 2px solid var(--brand-primary-color);
+  border-radius: 15px;
+}
+
+.whole-menu .topmenu .topmenu-inner .topmenu-links ul li:nth-child(2) a {
+  background-color: var(--brand-primary-color);
+  color: #fff;
+  border: 2px solid var(--brand-primary-color);
+  border-radius: 15px;
+}
+
+@media (min-width: 1024px) {
+  header:after {
+    top: 59px;
+  }
+}
+
+.giubileo_container {
+  width: 100%;
+}
+
+.giubileo_link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Aggiungi una classe per gestire la larghezza dell'immagine */
+.giubileo_image {
+  width: 100%;
+  height: auto;
+}
+
+/* Media Query per l'immagine mobile */
+@media (max-width: 525px) {
+  .giubileo_image {
+    content: url("https://images.benessere-magazine.it/news-kit-resources/giubileo-banner-famiglia-cristina-mobile.jpg");
+  }
+}
+
+.autopromo_container {
+  width: 100%;
+}
+
+.autopromo_link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Aggiungi una classe per gestire la larghezza dell'immagine */
+.autopromo_image {
+  width: 100%;
+  height: auto;
+}
+
+/* Media Query per l'immagine mobile */
+@media (max-width: 525px) {
+  .autopromo_image {
+    content: url("https://images.benessere-magazine.it/news-kit-resources/giubileo-banner-famiglia-cristina-mobile.jpg");
+  }
+}
