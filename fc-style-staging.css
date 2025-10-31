@@ -475,6 +475,7 @@ body {
 /* Colore Breadcrumb */
 #root-site .breadcrumb-container {
   color: var(--brand);
+  line-height: 1.2rem;
 }
 /* Colore Data */
 #root-site .navigation-date {
@@ -1907,12 +1908,15 @@ body {
   display: none; /* nascosta per coerenza con riflessioni */
 }
 
-
-#root-site .fc-foto-e-video .slot-style-fullwidth_infill:not([class*='one_third_width']):not([class*='two_third_width'])>.content {
-    padding-block-start: var(--gap-big);
-    padding-block-end: var(--gap-big);
+#root-site
+  .fc-foto-e-video
+  .slot-style-fullwidth_infill:not([class*="one_third_width"]):not(
+    [class*="two_third_width"]
+  )
+  > .content {
+  padding-block-start: var(--gap-big);
+  padding-block-end: var(--gap-big);
 }
-
 
 /* Desktop */
 @media (min-width: 48em) {
@@ -1925,7 +1929,7 @@ body {
     padding-left: 0;
     padding-inline: inherit;
   }
-  
+
   #root-site .slot.fc-foto-e-video .teaser-image img {
     border-top-left-radius: var(--fv-radius);
     border-top-right-radius: var(--fv-radius);
@@ -2019,6 +2023,12 @@ body {
     padding: 20px 25px;
   }
 }
+@media (max-width: 1024px) {
+  .embed-article {
+    margin-block: 15px;
+    padding: 10px 15px;
+  }
+}
 
 /* 1) Link nell'embed: bordo e line-height richiesti */
 .embed-article a {
@@ -2043,7 +2053,8 @@ body {
   font-size: 14px;
   margin-inline: 0;
 }
-.embed-article .teaser .teaser-keyword .keyword-text {
+.embed-article .teaser .teaser-keyword .keyword-text,
+.embed-article .teaser .teaser-content .teaser-byline {
   display: none !important;
 }
 
@@ -2773,6 +2784,10 @@ body {
    RESPONSIVE
    ========================================================= */
 @media (max-width: 768px) {
+  #root-site .article-header {
+    margin-block: 0.5rem;
+  }
+
   #root-site article.article {
     padding-inline: 1rem;
   }
@@ -2780,6 +2795,7 @@ body {
   #root-site .article-header .article-title {
     font-size: clamp(28px, 5vw, 32px);
     line-height: 1.15;
+    margin-block: 0.5rem;
   }
 
   #root-site .article-header .article-lead p {
@@ -2796,8 +2812,18 @@ body {
     font-size: clamp(22px, 3.5vw, 26px);
   }
 
+  #root-site .article-header .article-image {
+    margin-block: 0.5rem 1rem;
+  }
+
   #root-site .article-header .article-keyword {
     margin-block: 0.5rem 1rem;
+  }
+  #root-site .article-header .article-date {
+    margin-block: 0.5rem 1rem;
+  }
+  #root-site .article-header .article-share-top {
+    top: -40px;
   }
 }
 
@@ -4153,5 +4179,3 @@ div.prompt-to-accept {
   display: none !important;
 }
 /*END IUBENDA PROMPT*/
-
-
