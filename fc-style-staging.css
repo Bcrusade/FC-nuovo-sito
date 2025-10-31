@@ -1830,12 +1830,14 @@ body {
 #root-site .fc-foto-e-video .atom-5 {
   max-height: 250px;
   min-height: 0;
+  border-radius: var(--fv-radius);
 }
 
 /* Teaser all’interno: altezza forzata a 250px */
 #root-site .fc-foto-e-video .teaser {
   height: 250px;
   min-height: 0;
+  border-radius: var(--fv-radius);
 }
 
 /* Immagini quadrate (1:1) come nei tuoi inline */
@@ -1905,6 +1907,13 @@ body {
   display: none; /* nascosta per coerenza con riflessioni */
 }
 
+
+#root-site .fc-foto-e-video .slot-style-fullwidth_infill:not([class*='one_third_width']):not([class*='two_third_width'])>.content {
+    padding-block-start: var(--gap-big);
+    padding-block-end: var(--gap-big);
+}
+
+
 /* Desktop */
 @media (min-width: 48em) {
   #root-site .fc-foto-e-video .slot-heading::after {
@@ -1915,6 +1924,11 @@ body {
   #root-site .fc-foto-e-video .slot-heading {
     padding-left: 0;
     padding-inline: inherit;
+  }
+  
+  #root-site .slot.fc-foto-e-video .teaser-image img {
+    border-top-left-radius: var(--fv-radius);
+    border-top-right-radius: var(--fv-radius);
   }
 }
 
@@ -4139,3 +4153,5 @@ div.prompt-to-accept {
   display: none !important;
 }
 /*END IUBENDA PROMPT*/
+
+
