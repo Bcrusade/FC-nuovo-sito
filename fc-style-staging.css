@@ -1839,6 +1839,7 @@ body {
   height: 250px;
   min-height: 0;
   border-radius: var(--fv-radius);
+  overflow: hidden;
 }
 
 /* Immagini quadrate (1:1) come nei tuoi inline */
@@ -1853,15 +1854,7 @@ body {
   padding-top: 10px; /* come richiesto in precedenza */
 }
 
-/* Gestione responsive */
-@media (max-width: 768px) {
-  #root-site .fc-foto-e-video .molecule-5,
-  #root-site .fc-foto-e-video .atom-5,
-  #root-site .fc-foto-e-video .teaser {
-    max-height: none;
-    height: auto;
-  }
-}
+
 
 /* Applica bg e raggio alla “scatola” della sezione */
 #root-site .fc-foto-e-video .slot-layout {
@@ -1916,6 +1909,17 @@ body {
   > .content {
   padding-block-start: var(--gap-big);
   padding-block-end: var(--gap-big);
+}
+
+/* Gestione responsive */
+@media (max-width: 768px) {
+  #root-site .fc-foto-e-video .molecule-5,
+  #root-site .fc-foto-e-video .atom-5,
+  #root-site .fc-foto-e-video .teaser {
+    max-height: none;
+    height: auto;
+    min-height: -webkit-fill-available;
+  }
 }
 
 /* Desktop */
