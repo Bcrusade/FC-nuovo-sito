@@ -138,6 +138,68 @@
   }
 }
 
+
+/* ============================
+   TOP HEADER — MaxTicker (GTM) • centratura annuncio
+   ============================ */
+
+#root-site .pub-placeholder[data-adv-slot="FC_MaxTicker"] {
+  display: flex;                 /* centra qualsiasi contenuto iniettato */
+  justify-content: center;
+  align-items: center;           /* opzionale */
+  margin-block: 10px;            /* respiro sopra/sotto */
+}
+
+/* Fallback: centra il container generato da Google */
+#root-site .pub-placeholder[data-adv-slot="FC_MaxTicker"]
+  div[id^="google_ads_iframe_"][id$="__container__"] {
+  display: block !important;
+  margin-inline: auto !important;
+}
+
+/* Evita shift: l’iframe resta centrato */
+#root-site .pub-placeholder[data-adv-slot="FC_MaxTicker"] iframe {
+  display: block;
+  margin-inline: auto;
+}
+
+/* ============================
+   HOME — Video sponsorizzato Dailymotion (PIP)
+   Scopo: mantieni il mini-player sempre sopra (evita clip/stacking da overflow/transform).
+   Note: azioni limitate a quando il PIP è presente in pagina.
+   ============================ */
+
+#dailymotion-pip {
+  z-index: 2147483647 !important;
+  inset: auto !important;
+  pointer-events: auto !important;
+  isolation: isolate;
+}
+
+/* ===== Disinnesca overflow/transform dei wrapper SOLO con PIP attivo ===== */
+body:has(#dailymotion-pip) .slot-layout,
+body:has(#dailymotion-pip) .content,
+body:has(#dailymotion-pip) .flex-container,
+body:has(#dailymotion-pip) .teaser,
+body:has(#dailymotion-pip) .teaser .teaser-image,
+body:has(#dailymotion-pip) .ace-image {
+  overflow: visible !important;
+}
+
+body:has(#dailymotion-pip) .slot-layout,
+body:has(#dailymotion-pip) .content,
+body:has(#dailymotion-pip) .flex-container {
+  transform: none !important;
+}
+
+/* ===== Normalizza z-index eccessivi degli elementi contenuto ===== */
+body:has(#dailymotion-pip) .teaser,
+body:has(#dailymotion-pip) .teaser * {
+  z-index: auto !important;
+}
+
+
+
 /* ============================
    MEGA MENU
    ============================ */
@@ -1839,6 +1901,7 @@ body {
   height: 250px;
   min-height: 0;
   border-radius: var(--fv-radius);
+  overflow: hidden;
 }
 
 /* Immagini quadrate (1:1) come nei tuoi inline */
@@ -1853,15 +1916,7 @@ body {
   padding-top: 10px; /* come richiesto in precedenza */
 }
 
-/* Gestione responsive */
-@media (max-width: 768px) {
-  #root-site .fc-foto-e-video .molecule-5,
-  #root-site .fc-foto-e-video .atom-5,
-  #root-site .fc-foto-e-video .teaser {
-    max-height: none;
-    height: auto;
-  }
-}
+
 
 /* Applica bg e raggio alla “scatola” della sezione */
 #root-site .fc-foto-e-video .slot-layout {
@@ -1916,6 +1971,17 @@ body {
   > .content {
   padding-block-start: var(--gap-big);
   padding-block-end: var(--gap-big);
+}
+
+/* Gestione responsive */
+@media (max-width: 768px) {
+  #root-site .fc-foto-e-video .molecule-5,
+  #root-site .fc-foto-e-video .atom-5,
+  #root-site .fc-foto-e-video .teaser {
+    max-height: none;
+    height: auto;
+    min-height: -webkit-fill-available;
+  }
 }
 
 /* Desktop */
