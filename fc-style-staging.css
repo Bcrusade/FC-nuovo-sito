@@ -138,20 +138,20 @@
   }
 }
 
-
 /* ============================
    TOP HEADER — MaxTicker (GTM) • centratura annuncio
    ============================ */
 
 #root-site .pub-placeholder[data-adv-slot="FC_MaxTicker"] {
-  display: flex;                 /* centra qualsiasi contenuto iniettato */
+  display: flex; /* centra qualsiasi contenuto iniettato */
   justify-content: center;
-  align-items: center;           /* opzionale */
-  margin-block: 10px;            /* respiro sopra/sotto */
+  align-items: center; /* opzionale */
+  margin-block: 10px; /* respiro sopra/sotto */
 }
 
 /* Fallback: centra il container generato da Google */
-#root-site .pub-placeholder[data-adv-slot="FC_MaxTicker"]
+#root-site
+  .pub-placeholder[data-adv-slot="FC_MaxTicker"]
   div[id^="google_ads_iframe_"][id$="__container__"] {
   display: block !important;
   margin-inline: auto !important;
@@ -197,8 +197,6 @@ body:has(#dailymotion-pip) .teaser,
 body:has(#dailymotion-pip) .teaser * {
   z-index: auto !important;
 }
-
-
 
 /* ============================
    MEGA MENU
@@ -1842,7 +1840,6 @@ body {
   padding-top: 10px; /* come richiesto in precedenza */
 }
 
-
 /* Applica bg e raggio alla “scatola” della sezione */
 #root-site .fc-foto-e-video .slot-layout {
   background: var(--fv-bg);
@@ -1945,7 +1942,6 @@ body {
   margin-top: 0.44444rem;
 }
 
-
 /* ============ OVERRIDE COLLEZIONI ============ */
 /* ============ RIFLESSIONI (full_width_7) ============ */
 
@@ -1977,6 +1973,14 @@ body {
 #root-site .fc-riflessioni .teaser .teaser-title:not([style*="font-size"]),
 #root-site .fc-riflessioni .teaser .teaser-title:not([style*="font-size"]) > * {
   font-size: clamp(13px, 1.55vw, 16px);
+  overflow-wrap: break-word;
+  hyphens: none;
+  -webkit-hyphens: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Titolo sezione */
@@ -2001,17 +2005,18 @@ body {
 /* Altezza card e radius coerenti con fv */
 #root-site .fc-riflessioni .molecule-5,
 #root-site .fc-riflessioni .atom-5 {
-  max-height: 250px;
-  min-height: 0;
+  max-height: 350px;
+  min-height: 200px;
   border-radius: var(--rf-radius);
+  overflow: hidden !important;
 }
 
 /* Teaser 250px, overflow hidden e radius */
 #root-site .fc-riflessioni .teaser {
-  height: 250px;
-  min-height: 0;
+  height: auto;
+  min-height: 200px;
   border-radius: var(--rf-radius);
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 /* Immagini 1:1 con cover */
@@ -2032,7 +2037,9 @@ body {
 /* Padding verticale della sezione (layout full width, no 1/3 - 2/3) */
 #root-site
   .fc-riflessioni
-  .slot-style-fullwidth_infill:not([class*="one_third_width"]):not([class*="two_third_width"])
+  .slot-style-fullwidth_infill:not([class*="one_third_width"]):not(
+    [class*="two_third_width"]
+  )
   > .content {
   padding-block-start: var(--gap-big);
   padding-block-end: var(--gap-big);
@@ -2082,7 +2089,6 @@ body {
 #root-site .fc-riflessioni .slot-heading::after {
   margin-top: 0.44444rem;
 }
-
 
 /* =======================================================
    OVERRIDE SLOT LAYOUT
