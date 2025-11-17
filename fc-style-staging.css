@@ -136,6 +136,27 @@
     line-height: 1;
     letter-spacing: 0px;
   }
+
+  /* nasconde occhiello e titolo nello slot video */
+  .slot.fc-slot_video .teaser-content {
+    display: none;
+  }
+  /* applica sfondo nero e centra verticalmente il player */
+  .slot.fc-slot_video .teaser {
+    --tsr-bgw: #000;
+    justify-content: center;
+  }
+}
+
+/* ============================
+   SKIN — bordo bianco
+   ============================ */
+
+body.backgroundAdv .outer-skin-wrapper {
+  background: white;
+  max-width: 1130px;
+  margin: 0 auto;
+  padding: 0 12px;
 }
 
 /* ============================
@@ -168,35 +189,6 @@
    Scopo: mantieni il mini-player sempre sopra (evita clip/stacking da overflow/transform).
    Note: azioni limitate a quando il PIP è presente in pagina.
    ============================ */
-
-#dailymotion-pip {
-  z-index: 2147483647 !important;
-  inset: auto !important;
-  pointer-events: auto !important;
-  isolation: isolate;
-}
-
-/* ===== Disinnesca overflow/transform dei wrapper SOLO con PIP attivo ===== */
-body:has(#dailymotion-pip) .slot-layout,
-body:has(#dailymotion-pip) .content,
-body:has(#dailymotion-pip) .flex-container,
-body:has(#dailymotion-pip) .teaser,
-body:has(#dailymotion-pip) .teaser .teaser-image,
-body:has(#dailymotion-pip) .ace-image {
-  overflow: visible !important;
-}
-
-body:has(#dailymotion-pip) .slot-layout,
-body:has(#dailymotion-pip) .content,
-body:has(#dailymotion-pip) .flex-container {
-  transform: none !important;
-}
-
-/* ===== Normalizza z-index eccessivi degli elementi contenuto ===== */
-body:has(#dailymotion-pip) .teaser,
-body:has(#dailymotion-pip) .teaser * {
-  z-index: auto !important;
-}
 
 /* ============================
    MEGA MENU
@@ -1207,7 +1199,7 @@ body {
 #root-site .fc-primo-piano .slot-layout {
   position: relative;
   overflow: visible;
-  z-index: 0;
+  z-index: 10;
 }
 #root-site .fc-primo-piano .slot-layout::before {
   content: "";
@@ -1236,7 +1228,7 @@ body {
 /* Contenuto sopra al fondino */
 #root-site .fc-primo-piano .slot-layout .content {
   position: relative;
-  z-index: 1;
+  z-index: 11;
 }
 
 /* ============ OVERRIDE COLLEZIONI ============ */

@@ -136,22 +136,43 @@
     line-height: 1;
     letter-spacing: 0px;
   }
+
+  /* nasconde occhiello e titolo nello slot video */
+  .slot.fc-slot_video .teaser-content {
+    display: none;
+  }
+  /* applica sfondo nero e centra verticalmente il player */
+  .slot.fc-slot_video .teaser {
+    --tsr-bgw: #000;
+    justify-content: center;
+  }
 }
 
+/* ============================
+   SKIN — bordo bianco
+   ============================ */
+
+body.backgroundAdv .outer-skin-wrapper {
+  background: white;
+  max-width: 1130px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
 
 /* ============================
    TOP HEADER — MaxTicker (GTM) • centratura annuncio
    ============================ */
 
 #root-site .pub-placeholder[data-adv-slot="FC_MaxTicker"] {
-  display: flex;                 /* centra qualsiasi contenuto iniettato */
+  display: flex; /* centra qualsiasi contenuto iniettato */
   justify-content: center;
-  align-items: center;           /* opzionale */
-  margin-block: 10px;            /* respiro sopra/sotto */
+  align-items: center; /* opzionale */
+  margin-block: 10px; /* respiro sopra/sotto */
 }
 
 /* Fallback: centra il container generato da Google */
-#root-site .pub-placeholder[data-adv-slot="FC_MaxTicker"]
+#root-site
+  .pub-placeholder[data-adv-slot="FC_MaxTicker"]
   div[id^="google_ads_iframe_"][id$="__container__"] {
   display: block !important;
   margin-inline: auto !important;
@@ -168,37 +189,6 @@
    Scopo: mantieni il mini-player sempre sopra (evita clip/stacking da overflow/transform).
    Note: azioni limitate a quando il PIP è presente in pagina.
    ============================ */
-
-#dailymotion-pip {
-  z-index: 2147483647 !important;
-  inset: auto !important;
-  pointer-events: auto !important;
-  isolation: isolate;
-}
-
-/* ===== Disinnesca overflow/transform dei wrapper SOLO con PIP attivo ===== */
-body:has(#dailymotion-pip) .slot-layout,
-body:has(#dailymotion-pip) .content,
-body:has(#dailymotion-pip) .flex-container,
-body:has(#dailymotion-pip) .teaser,
-body:has(#dailymotion-pip) .teaser .teaser-image,
-body:has(#dailymotion-pip) .ace-image {
-  overflow: visible !important;
-}
-
-body:has(#dailymotion-pip) .slot-layout,
-body:has(#dailymotion-pip) .content,
-body:has(#dailymotion-pip) .flex-container {
-  transform: none !important;
-}
-
-/* ===== Normalizza z-index eccessivi degli elementi contenuto ===== */
-body:has(#dailymotion-pip) .teaser,
-body:has(#dailymotion-pip) .teaser * {
-  z-index: auto !important;
-}
-
-
 
 /* ============================
    MEGA MENU
@@ -1209,7 +1199,7 @@ body {
 #root-site .fc-primo-piano .slot-layout {
   position: relative;
   overflow: visible;
-  z-index: 0;
+  z-index: 10;
 }
 #root-site .fc-primo-piano .slot-layout::before {
   content: "";
@@ -1238,7 +1228,7 @@ body {
 /* Contenuto sopra al fondino */
 #root-site .fc-primo-piano .slot-layout .content {
   position: relative;
-  z-index: 1;
+  z-index: 11;
 }
 
 /* ============ OVERRIDE COLLEZIONI ============ */
@@ -1256,80 +1246,6 @@ body {
 #root-site .fc-primo-piano .full_width_5 .teaser.teaser-2 {
   border: 1px solid #000;
 } */
-
-/* ============ OVERRIDE COLLEZIONI ============ */
-/* ============ RIFLESSIONI (full_width_7) ============ */
-
-#root-site .fc-riflessioni {
-  --rf-bg: #cc0133; /* background sezione */
-  --rf-radius: 18px; /* raggio bordi sezione */
-  margin-top: 1.5em;
-}
-
-/* Applica bg e raggio alla “scatola” della sezione */
-#root-site .fc-riflessioni .slot-layout {
-  background: var(--rf-bg) !important;
-  border-radius: var(--rf-radius);
-  overflow: hidden; /* per clip degli angoli arrotondati */
-}
-
-/* Content trasparente (quello con class="... content") */
-#root-site .fc-riflessioni .content {
-  background: transparent !important;
-}
-
-/* 1) Titoli teaser più piccoli (~17px) su griglia 4-col */
-#root-site .fc-riflessioni .teaser .teaser-title:not([style*="font-size"]),
-#root-site .fc-riflessioni .teaser .teaser-title:not([style*="font-size"]) > * {
-  font-size: clamp(13px, 1.55vw, 16px);
-}
-
-#root-site .fc-riflessioni .slot-heading > a,
-#root-site .fc-riflessioni .slot-heading > span {
-  color: #fff !important;
-  text-decoration: none;
-}
-#root-site .fc-riflessioni .slot-heading::after {
-  background-color: #fff !important;
-}
-
-/* Barretta */
-#root-site .fc-riflessioni .slot-heading::after {
-  content: " ";
-  display: block;
-  width: var(--slot-bar-w);
-  height: var(--slot-bar-h-m);
-  margin-top: var(--slot-bar-gap);
-  position: absolute;
-  display: none;
-}
-@media (min-width: 48em) {
-  #root-site .fc-riflessioni .slot-heading::after {
-    height: var(--slot-bar-h-d);
-  }
-  /* 2) Slot heading senza rientri/aria extra per questa collezione */
-  #root-site .fc-riflessioni .slot-heading {
-    padding-left: 0;
-    /* padding-block: 0; */
-    padding-inline: inherit;
-  }
-}
-
-@media (max-width: 1024px) {
-  /* Rientro & aria: applicati al CONTENITORE (non all’ancora) */
-  #root-site .slot.fc-riflessioni .slot-heading {
-    padding-inline: 0px;
-  }
-  #root-site .slot.fc-riflessioni .slot-heading > a,
-  #root-site .slot.fc-riflessioni .slot-heading > span {
-    padding: 21px; /* niente rientro sull’inline */
-  }
-}
-
-/* (facoltativo) underline del titolo se vuoi mantenere lo spacing standard */
-#root-site .fc-riflessioni .slot-heading::after {
-  margin-top: 0.44444rem;
-}
 
 /* ============ OVERRIDE COLLEZIONI ============ */
 /* ============ IN EVIDENZA ==================== */
@@ -1916,8 +1832,6 @@ body {
   padding-top: 10px; /* come richiesto in precedenza */
 }
 
-
-
 /* Applica bg e raggio alla “scatola” della sezione */
 #root-site .fc-foto-e-video .slot-layout {
   background: var(--fv-bg);
@@ -2017,6 +1931,154 @@ body {
 
 /* Facoltativo: mantiene spacing sotto il titolo se la barretta viene riattivata */
 #root-site .fc-foto-e-video .slot-heading::after {
+  margin-top: 0.44444rem;
+}
+
+/* ============ OVERRIDE COLLEZIONI ============ */
+/* ============ RIFLESSIONI (full_width_7) ============ */
+
+#root-site .fc-riflessioni {
+  --rf-bg: #cc0133; /* background sezione */
+  --rf-radius: 18px; /* raggio bordi sezione */
+  margin-top: 1.5em;
+  align-items: center; /* allineamento come foto e video */
+}
+
+/* Contenitore principale dei teaser */
+#root-site .fc-riflessioni .flex-container {
+  align-items: center; /* come foto e video */
+}
+
+/* Applica bg e raggio alla “scatola” della sezione */
+#root-site .fc-riflessioni .slot-layout {
+  background: var(--rf-bg) !important;
+  border-radius: var(--rf-radius);
+  overflow: hidden; /* per clip degli angoli arrotondati */
+}
+
+/* Content trasparente (quello con class="... content") */
+#root-site .fc-riflessioni .content {
+  background: transparent !important;
+}
+
+/* Tipografia teaser (~17px) su griglia 4-col */
+#root-site .fc-riflessioni .teaser .teaser-title:not([style*="font-size"]),
+#root-site .fc-riflessioni .teaser .teaser-title:not([style*="font-size"]) > * {
+  font-size: clamp(13px, 1.55vw, 16px);
+  overflow-wrap: break-word;
+  hyphens: none;
+  -webkit-hyphens: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Titolo sezione */
+#root-site .fc-riflessioni .slot-heading > a,
+#root-site .fc-riflessioni .slot-heading > span {
+  color: #fff !important;
+  text-decoration: none;
+}
+
+/* Barretta (tenuta nascosta per coerenza con fv) */
+#root-site .fc-riflessioni .slot-heading::after {
+  content: " ";
+  display: block;
+  width: var(--slot-bar-w);
+  height: var(--slot-bar-h-m);
+  margin-top: var(--slot-bar-gap);
+  position: absolute;
+  background-color: #fff !important;
+  display: none;
+}
+
+/* Altezza card e radius coerenti con fv */
+#root-site .fc-riflessioni .molecule-5,
+#root-site .fc-riflessioni .atom-5 {
+  max-height: 350px;
+  min-height: 200px;
+  border-radius: var(--rf-radius);
+  overflow: hidden !important;
+}
+
+/* Teaser 250px, overflow hidden e radius */
+#root-site .fc-riflessioni .teaser {
+  height: auto;
+  min-height: 200px;
+  border-radius: var(--rf-radius);
+  overflow: hidden !important;
+}
+
+/* Immagini 1:1 con cover */
+#root-site .fc-riflessioni .ace-image {
+  --image-aspect-ratio: 1;
+  --image-object-fit: cover;
+  --image-object-position: 50% 50%;
+}
+
+/* Spaziatura interna teaser (replica logica fv) */
+#root-site .fc-riflessioni .teaser .teaser-content {
+  padding-top: 10px; /* come fv */
+}
+#root-site .fc-riflessioni .teaser .teaser-content {
+  padding: 8px !important; /* compatta la card come fv */
+}
+
+/* Padding verticale della sezione (layout full width, no 1/3 - 2/3) */
+#root-site
+  .fc-riflessioni
+  .slot-style-fullwidth_infill:not([class*="one_third_width"]):not(
+    [class*="two_third_width"]
+  )
+  > .content {
+  padding-block-start: var(--gap-big);
+  padding-block-end: var(--gap-big);
+}
+
+/* Desktop */
+@media (min-width: 48em) {
+  #root-site .fc-riflessioni .slot-heading::after {
+    height: var(--slot-bar-h-d);
+  }
+  /* Slot heading senza rientri extra */
+  #root-site .fc-riflessioni .slot-heading {
+    padding-left: 0;
+    padding-inline: inherit;
+  }
+  /* Radius alle immagini in testa come fv */
+  #root-site .slot.fc-riflessioni .teaser-image img {
+    border-top-left-radius: var(--rf-radius);
+    border-top-right-radius: var(--rf-radius);
+  }
+}
+
+/* Mobile */
+@media (max-width: 1024px) {
+  /* Rientri titolo sezione allineati a fv */
+  #root-site .slot.fc-riflessioni .slot-heading {
+    padding-inline: 0px;
+  }
+  #root-site .slot.fc-riflessioni .slot-heading > a,
+  #root-site .slot.fc-riflessioni .slot-heading > span {
+    padding: 21px; /* allineato a fv */
+  }
+}
+
+/* Responsive: libera le altezze su mobile */
+@media (max-width: 768px) {
+  #root-site .fc-riflessioni .molecule-5,
+  #root-site .fc-riflessioni .atom-5,
+  #root-site .fc-riflessioni .teaser {
+    max-height: none;
+    height: auto;
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* (facoltativo) underline del titolo se vuoi mantenere lo spacing standard */
+#root-site .fc-riflessioni .slot-heading::after {
   margin-top: 0.44444rem;
 }
 
