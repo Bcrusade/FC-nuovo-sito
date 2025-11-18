@@ -658,6 +658,14 @@ body {
     max-width: 630px;
     padding-inline-start: 10px;
   }
+  #root-site
+    body.backgroundAdv
+    .fc-apertura-left-image-big
+    .teaser
+    .teaser-content {
+    max-width: 560px;
+    padding-inline-start: 10px;
+  }
 }
 /* Titolo/Byline: ok come prima */
 #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-title,
@@ -673,6 +681,20 @@ body {
   word-break: keep-all;
   text-wrap: balance;
 }
+#root-site
+  body.backgroundAdv
+  .fc-apertura-left-image-big
+  .teaser.teaser-0
+  .teaser-title,
+#root-site
+  body.backgroundAdv
+  .fc-apertura-left-image-big
+  .teaser.teaser-0
+  .teaser-title
+  > * {
+  text-wrap: auto !important;
+}
+
 #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-byline,
 #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-byline > * {
   font-family: "Inter", system-ui, sans-serif;
@@ -1804,6 +1826,9 @@ body {
 #root-site .fc-foto-e-video .flex-container {
   align-items: center;
 }
+#root-site body.backgroundAdv .fc-foto-e-video .flex-container {
+  max-width: 1060px !important;
+}
 
 /* Contenuto interno trasparente */
 #root-site .fc-foto-e-video .content {
@@ -1813,15 +1838,15 @@ body {
 /* Ogni molecule o atom può avere un’altezza massima */
 #root-site .fc-foto-e-video .molecule-5,
 #root-site .fc-foto-e-video .atom-5 {
-  max-height: 250px;
-  min-height: 0;
+  max-height: 350px;
+  min-height: 200px;
   border-radius: var(--fv-radius);
+  overflow: hidden !important;
 }
 
 /* Teaser all’interno: altezza forzata a 250px */
 #root-site .fc-foto-e-video .teaser {
-  height: 250px;
-  min-height: 0;
+  min-height: 200px;
   border-radius: var(--fv-radius);
   overflow: hidden;
 }
@@ -1862,6 +1887,14 @@ body {
   .teaser-title:not([style*="font-size"])
   > * {
   font-size: clamp(13px, 1.55vw, 16px);
+  overflow-wrap: break-word;
+  hyphens: none;
+  -webkit-hyphens: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* 2) Titolo principale (slot-heading) bianco e senza underline nativa */
@@ -1954,6 +1987,9 @@ body {
 #root-site .fc-riflessioni .flex-container {
   align-items: center; /* come foto e video */
 }
+#root-site body.backgroundAdv .fc-riflessioni .flex-container {
+  max-width: 1060px !important;
+}
 
 /* Applica bg e raggio alla “scatola” della sezione */
 #root-site .fc-riflessioni .slot-layout {
@@ -2011,7 +2047,6 @@ body {
 
 /* Teaser 250px, overflow hidden e radius */
 #root-site .fc-riflessioni .teaser {
-  height: auto;
   min-height: 200px;
   border-radius: var(--rf-radius);
   overflow: hidden !important;
