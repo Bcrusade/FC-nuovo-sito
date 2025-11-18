@@ -137,12 +137,16 @@
     letter-spacing: 0px;
   }
 
+  /* modifica larghezza massima video in presenza di skin solo desktop*/
+  body.backgroundAdv .fc-primo-piano .slot.fc-slot_video {
+    max-width: 330px;
+  }
   /* nasconde occhiello e titolo nello slot video */
-  .slot.fc-slot_video .teaser-content {
+  #root-site .fc-primo-piano .slot.fc-slot_video .teaser-content {
     display: none;
   }
   /* applica sfondo nero e centra verticalmente il player */
-  .slot.fc-slot_video .teaser {
+  #root-site .fc-primo-piano .slot.fc-slot_video .teaser {
     --tsr-bgw: #000;
     justify-content: center;
   }
@@ -150,13 +154,15 @@
 
 /* ============================
    SKIN — bordo bianco
+   Aggiunge un bordo bianco intorno al sito quando è attiva la skin
    ============================ */
 
+/* Aggiunge background bianco e padding */
 body.backgroundAdv .outer-skin-wrapper {
   background: white;
-  max-width: 1130px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 0 12px;
+  padding: 0 6px;
 }
 
 /* ============================
