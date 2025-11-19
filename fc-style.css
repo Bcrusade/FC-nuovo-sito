@@ -191,6 +191,35 @@ body.backgroundAdv .outer-skin-wrapper {
 }
 
 /* ============================
+   MPU — Top & Middle (GTM) • centratura annunci
+   ============================ */
+
+#root-site .pub-placeholder[data-adv-slot="FC_MPU_Top"],
+#root-site .pub-placeholder[data-adv-slot="FC_MPU_Middle"] {
+  display: flex;                 /* centra qualsiasi contenuto iniettato */
+  justify-content: center;
+  align-items: center;           /* opzionale */
+  margin-block: 10px;            /* respiro sopra/sotto */
+}
+
+/* Fallback: centra il container generato da Google */
+#root-site .pub-placeholder[data-adv-slot="FC_MPU_Top"]
+  div[id^="google_ads_iframe_"][id$="__container__"],
+#root-site .pub-placeholder[data-adv-slot="FC_MPU_Middle"]
+  div[id^="google_ads_iframe_"][id$="__container__"] {
+  display: block !important;
+  margin-inline: auto !important;
+}
+
+/* Evita shift: l’iframe resta centrato */
+#root-site .pub-placeholder[data-adv-slot="FC_MPU_Top"] iframe,
+#root-site .pub-placeholder[data-adv-slot="FC_MPU_Middle"] iframe {
+  display: block;
+  margin-inline: auto;
+}
+
+
+/* ============================
    HOME — Video sponsorizzato Dailymotion (PIP)
    Scopo: mantieni il mini-player sempre sopra (evita clip/stacking da overflow/transform).
    Note: azioni limitate a quando il PIP è presente in pagina.
