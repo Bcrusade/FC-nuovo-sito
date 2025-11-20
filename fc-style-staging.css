@@ -2452,6 +2452,8 @@ body {
   color: var(--ft-link-fg);
 }
 
+#root-site body.backgroundAdv footer.page-footer {margin-block: 0;}
+
 /* -----------------------------
    Ribbon (banda rossa in alto)
    ----------------------------- */
