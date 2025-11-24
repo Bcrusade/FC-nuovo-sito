@@ -196,16 +196,18 @@ body.backgroundAdv .outer-skin-wrapper {
 
 #root-site .pub-placeholder[data-adv-slot="FC_MPU_Top"],
 #root-site .pub-placeholder[data-adv-slot="FC_MPU_Middle"] {
-  display: flex;                 /* centra qualsiasi contenuto iniettato */
+  display: flex; /* centra qualsiasi contenuto iniettato */
   justify-content: center;
-  align-items: center;           /* opzionale */
-  margin-block: 10px;            /* respiro sopra/sotto */
+  align-items: center; /* opzionale */
+  margin-block: 10px; /* respiro sopra/sotto */
 }
 
 /* Fallback: centra il container generato da Google */
-#root-site .pub-placeholder[data-adv-slot="FC_MPU_Top"]
+#root-site
+  .pub-placeholder[data-adv-slot="FC_MPU_Top"]
   div[id^="google_ads_iframe_"][id$="__container__"],
-#root-site .pub-placeholder[data-adv-slot="FC_MPU_Middle"]
+#root-site
+  .pub-placeholder[data-adv-slot="FC_MPU_Middle"]
   div[id^="google_ads_iframe_"][id$="__container__"] {
   display: block !important;
   margin-inline: auto !important;
@@ -217,7 +219,6 @@ body.backgroundAdv .outer-skin-wrapper {
   display: block;
   margin-inline: auto;
 }
-
 
 /* ============================
    HOME — Video sponsorizzato Dailymotion (PIP)
@@ -1454,6 +1455,7 @@ body {
   --promo-text: #fff;
   --promo-radius: 18px;
   padding-block: var(--slot-heading-pad-block);
+  overflow: hidden;
 }
 
 /* Testi bianchi dentro PROMO (vince su default neri) */
@@ -1838,6 +1840,135 @@ body {
   img {
   border-radius: var(--promo-radius) !important;
 }
+
+
+/* ============ OVERRIDE "ULTIME NOTIZIE" — SOLO DENTRO ARTICOLO ============ */
+#root-site {
+  --promo-accent: var(--brand);
+  --promo-bullet-bg: #cc013493;
+  --promo-text: #fff;
+  --promo-radius: 18px;
+  padding-block: var(--slot-heading-pad-block);
+}
+
+/* Testi bianchi dentro il blocco */
+#root-site .fc-slot-section-sidebar-news .teaser .teaser-title,
+#root-site .fc-slot-section-sidebar-news .teaser .teaser-title a,
+#root-site .fc-slot-section-sidebar-news .teaser .teaser-text,
+#root-site .fc-slot-section-sidebar-news .teaser .teaser-byline,
+#root-site .fc-slot-section-sidebar-news .teaser .teaser-byline *,
+#root-site .fc-slot-section-sidebar-news .bullet .item,
+#root-site .fc-slot-section-sidebar-news .bullet .item *,
+#root-site .fc-slot-section-sidebar-news .flag-heading .heading,
+#root-site .fc-slot-section-sidebar-news .flag-heading .heading * {
+  color: #fff !important;
+}
+
+/* Hover dei titoli */
+#root-site .fc-slot-section-sidebar-news .teaser .teaser-title a:hover {
+  color: #fff !important;
+  text-decoration: none;
+  text-underline-offset: 0.12em;
+  text-decoration-thickness: 2px;
+}
+
+/* Flag pill centrata */
+#root-site .fc-slot-section-sidebar-news .flag-heading {
+  align-self: center;
+}
+#root-site .fc-slot-section-sidebar-news .flag-heading .heading {
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* 0) FIX layout: niente centratura, pieni al 100% */
+#root-site .fc-slot-section-sidebar-news .slot-layout > .content > .root {
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+  align-content: stretch !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+#root-site .fc-slot-section-sidebar-news .bullet,
+#root-site .fc-slot-section-sidebar-news .bullet > .item,
+#root-site .fc-slot-section-sidebar-news .teaser {
+  width: 100% !important;
+}
+
+/* 1) Niente card look */
+#root-site .fc-slot-section-sidebar-news .teaser,
+#root-site .fc-slot-section-sidebar-news .teaser .teaser-content,
+#root-site .fc-slot-section-sidebar-news .teaser .teaser-image {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* 2) Heading stile “pill” rosso */
+#root-site .fc-slot-section-sidebar-news .flag-heading .heading,
+#root-site .fc-slot-section-sidebar-news .flag-heading .heading * {
+  background: var(--promo-accent) !important;
+  font-family: "Inter Tight", "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.06rem;
+  text-transform: uppercase;
+  line-height: 2.3;
+}
+
+/* 3) Blocchi elenco/bullet con fondo */
+#root-site .fc-slot-section-sidebar-news .bullet,
+#root-site .fc-slot-section-sidebar-news .slot-group-space-filler {
+  background: var(--promo-bullet-bg) !important;
+}
+#root-site .fc-slot-section-sidebar-news .bullet:first-child {
+  border-top-left-radius: var(--promo-radius);
+  border-top-right-radius: var(--promo-radius);
+}
+#root-site .fc-slot-section-sidebar-news .slot-group-space-filler {
+  border-bottom-left-radius: var(--promo-radius);
+  border-bottom-right-radius: var(--promo-radius);
+}
+
+/* 4) Colore testo: eredità dal contenitore */
+#root-site .fc-slot-section-sidebar-news .content,
+#root-site .fc-slot-section-sidebar-news .bullet,
+#root-site .fc-slot-section-sidebar-news .teaser .teaser-content {
+  color: var(--promo-text) !important;
+}
+#root-site .fc-slot-section-sidebar-news .teaser .teaser-title a {
+  color: inherit !important;
+}
+#root-site .fc-slot-section-sidebar-news .teaser .teaser-byline,
+#root-site .fc-slot-section-sidebar-news .teaser .teaser-text {
+  color: inherit !important;
+}
+
+/* ============ RIVISTA / ABBONAMENTI — SOLO DENTRO ARTICOLO ============ */
+#root-site .fc-slot-rivista-promo .abbonati-content * {
+  font-family: "Inter Tight", "Inter", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  line-height: 2rem;
+  text-transform: uppercase;
+  margin: 0;
+  position: relative;
+  hyphens: none;
+  -webkit-hyphens: none;
+  word-break: normal;
+  overflow-wrap: normal;
+  white-space: normal;
+  text-wrap: balance;
+}
+
+#root-site .fc-slot-rivista-promo .teaser .ace-image img {
+  border-radius: var(--promo-radius) !important;
+}
+
+
 
 /* =======================================================
    OVERRIDE COLLEZIONI
@@ -2452,7 +2583,9 @@ body {
   color: var(--ft-link-fg);
 }
 
-#root-site body.backgroundAdv footer.page-footer {margin-block: 0;}
+#root-site body.backgroundAdv footer.page-footer {
+  margin-block: 0;
+}
 
 /* -----------------------------
    Ribbon (banda rossa in alto)
