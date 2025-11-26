@@ -164,6 +164,7 @@ body.backgroundAdv .outer-skin-wrapper {
   margin: 0 auto;
   padding: 0 6px;
   overflow: hidden;
+  margin-block-start: -45px; /* compensa l’altezza header */
 }
 
 /* ============================
@@ -784,6 +785,7 @@ body {
   #root-site .fc-apertura-left-image-big .teaser .ace-image * {
     /* position: static !important; */
     aspect-ratio: 1.82927 / 1;
+    object-position: center top !important;
   }
 
   /* Limita verticalmente con le clamp (invece del max-height del container) */
@@ -894,7 +896,7 @@ body {
 #root-site .teaser .teaser-summary p {
   color: #000;
   margin: 0 0 0.5em;
-  font-size: clamp(12px, 1.6vw, 14px); /* ≈ 12–14px */
+  font-size: clamp(13px, 1.6vw, 14px); /* ≈ 13–14px */
   font-weight: 300;
   letter-spacing: 0.01111rem;
   line-height: 1.2rem;
@@ -995,7 +997,7 @@ body {
   font-size: clamp(16px, 2vw, 18px);
 }
 
-/* SPALLA APERTURA LEFT BIG IMAGE - Secondari in .fc-apertura-left-image-small — più leggibili del base compatto */
+/* SPALLA APERTURA LEFT SMALL IMAGE - Secondari in .fc-apertura-left-image-small — più leggibili del base compatto */
 #root-site .fc-apertura-left-image-small .teaser:not(.teaser-0) .teaser-text,
 #root-site .fc-apertura-left-image-small .teaser:not(.teaser-0) .teaser-text p {
   color: #000;
@@ -1586,6 +1588,14 @@ body {
   border-radius: var(--promo-radius) !important;
 }
 
+/* ============ OVERRIDE "VIDEO" — SOLO DENTRO .fc-slot-group-section-sidebar-default ============ */
+#root-site
+  body.backgroundAdv
+  .fc-slot-group-section-sidebar-default
+  .fc-slot_video {
+  max-width: 330px;
+}
+
 /* ============ OVERRIDE "ULTIME NOTIZIE" — SOLO DENTRO .fc-slot-group-section-sidebar-default ============ */
 #root-site .fc-slot-group-section-sidebar-default {
   --promo-accent: var(--brand);
@@ -1593,6 +1603,13 @@ body {
   --promo-text: #fff;
   --promo-radius: 18px;
   padding-block: var(--slot-heading-pad-block);
+}
+
+#root-site
+  body.backgroundAdv
+  .fc-slot-group-section-sidebar-default
+  .fc-slot-section-sidebar-news {
+  max-width: 330px;
 }
 
 /* Testi bianchi dentro il blocco */
@@ -1813,6 +1830,14 @@ body {
 }
 
 /* ============ RIVISTA / ABBONAMENTI — SOLO DENTRO .fc-slot-group-section-sidebar-default ============ */
+
+#root-site
+  body.backgroundAdv
+  .fc-slot-group-section-sidebar-default
+  .fc-slot-rivista-promo {
+  max-width: 330px;
+}
+
 #root-site
   .fc-slot-group-section-sidebar-default
   .fc-slot-rivista-promo
@@ -2345,9 +2370,9 @@ body {
    EMBED "Leggi anche" — correzioni definitive
    ============================ */
 
-     .embed-article {
-    border-color: var(--brand);
-  }
+.embed-article {
+  border-color: var(--brand);
+}
 
 @media (min-width: 1024px) {
   .embed-article {
