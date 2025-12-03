@@ -1451,6 +1451,82 @@ body {
   background: transparent !important; /* batte la regola globale con !important */
 }
 
+/* =========================================================
+   SEZIONE — "Le iniziative di Famiglia Cristiana"
+   Stile promo ispirato a IN EVIDENZA, ma più pubblicitario
+   ========================================================= */
+
+#root-site .slot.fc-autopromo-hp {
+  --auto-bg: #eef6ff;           /* azzurro chiaro "promo" */
+  --auto-border: #7bb6f0;       /* blu medio */
+  --auto-card-bg: #ffffff;
+  --auto-radius: 16px;
+  --auto-pad: 20px;
+  margin-top: 1.5rem;
+}
+
+/* Contenitore principale */
+#root-site .slot.fc-autopromo-hp > .slot-layout.three_column_grid {
+  background: var(--auto-bg);
+  border: 2px solid var(--auto-border);
+  border-radius: var(--auto-radius);
+  padding: var(--auto-pad);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Titolo della sezione */
+#root-site .slot.fc-autopromo-hp > .slot-layout > .slot-heading,
+#root-site .slot.fc-autopromo-hp > .slot-layout > .slot-heading > * {
+  color: #0a3c74 !important; /* blu scuro */
+  font-weight: 800;
+}
+#root-site .slot.fc-autopromo-hp > .slot-layout > .slot-heading {
+  padding-left: 0;
+  margin-bottom: 10px;
+}
+#root-site .slot.fc-autopromo-hp > .slot-layout > .slot-heading::after {
+  background-color: var(--auto-border);
+  width: 48px;
+  height: 3px;
+  margin-top: 10px;
+}
+
+/* Card interne (3 colonne) */
+#root-site .slot.fc-autopromo-hp .slot .slot-layout {
+  background: var(--auto-card-bg);
+  border: 1px solid var(--auto-border);
+  border-radius: calc(var(--auto-radius) - 4px);
+  padding: 14px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover pubblicitario */
+#root-site .slot.fc-autopromo-hp .slot .slot-layout:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 15px rgba(0, 122, 255, 0.15);
+}
+
+/* Centra e limita gli adv */
+#root-site .slot.fc-autopromo-hp .pub-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#root-site .slot.fc-autopromo-hp .pub-placeholder iframe,
+#root-site .slot.fc-autopromo-hp .pub-placeholder img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Rimuove eventuali sfondi ereditati */
+#root-site .slot.fc-autopromo-hp * {
+  background: transparent !important;
+}
+
+
 /* ============ OVERRIDE COLLEZIONI ============ */
 /* ============ PROMO ==================== */
 #root-site .fc-slot-promo {

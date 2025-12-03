@@ -2008,7 +2008,7 @@ body {
 
 /* Contenitore principale dei teaser */
 #root-site .fc-foto-e-video .flex-container {
-  align-items: center;
+  align-items: flex-start;
 }
 #root-site body.backgroundAdv .fc-foto-e-video .flex-container {
   max-width: 1060px !important;
@@ -2169,7 +2169,7 @@ body {
 
 /* Contenitore principale dei teaser */
 #root-site .fc-riflessioni .flex-container {
-  align-items: center; /* come foto e video */
+  align-items: flex-start; /* come foto e video */
 }
 #root-site body.backgroundAdv .fc-riflessioni .flex-container {
   max-width: 1060px !important;
