@@ -89,6 +89,23 @@
   background-color: transparent;
 }
 
+/* Modifica iframe instagram */
+.iframe-embed.instagram-embed {
+  height: 100%;
+  overflow: hidden;
+  max-height: 600px;
+  max-width: 300px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+    .iframe-embed.instagram-embed {
+        max-width: 440px;
+    }
+}
+
 @media (max-width: 768px) {
   /* padding globale su tutti i .teaser-content */
   #root-site .teaser .teaser-content {

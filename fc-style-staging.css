@@ -89,6 +89,24 @@
   background-color: transparent;
 }
 
+/* Modifica iframe instagram */
+.iframe-embed.instagram-embed {
+  height: 100%;
+  overflow: hidden;
+  max-height: 600px;
+  max-width: 300px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+    .iframe-embed.instagram-embed {
+        max-width: 440px;
+    }
+}
+
+
 @media (max-width: 768px) {
   /* padding globale su tutti i .teaser-content */
   #root-site .teaser .teaser-content {
@@ -1457,8 +1475,8 @@ body {
    ========================================================= */
 
 #root-site .slot.fc-autopromo-hp {
-  --auto-bg: #eef6ff;           /* azzurro chiaro "promo" */
-  --auto-border: #7bb6f0;       /* blu medio */
+  --auto-bg: #eef6ff; /* azzurro chiaro "promo" */
+  --auto-border: #7bb6f0; /* blu medio */
   --auto-card-bg: #ffffff;
   --auto-radius: 16px;
   --auto-pad: 20px;
@@ -1525,7 +1543,6 @@ body {
 #root-site .slot.fc-autopromo-hp * {
   background: transparent !important;
 }
-
 
 /* ============ OVERRIDE COLLEZIONI ============ */
 /* ============ PROMO ==================== */
