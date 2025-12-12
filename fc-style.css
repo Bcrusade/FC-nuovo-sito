@@ -91,17 +91,22 @@
 
 /* Modifica iframe instagram */
 .iframe-embed.instagram-embed {
-  height: 100%;
   overflow: hidden;
-  max-height: 600px;
+  max-height: 700px;
   max-width: 300px;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
 }
 
+@media (max-width: 1024px) {
+    .iframe-embed.instagram-embed{
+        min-height: 600px;
+    }
+}
+
 @media (min-width: 1024px) {
-    .iframe-embed.instagram-embed {
+    .iframe-embed.instagram-embed iframe{
         max-width: 440px;
     }
 }
