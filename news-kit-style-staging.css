@@ -48,6 +48,7 @@
 
 .autopromo_container {
   width: 100%;
+  margin: 0 auto;
 }
 
 .autopromo_link {
@@ -66,5 +67,80 @@
 @media (max-width: 525px) {
   .autopromo_image {
     content: url("https://images.benessere-magazine.it/news-kit-resources/giubileo-banner-famiglia-cristina-mobile.jpg");
+  }
+}
+
+/* SLOT FC AUTOPROMO */
+
+.FC_autopromo_container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 10px;
+}
+
+.FC_autopromo_link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Aggiungi una classe per gestire la larghezza dell'immagine */
+.FC_autopromo_image {
+  width: 100%;
+  height: auto;
+}
+
+/* SLOT FC AUTOPROMO #FC_autopromo_1 */
+
+#FC_autopromo_1 {
+  margin: 0 auto;
+}
+
+/* Media Query per l'immagine mobile */
+@media (max-width: 525px) {
+  #FC_autopromo_1 .FC_autopromo_image {
+    content: url("https://images.benessere-magazine.it/news-kit-resources/giubileo-banner-famiglia-cristina-mobile.jpg");
+  }
+}
+
+/* SLOT FC AUTOPROMO #FC_autopromo_2 */
+
+#FC_autopromo_2 {
+  margin: 0 auto;
+}
+
+/* Media Query per l'immagine mobile */
+@media (max-width: 525px) {
+  #FC_autopromo_2 .FC_autopromo_image {
+    content: url("https://images.benessere-magazine.it/news-kit-resources/giubileo-banner-famiglia-cristina-mobile.jpg");
+  }
+}
+
+/* SLOT FC AUTOPROMO #FC_autopromo_3 */
+
+#FC_autopromo_3 {
+  margin: 0 auto;
+}
+
+/* Media Query per l'immagine mobile */
+@media (max-width: 525px) {
+  #FC_autopromo_3 .FC_autopromo_image {
+    content: url("https://images.benessere-magazine.it/news-kit-resources/giubileo-banner-famiglia-cristina-mobile.jpg");
+  }
+}
+
+/* SLOT FC AUTOPROMO #FC_autopromo_caso_della_settimana */
+
+#FC_autopromo_caso_della_settimana {
+  margin: 0 auto;
+}
+
+/* Media Query per l'immagine mobile */
+@media (max-width: 525px) {
+  #FC_autopromo_caso_della_settimana .FC_autopromo_image {
+    content: url("https://images.benessere-magazine.it/news-kit-resources/Banner_Don_Zilli_HP_V2.png");
   }
 }
