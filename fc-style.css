@@ -100,15 +100,15 @@
 }
 
 @media (max-width: 1024px) {
-    .iframe-embed.instagram-embed{
-        min-height: 600px;
-    }
+  .iframe-embed.instagram-embed {
+    min-height: 600px;
+  }
 }
 
 @media (min-width: 1024px) {
-    .iframe-embed.instagram-embed iframe{
-        max-width: 440px;
-    }
+  .iframe-embed.instagram-embed iframe {
+    max-width: 440px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1331,6 +1331,10 @@ body {
   border: 1px solid #000;
 } */
 
+#root-site .fc-primo-piano .slot-group-space-filler {
+  display: none;
+}
+
 /* ============ OVERRIDE COLLEZIONI ============ */
 /* ============ IN EVIDENZA ==================== */
 
@@ -1610,12 +1614,9 @@ body {
   border-radius: var(--promo-radius) !important;
 }
 
-#root-site
-  .fc-slot-promo
-  .fc-slot-rivista-promo
-  .slot-group-space-filler {
-    display: none;
-  }
+#root-site .fc-slot-promo .fc-slot-rivista-promo .slot-group-space-filler {
+  display: none;
+}
 
 /* ============ OVERRIDE "VIDEO" — SOLO DENTRO .fc-slot-group-section-sidebar-default ============ */
 #root-site
@@ -1901,8 +1902,8 @@ body {
   .fc-slot-group-section-sidebar-default
   .fc-slot-rivista-promo
   .slot-group-space-filler {
-    display: none;
-  }
+  display: none;
+}
 
 /* ============ OVERRIDE "ULTIME NOTIZIE" — SOLO DENTRO ARTICOLO ============ */
 #root-site {
@@ -2030,11 +2031,9 @@ body {
   border-radius: var(--promo-radius) !important;
 }
 
-#root-site
-  .fc-slot-rivista-promo
-  .slot-group-space-filler {
-    display: none;
-  }
+#root-site .fc-slot-rivista-promo .slot-group-space-filler {
+  display: none;
+}
 
 /* =======================================================
    OVERRIDE COLLEZIONI
@@ -2204,11 +2203,13 @@ body {
    Stile promo pulito, senza hover
    ========================================================= */
 
-   #root-site body.backgroundAdv .slot.fc-autopromo-hp {display: block;}
+#root-site body.backgroundAdv .slot.fc-autopromo-hp {
+  display: block;
+}
 
 #root-site .slot.fc-autopromo-hp {
-  --auto-bg: #eef6ff;           /* Azzurro chiaro promo */
-  --auto-border: #7bb6f0;       /* Blu medio */
+  --auto-bg: #eef6ff; /* Azzurro chiaro promo */
+  --auto-border: #7bb6f0; /* Blu medio */
   --auto-card-bg: #ffffff;
   --auto-radius: 16px;
   --auto-pad: 24px;
@@ -2247,14 +2248,13 @@ body {
 
 /* Griglia interna: più compatta */
 #root-site .slot.fc-autopromo-hp .flex-container {
-    justify-content: center;
+  justify-content: center;
 }
-
 
 /* Griglia interna: più compatta */
 #root-site .slot.fc-autopromo-hp .flex-container .separator {
-    min-width: 5px;
-    max-width: 10px;
+  min-width: 5px;
+  max-width: 10px;
 }
 
 /* Card ADV interne (statiche, senza hover) */
@@ -2290,7 +2290,6 @@ body {
 #root-site .slot.fc-autopromo-hp * {
   background: transparent !important;
 }
-
 
 /* ============ OVERRIDE COLLEZIONI ============ */
 /* ============ RIFLESSIONI (full_width_7) ============ */
