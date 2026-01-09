@@ -85,7 +85,7 @@
   display: none;
 }
 
-.embed-media-container.gallery-embed .carousel .ace-image {
+.embed-media-container.gallery-embed .carousel .ace-image, .carousel .ace-image {
   background-color: transparent;
 }
 
@@ -238,12 +238,6 @@ body.backgroundAdv .outer-skin-wrapper {
   display: block;
   margin-inline: auto;
 }
-
-/* ============================
-   HOME — Video sponsorizzato Dailymotion (PIP)
-   Scopo: mantieni il mini-player sempre sopra (evita clip/stacking da overflow/transform).
-   Note: azioni limitate a quando il PIP è presente in pagina.
-   ============================ */
 
 /* ============================
    MEGA MENU
@@ -1278,7 +1272,7 @@ body {
 #root-site .fc-primo-piano .slot-layout {
   position: relative;
   overflow: visible;
-  z-index: 10;
+  z-index: 11;
 }
 #root-site .fc-primo-piano .slot-layout::before {
   content: "";
@@ -2208,7 +2202,7 @@ body {
   --auto-radius: 16px;
   --auto-pad: 24px;
   margin-top: 1.5rem;
-  display: none;
+  /* display: none; */
 }
 
 /* Contenitore principale */
@@ -2596,6 +2590,164 @@ body {
 .embed-article .teaser-image {
   /* display: none !important; */
 }
+
+/* =========================
+   MEDIA GALLERY – PATCH UI
+   Compatibile: Swiper / Slick
+   ========================= */
+
+/* 1) Wrapper: limita la larghezza e centra */
+.media-gallery,
+.mediaGallery,
+.fc-media-gallery,
+.article-media-gallery,
+.gallery,
+.slider,
+.swiper,
+.slick-slider {
+  max-width: 920px;
+  margin: 24px auto;
+}
+
+/* 2) “Frame” visivo: radius + shadow + overflow */
+.media-gallery,
+.mediaGallery,
+.fc-media-gallery,
+.article-media-gallery,
+.gallery,
+.slider,
+.swiper,
+.slick-slider {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff; /* evita “vuoti” bianchi durante il loading */
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+}
+
+/* 3) Slide: evita altezze casuali */
+.swiper-wrapper,
+.slick-track {
+  display: flex;
+  align-items: stretch;
+}
+
+/* 4) Immagini: look “editoriale” e coerente */
+.media-gallery img,
+.mediaGallery img,
+.fc-media-gallery img,
+.article-media-gallery img,
+.gallery img,
+.slider img,
+.swiper img,
+.slick-slider img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* 5) Frecce – Swiper */
+.swiper-button-prev,
+.swiper-button-next {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+}
+
+/* 6) Frecce – Slick */
+.slick-prev,
+.slick-next {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
+  z-index: 2;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 18px;
+  color: #111;
+  opacity: 1;
+}
+
+/* 7) Pagination – Swiper: NON la riga infinita di pallini */
+.swiper-pagination {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 12px;
+}
+
+.swiper-pagination-bullet {
+  width: 7px;
+  height: 7px;
+  opacity: 0.45;
+  background: var(--brand);
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+/* 8) Pagination – Slick: compatta e centrata */
+.slick-dots {
+  bottom: 10px;
+  padding: 0 12px;
+}
+
+.slick-dots li {
+  margin: 0 2px;
+}
+
+.slick-dots li button:before {
+  font-size: 9px;
+  opacity: 0.45;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: 1;
+}
+
+/* 9) Mobile: riduci un filo e togli “sbordi” */
+@media (max-width: 768px) {
+  .media-gallery,
+  .mediaGallery,
+  .fc-media-gallery,
+  .article-media-gallery,
+  .gallery,
+  .slider,
+  .swiper,
+  .slick-slider {
+    border-radius: 12px;
+    margin: 16px 12px;
+    max-width: none;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next,
+  .slick-prev,
+  .slick-next {
+    width: 38px;
+    height: 38px;
+  }
+}
+
 
 /* =========================================================
    HEADER NAV (barra rossa desktop + hamburger mobile)
