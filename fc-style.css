@@ -1270,7 +1270,7 @@ body {
   background-color: var(--brand);
 }
 
-/* SOLO “Primo Piano”: testo bianco + barretta bianca */
+/* SOLO Primo Piano: testo bianco + barretta bianca */
 #root-site .fc-primo-piano .slot-heading > a,
 #root-site .fc-primo-piano .slot-heading > span {
   color: #fff;
@@ -1333,7 +1333,7 @@ body {
 #root-site .fc-sanremo .slot-layout {
   position: relative;
   overflow: visible;
-  z-index: 999;
+  z-index: inherit;
 }
 #root-site .fc-sanremo .slot-layout::before {
   content: "";
@@ -3524,7 +3524,7 @@ body {
   }
 
   #root-site .article-content p {
-    font-size: clamp(16px, 2.2vw, 17px);
+    font-size: clamp(17px, 2.2vw, 18px);
     line-height: 1.55;
   }
 
