@@ -85,7 +85,8 @@
   display: none;
 }
 
-.embed-media-container.gallery-embed .carousel .ace-image, .carousel .ace-image {
+.embed-media-container.gallery-embed .carousel .ace-image,
+.carousel .ace-image {
   background-color: transparent;
 }
 
@@ -1246,15 +1247,15 @@ body {
 }
 
 /* Default: testo/underline brand (no sfondo rosso) */
-#root-site .slot:not(.fc-primo-piano) .slot-heading > a,
-#root-site .slot:not(.fc-primo-piano) .slot-heading > span,
+#root-site .slot:not(.fc-primo-piano, .fc-sanremo) .slot-heading > a,
+#root-site .slot:not(.fc-primo-piano, .fc-sanremo) .slot-heading > span,
  /* Titoli Sezioni interne */
 #root-site .section-heading .slot-heading > a,
 #root-site .section-heading .slot-heading > span {
   color: var(--brand);
   text-decoration: none;
 }
-#root-site .slot:not(.fc-primo-piano, .fc-evidenza) .slot-heading > a:hover,
+#root-site .slot:not(.fc-primo-piano, .fc-evidenza, .fc-sanremo) .slot-heading > a:hover,
  /* Titoli Sezioni interne */
 #root-site .section-heading .slot-heading > a:hover {
   text-decoration: underline;
@@ -1263,7 +1264,7 @@ body {
   text-decoration-thickness: 2px;
   opacity: 1;
 }
-#root-site .slot:not(.fc-primo-piano) .slot-heading::after,
+#root-site .slot:not(.fc-primo-piano, .fc-sanremo) .slot-heading::after,
  /* Titoli Sezioni interne */
  #root-site .section-heading .slot-heading::after {
   background-color: var(--brand);
@@ -1313,6 +1314,72 @@ body {
 #root-site .fc-primo-piano .slot-layout .content {
   position: relative;
   z-index: 11;
+}
+
+/* ============ OVERRIDE COLLEZIONI ============ */
+/* ============ SANREMO (full_width_5) ============ */
+
+/* SOLO â€œPrimo Pianoâ€: testo bianco + barretta bianca */
+#root-site .fc-sanremo .slot-heading > a,
+#root-site .fc-sanremo .slot-heading > span {
+  color: #fff;
+  text-decoration: none;
+}
+#root-site .fc-sanremo .slot-heading::after {
+  background-color: #fff;
+}
+
+/* Fondino rosso sotto il titolo (solo per questa collezione) */
+#root-site .fc-sanremo .slot-layout {
+  position: relative;
+  overflow: visible;
+  z-index: 999;
+}
+#root-site .fc-sanremo .slot-layout::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: var(--slot-primo-bg-h-m);
+  background: linear-gradient(225deg, #571be2, #1f699a);
+  z-index: -1;
+}
+@media (min-width: 48em) {
+  #root-site .fc-sanremo .slot-layout::before {
+    height: var(--slot-primo-bg-h-d);
+  }
+}
+/* Offset del fondino sotto ai primi blocchi (solo prima slot in .l-offset) */
+.l-offset #root-site .fc-sanremo .slot-layout:first-child::before {
+  top: var(--slot-primo-bg-top-offset);
+}
+@media (min-width: 48em) {
+  .l-offset #root-site .fc-sanremo .slot-layout:first-child::before {
+    top: var(--slot-primo-bg-top-offset);
+  }
+}
+/* Contenuto sopra al fondino */
+#root-site .fc-primo-piano .slot-layout .content {
+  position: relative;
+  z-index: 11;
+}
+
+#root-site .fc-sanremo .flex-container {
+  align-items: stretch;
+}
+
+#root-site .fc-sanremo .full_width_5 .teaser {
+  background: white;
+}
+
+/* #root-site .fc-primo-piano .full_width_5 .teaser.teaser-1,
+#root-site .fc-primo-piano .full_width_5 .teaser.teaser-2 {
+  border: 1px solid #000;
+} */
+
+#root-site .fc-sanremo .slot-group-space-filler {
+  display: none;
 }
 
 /* ============ OVERRIDE COLLEZIONI ============ */
@@ -2600,7 +2667,6 @@ body {
 .embed-article .teaser-image {
   /* display: none !important; */
 }
-
 
 /* =========================
    MEDIA GALLERY – PATCH UI
