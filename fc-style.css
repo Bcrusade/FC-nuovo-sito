@@ -23,7 +23,7 @@
   /* Primo Piano (fondino rosso) */
   --slot-primo-bg-h-m: 7rem; /* altezza mobile */
   --slot-primo-bg-h-d: 12rem; /* altezza desktop */
-  --slot-primo-bg-top-offset: -6rem; /* quanto “sale” sotto i primi blocchi */
+  --slot-primo-bg-top-offset: -6rem; /* quanto ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œsaleÃƒÂ¢Ã¢â€šÂ¬Ã‚Â sotto i primi blocchi */
 
   /* padding generale dei teaser su desktop */
   --tsr-pad-d: 0.5rem;
@@ -40,7 +40,7 @@
   /* Teaser (se servono in futuro) */
   --tsr-bgw: #fff;
 
-  /* === Apertura left image big — controllo altezza === */
+  /* === Apertura left image big ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â controllo altezza === */
   --apertura-maxh-m: 260px; /* mobile */
   --apertura-maxh-d: 380px; /* desktop */
 
@@ -120,7 +120,7 @@
   #root-site .fc-sotto-apertura-3-image-full-width .separator,
   #root-site .fc-papa .separator,
   #root-site .fc-chiesa .separator,
-  #root-site .fc-fede-e-spiritualità .separator,
+  #root-site .fc-fede-e-spiritualitÃƒÆ’ .separator,
   #root-site .fc-famiglia-educazione .separator,
   #root-site .fc-societa-e-valori .separator,
   #root-site .fc-spettacolo-cultura .separator {
@@ -129,7 +129,7 @@
 }
 
 @media (min-width: 1024px) {
-  /* se .teaser-content è dentro .mega-slot-grid aggiungo rientro a sinistra */
+  /* se .teaser-content ÃƒÆ’Ã‚Â¨ dentro .mega-slot-grid aggiungo rientro a sinistra */
   #root-site .mega-slot-grid .teaser .teaser-content,
   #root-site .mega-slot-grid .teaser-content {
     padding-inline-start: var(--tsr-mega-inline-start);
@@ -176,8 +176,8 @@
 }
 
 /* ============================
-   SKIN — bordo bianco
-   Aggiunge un bordo bianco intorno al sito quando è attiva la skin
+   SKIN ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â bordo bianco
+   Aggiunge un bordo bianco intorno al sito quando ÃƒÆ’Ã‚Â¨ attiva la skin
    ============================ */
 
 /* Aggiunge background bianco e padding */
@@ -187,11 +187,11 @@ body.backgroundAdv .outer-skin-wrapper {
   margin: 0 auto;
   padding: 0 6px;
   overflow: hidden;
-  margin-block-start: -45px; /* compensa l’altezza header */
+  margin-block-start: -45px; /* compensa lÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢altezza header */
 }
 
 /* ============================
-   TOP HEADER — MaxTicker (GTM) • centratura annuncio
+   TOP HEADER ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â MaxTicker (GTM) ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ centratura annuncio
    ============================ */
 
 #root-site .pub-placeholder[data-adv-slot="FC_MaxTicker"] {
@@ -209,14 +209,14 @@ body.backgroundAdv .outer-skin-wrapper {
   margin-inline: auto !important;
 }
 
-/* Evita shift: l’iframe resta centrato */
+/* Evita shift: lÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢iframe resta centrato */
 #root-site .pub-placeholder[data-adv-slot="FC_MaxTicker"] iframe {
   display: block;
   margin-inline: auto;
 }
 
 /* ============================
-   MPU — Top & Middle (GTM) • centratura annunci
+   MPU ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Top & Middle (GTM) ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ centratura annunci
    ============================ */
 
 #root-site .pub-placeholder[data-adv-slot="FC_MPU_Top"],
@@ -238,7 +238,7 @@ body.backgroundAdv .outer-skin-wrapper {
   margin-inline: auto !important;
 }
 
-/* Evita shift: l’iframe resta centrato */
+/* Evita shift: lÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢iframe resta centrato */
 #root-site .pub-placeholder[data-adv-slot="FC_MPU_Top"] iframe,
 #root-site .pub-placeholder[data-adv-slot="FC_MPU_Middle"] iframe {
   display: block;
@@ -246,9 +246,9 @@ body.backgroundAdv .outer-skin-wrapper {
 }
 
 /* ============================
-   HOME — Video sponsorizzato Dailymotion (PIP)
+   HOME ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Video sponsorizzato Dailymotion (PIP)
    Scopo: mantieni il mini-player sempre sopra (evita clip/stacking da overflow/transform).
-   Note: azioni limitate a quando il PIP è presente in pagina.
+   Note: azioni limitate a quando il PIP ÃƒÆ’Ã‚Â¨ presente in pagina.
    ============================ */
 
 /* ============================
@@ -257,7 +257,7 @@ body.backgroundAdv .outer-skin-wrapper {
 
 /* ===== Desktop: Mega menu full-screen + scroll interno ===== */
 @media (min-width: 1024px) {
-  /* blocca lo scroll della pagina quando il menu è aperto */
+  /* blocca lo scroll della pagina quando il menu ÃƒÆ’Ã‚Â¨ aperto */
   #root-site.noscroll {
     overflow: hidden !important;
   }
@@ -297,7 +297,7 @@ body.backgroundAdv .outer-skin-wrapper {
     transform: none !important;
     -webkit-transform: none !important;
 
-    /* allineo il contenuto dall’alto, non centrato verticalmente */
+    /* allineo il contenuto dallÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢alto, non centrato verticalmente */
     align-items: flex-start !important;
     justify-content: center !important;
 
@@ -305,14 +305,14 @@ body.backgroundAdv .outer-skin-wrapper {
     z-index: 1000 !important;
   }
 
-  /* se vuoi lasciare visibile l’header fisso sopra, usa un padding-top pari all’altezza header */
+  /* se vuoi lasciare visibile lÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢header fisso sopra, usa un padding-top pari allÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢altezza header */
   .mega-menu.open {
     /* imposta l'altezza header che hai in tema, es. 80px */
     --header-h: 80px;
     padding-top: var(--header-h) !important;
   }
 
-  /* area scorrevole interna: usa tutta l’altezza disponibile sotto l’header */
+  /* area scorrevole interna: usa tutta lÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢altezza disponibile sotto lÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢header */
   .mega-menu.open .mega-menu-content {
     display: grid !important;
     grid-template-columns: 1fr 1fr 240px;
@@ -350,14 +350,14 @@ body.backgroundAdv .outer-skin-wrapper {
     border-bottom: 1px solid transparent !important;
   }
 
-  /* titolo sezione più compatto */
+  /* titolo sezione piÃƒÆ’Ã‚Â¹ compatto */
   .mega-menu .section-title > a,
   .mega-menu .section-title > .headline {
     display: inline-block !important;
     margin-bottom: 6px !important;
   }
 
-  /* Social in alto a destra e “sticky” durante lo scroll del menu */
+  /* Social in alto a destra e ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œstickyÃƒÂ¢Ã¢â€šÂ¬Ã‚Â durante lo scroll del menu */
   #mega-menu-social {
     align-self: start !important;
     position: sticky !important;
@@ -372,10 +372,10 @@ body.backgroundAdv .outer-skin-wrapper {
     color: #e30613 !important;
     border-color: #e30613 !important;
   }
-  /* ===== Fissa la X SOLO quando il mega menu è aperto ===== */
+  /* ===== Fissa la X SOLO quando il mega menu ÃƒÆ’Ã‚Â¨ aperto ===== */
   /* Caso 1: il menu usa la classe .open */
   body:has(.mega-menu.open) .navigation-actions #hamburger-menu-desktop,
-  /* Caso 2: il menu è visibile perché #mega-menu--normal NON è hidden */
+  /* Caso 2: il menu ÃƒÆ’Ã‚Â¨ visibile perchÃƒÆ’Ã‚Â© #mega-menu--normal NON ÃƒÆ’Ã‚Â¨ hidden */
   body:has(#mega-menu--normal:not([hidden])) .navigation-actions #hamburger-menu-desktop {
     position: fixed !important;
     top: 16px !important; /* regola se serve */
@@ -384,7 +384,7 @@ body.backgroundAdv .outer-skin-wrapper {
     pointer-events: auto !important;
   }
 
-  /* assicura che l’icona X sia sopra tutto */
+  /* assicura che lÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢icona X sia sopra tutto */
   body:has(.mega-menu.open) #mega-menu-close-icon--normal,
   body:has(#mega-menu--normal:not([hidden])) #mega-menu-close-icon--normal {
     position: relative !important;
@@ -403,7 +403,7 @@ body.backgroundAdv .outer-skin-wrapper {
 }
 
 /* ============================
-   MEGA MENU — Tipografia desktop
+   MEGA MENU ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Tipografia desktop
    ============================ */
 @media (min-width: 1024px) {
   /* Fondo/colore testo coerenti con header */
@@ -412,13 +412,13 @@ body.backgroundAdv .outer-skin-wrapper {
     color: var(--hdr-fg, #1f1f1f) !important;
   }
 
-  /* ---- Titoli gruppo (ATTUALITÀ, PAPA, …) ---- */
+  /* ---- Titoli gruppo (ATTUALITÃƒÆ’Ã¢â€šÂ¬, PAPA, ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦) ---- */
   .mega-menu.open .section-title,
   .mega-menu.open .section-title > .headline,
   .mega-menu.open .section-title > a,
   .mega-menu.open #mega-menu-social .mega-menu-social-title {
     color: var(--brand) !important;
-    font-size: calc(var(--fs-body-d) * 1.05) !important; /* ≈ 19px */
+    font-size: calc(var(--fs-body-d) * 1.05) !important; /* ÃƒÂ¢Ã¢â‚¬Â°Ã‹â€  19px */
     line-height: 1.25 !important;
     font-weight: 800 !important;
     text-transform: uppercase !important;
@@ -451,7 +451,9 @@ body.backgroundAdv .outer-skin-wrapper {
     text-decoration: none !important;
     border-bottom: 1px solid transparent !important;
     padding: 0 !important;
-    transition: color 0.2s ease, border-color 0.2s ease !important;
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease !important;
   }
 
   /* Hover/focus (forzati) */
@@ -465,7 +467,7 @@ body.backgroundAdv .outer-skin-wrapper {
     outline-offset: 2px !important;
   }
 
-  /* Variante voci “singole” (es. PAPA) un filo più marcate */
+  /* Variante voci ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œsingoleÃƒÂ¢Ã¢â€šÂ¬Ã‚Â (es. PAPA) un filo piÃƒÆ’Ã‚Â¹ marcate */
   .mega-menu.open .menu-section--single .menu-section-children a {
     font-weight: 700 !important;
   }
@@ -485,7 +487,7 @@ body.backgroundAdv .outer-skin-wrapper {
   }
 
   /* ============================
-   TOP MENU WRAPPER — Desktop (mega menu aperto)
+   TOP MENU WRAPPER ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Desktop (mega menu aperto)
    ============================ */
   @media (min-width: 1024px) {
     /* lista: niente bullet e spacing regolare */
@@ -526,8 +528,15 @@ body.backgroundAdv .outer-skin-wrapper {
    BASE TYPOGRAPHY
    ========================================================= */
 body {
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
   font-size: var(--fs-body-d);
   line-height: 1.6;
   /* color:var(--bg-site-light); */
@@ -567,14 +576,14 @@ body {
   box-shadow: none !important;
 }
 
-/* (opzionale) Se le “righe” dei bullet/divider portano un bg */
+/* (opzionale) Se le ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œrigheÃƒÂ¢Ã¢â€šÂ¬Ã‚Â dei bullet/divider portano un bg */
 #root-site .fc-slot-section-sidebar-news .divider,
 #root-site .fc-slot-promo .divider,
 #root-site .fc-slot-rivista-promo .divider {
   background: transparent !important;
 }
 
-/* (opzionale) Se qualche tema dà un bg al contenitore interno */
+/* (opzionale) Se qualche tema dÃƒÆ’  un bg al contenitore interno */
 #root-site .fc-slot-section-sidebar-news .content,
 #root-site .fc-slot-promo .content,
 #root-site .fc-slot-rivista-promo .content {
@@ -613,7 +622,7 @@ body {
 }
 
 /* =========================================================
-   TEASER — TITLES & BYLINE (base + .fc-apertura-big)
+   TEASER ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â TITLES & BYLINE (base + .fc-apertura-big)
    ========================================================= */
 
 /* Titoli base (fuori da .fc-apertura-big e default ovunque) */
@@ -629,7 +638,7 @@ body {
   hyphens: none;
   -webkit-hyphens: none;
   word-break: keep-all; /* non spezza parole latine */
-  overflow-wrap: normal; /* niente break “anywhere” */
+  overflow-wrap: normal; /* niente break ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œanywhereÃƒÂ¢Ã¢â€šÂ¬Ã‚Â */
   white-space: normal; /* consenti a capo solo sugli spazi */
 }
 /* Dimensione solo se NON arriva inline dal CMS */
@@ -706,7 +715,7 @@ body {
 
 /* =======================
    APERTURA LEFT BIG IMAGE
-   — Fix overflow mobile
+   ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Fix overflow mobile
    ======================= */
 @media (min-width: 1024px) {
   #root-site .fc-apertura-left-image-big .teaser .teaser-content {
@@ -793,7 +802,7 @@ body {
     overflow: visible !important;
   }
 
-  /* Isola la card: impedisce che roba “di sotto” ci si sovrapponga */
+  /* Isola la card: impedisce che roba ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œdi sottoÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ci si sovrapponga */
   /* #root-site .fc-apertura-left-image-big .slot-layout,
   #root-site .fc-apertura-left-image-big .teaser.teaser-0 {
     position: relative;
@@ -801,7 +810,7 @@ body {
     z-index: 0;
   } */
 
-  /* Assicura che l’immagine partecipi al flusso (niente abs/sticky ereditati) */
+  /* Assicura che lÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢immagine partecipi al flusso (niente abs/sticky ereditati) */
   #root-site .fc-apertura-left-image-big .teaser .teaser-image,
   #root-site .fc-apertura-left-image-big .teaser .teaser-image > a,
   #root-site .fc-apertura-left-image-big .teaser .ace-image,
@@ -907,7 +916,7 @@ body {
 }
 
 /* =========================================================
-   TEASER — COPY (.teaser-text & .teaser-summary)
+   TEASER ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â COPY (.teaser-text & .teaser-summary)
    ========================================================= */
 
 /* Base: stile compatto e robusto */
@@ -919,7 +928,7 @@ body {
 #root-site .teaser .teaser-summary p {
   color: #000;
   margin: 0 0 0.5em;
-  font-size: clamp(13px, 1.6vw, 14px); /* ≈ 13–14px */
+  font-size: clamp(13px, 1.6vw, 14px); /* ÃƒÂ¢Ã¢â‚¬Â°Ã‹â€  13ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“14px */
   font-weight: 300;
   letter-spacing: 0.01111rem;
   line-height: 1.2rem;
@@ -933,7 +942,7 @@ body {
   text-overflow: ellipsis;
 }
 
-/* APERTURA BIG (.fc-apertura-big) — colore + metrica dedicati */
+/* APERTURA BIG (.fc-apertura-big) ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â colore + metrica dedicati */
 #root-site .fc-apertura-big .teaser.teaser-0 .teaser-text,
 #root-site .fc-apertura-big .teaser.teaser-0 .teaser-text p,
 #root-site .fc-apertura-big .teaser.teaser-0 .teaser-summary,
@@ -945,7 +954,7 @@ body {
   font-size: clamp(16px, 2vw, 18px);
 }
 
-/* SPALLA APERTURA BIG - Secondari in .fc-apertura-big — più leggibili del base compatto */
+/* SPALLA APERTURA BIG - Secondari in .fc-apertura-big ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â piÃƒÆ’Ã‚Â¹ leggibili del base compatto */
 #root-site .fc-apertura-big .teaser:not(.teaser-0) .teaser-text,
 #root-site .fc-apertura-big .teaser:not(.teaser-0) .teaser-text p {
   color: #000;
@@ -968,7 +977,7 @@ body {
   line-height: 1.6;
 }
 
-/* APERTURA LEFT BIG IMAGE (.fc-apertura-left-image-big) — colore + metrica dedicati */
+/* APERTURA LEFT BIG IMAGE (.fc-apertura-left-image-big) ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â colore + metrica dedicati */
 #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-text,
 #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-text p,
 #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-summary,
@@ -981,7 +990,7 @@ body {
   -webkit-line-clamp: 6;
 }
 
-/* SPALLA APERTURA LEFT BIG IMAGE - Secondari in .fc-apertura-left-image-big — più leggibili del base compatto */
+/* SPALLA APERTURA LEFT BIG IMAGE - Secondari in .fc-apertura-left-image-big ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â piÃƒÆ’Ã‚Â¹ leggibili del base compatto */
 #root-site .fc-apertura-left-image-big .teaser:not(.teaser-0) .teaser-text,
 #root-site .fc-apertura-left-image-big .teaser:not(.teaser-0) .teaser-text p {
   color: #000;
@@ -1008,7 +1017,7 @@ body {
   line-height: 1.6;
 }
 
-/* APERTURA LEFT SMALL IMAGE (.fc-apertura-left-image-small) — colore + metrica dedicati */
+/* APERTURA LEFT SMALL IMAGE (.fc-apertura-left-image-small) ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â colore + metrica dedicati */
 #root-site .fc-apertura-left-image-small .teaser.teaser-0 .teaser-text,
 #root-site .fc-apertura-left-image-small .teaser.teaser-0 .teaser-text p,
 #root-site .fc-apertura-left-image-small .teaser.teaser-0 .teaser-summary,
@@ -1020,7 +1029,7 @@ body {
   font-size: clamp(16px, 2vw, 18px);
 }
 
-/* SPALLA APERTURA LEFT SMALL IMAGE - Secondari in .fc-apertura-left-image-small — più leggibili del base compatto */
+/* SPALLA APERTURA LEFT SMALL IMAGE - Secondari in .fc-apertura-left-image-small ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â piÃƒÆ’Ã‚Â¹ leggibili del base compatto */
 #root-site .fc-apertura-left-image-small .teaser:not(.teaser-0) .teaser-text,
 #root-site .fc-apertura-left-image-small .teaser:not(.teaser-0) .teaser-text p {
   color: #000;
@@ -1047,7 +1056,7 @@ body {
   line-height: 1.6;
 }
 
-/* Micro-tuning mobile (più respiro ai sommari) */
+/* Micro-tuning mobile (piÃƒÆ’Ã‚Â¹ respiro ai sommari) */
 @media (max-width: 768px) {
   #root-site .teaser .teaser-summary p {
     margin-bottom: 0.7em;
@@ -1105,8 +1114,12 @@ body {
 /* Transizioni morbide */
 #root-site .teaser .teaser-keyword,
 #root-site .teaser .teaser-keyword .keyword-text > a {
-  transition: transform 0.12s ease, box-shadow 0.12s ease,
-    background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background-color 0.12s ease,
+    color 0.12s ease,
+    border-color 0.12s ease;
 }
 @media (prefers-reduced-motion: reduce) {
   #root-site .teaser .teaser-keyword,
@@ -1209,7 +1222,7 @@ body {
   background: var(--bg-site-light);
 }
 
-/* Rientro & aria: applicati al CONTENITORE (non all’ancora) */
+/* Rientro & aria: applicati al CONTENITORE (non allÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ancora) */
 #root-site .slot .slot-heading,
 /* Titoli Sezioni interne */
 #root-site .section-heading .slot-heading {
@@ -1218,13 +1231,13 @@ body {
   box-sizing: border-box;
 }
 
-/* Elimina padding sugli inline che rompe l’allineamento multilinea */
+/* Elimina padding sugli inline che rompe lÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢allineamento multilinea */
 #root-site .slot .slot-heading > a,
 #root-site .slot .slot-heading > span
 /* Titoli Sezioni interne */
 #root-site .section-heading .slot-heading > a,
 #root-site .section-heading .slot-heading > span {
-  padding: 0; /* niente rientro sull’inline */
+  padding: 0; /* niente rientro sullÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢inline */
 }
 
 /* Barretta */
@@ -1319,7 +1332,7 @@ body {
 /* ============ OVERRIDE COLLEZIONI ============ */
 /* ============ SANREMO (full_width_5) ============ */
 
-/* SOLO â€œPrimo Pianoâ€: testo bianco + barretta bianca */
+/* SOLO ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“Primo PianoÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â: testo bianco + barretta bianca */
 #root-site .fc-sanremo .slot-heading > a,
 #root-site .fc-sanremo .slot-heading > span {
   color: #fff;
@@ -1484,7 +1497,7 @@ body {
 #root-site .fc-evidenza .slot .slot-heading > * {
   color: var(--ev-fg) !important; /* nero */
   font-weight: 700;
-  font-size: 0.9rem; /* più piccoli del principale */
+  font-size: 0.9rem; /* piÃƒÆ’Ã‚Â¹ piccoli del principale */
   letter-spacing: 0.06rem;
   text-transform: uppercase;
 }
@@ -1539,7 +1552,7 @@ body {
   margin: 10px -14px -14px;
 } */
 
-/* IN EVIDENZA — sfondo teaser trasparente (non ereditare var(--tsr-bgw)) */
+/* IN EVIDENZA ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â sfondo teaser trasparente (non ereditare var(--tsr-bgw)) */
 #root-site .fc-evidenza .slot .slot-layout * {
   background: transparent !important; /* batte la regola globale con !important */
 }
@@ -1617,7 +1630,7 @@ body {
   box-shadow: none !important;
 }
 
-/* 2) Heading stile “pill” rosso */
+/* 2) Heading stile ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œpillÃƒÂ¢Ã¢â€šÂ¬Ã‚Â rosso */
 #root-site .fc-slot-promo .heading,
 #root-site .fc-slot-promo .heading * {
   background: var(--promo-accent) !important;
@@ -1645,7 +1658,7 @@ body {
   border-bottom-right-radius: var(--promo-radius);
 }
 
-/* 4) Colore testo: eredità dal contenitore, no selettore universale */
+/* 4) Colore testo: ereditÃƒÆ’  dal contenitore, no selettore universale */
 #root-site .fc-slot-promo .content,
 #root-site .fc-slot-promo .bullet,
 #root-site .fc-slot-promo .teaser .teaser-content {
@@ -1659,7 +1672,7 @@ body {
   color: inherit !important;
 }
 
-/* 5) Promo rivista/abbonamenti – tipografia */
+/* 5) Promo rivista/abbonamenti ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ tipografia */
 #root-site .fc-slot-promo .fc-slot-rivista-promo .abbonati-content * {
   font-family: "Inter Tight", "Inter", system-ui, sans-serif;
   font-weight: 400;
@@ -1685,7 +1698,7 @@ body {
   display: none;
 }
 
-/* ============ OVERRIDE "VIDEO" — SOLO DENTRO .fc-slot-group-section-sidebar-default ============ */
+/* ============ OVERRIDE "VIDEO" ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â SOLO DENTRO .fc-slot-group-section-sidebar-default ============ */
 #root-site
   body.backgroundAdv
   .fc-slot-group-section-sidebar-default
@@ -1693,7 +1706,7 @@ body {
   max-width: 330px;
 }
 
-/* ============ OVERRIDE "ULTIME NOTIZIE" — SOLO DENTRO .fc-slot-group-section-sidebar-default ============ */
+/* ============ OVERRIDE "ULTIME NOTIZIE" ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â SOLO DENTRO .fc-slot-group-section-sidebar-default ============ */
 #root-site .fc-slot-group-section-sidebar-default {
   --promo-accent: var(--brand);
   --promo-bullet-bg: #cc013493;
@@ -1842,7 +1855,7 @@ body {
   box-shadow: none !important;
 }
 
-/* 2) Heading stile “pill” rosso */
+/* 2) Heading stile ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œpillÃƒÂ¢Ã¢â€šÂ¬Ã‚Â rosso */
 #root-site
   .fc-slot-group-section-sidebar-default
   .fc-slot-section-sidebar-news
@@ -1889,7 +1902,7 @@ body {
   border-bottom-right-radius: var(--promo-radius);
 }
 
-/* 4) Colore testo: eredità dal contenitore */
+/* 4) Colore testo: ereditÃƒÆ’  dal contenitore */
 #root-site
   .fc-slot-group-section-sidebar-default
   .fc-slot-section-sidebar-news
@@ -1926,7 +1939,7 @@ body {
   color: inherit !important;
 }
 
-/* ============ RIVISTA / ABBONAMENTI — SOLO DENTRO .fc-slot-group-section-sidebar-default ============ */
+/* ============ RIVISTA / ABBONAMENTI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â SOLO DENTRO .fc-slot-group-section-sidebar-default ============ */
 
 #root-site
   body.backgroundAdv
@@ -1972,7 +1985,7 @@ body {
   display: none;
 }
 
-/* ============ OVERRIDE "ULTIME NOTIZIE" — SOLO DENTRO ARTICOLO ============ */
+/* ============ OVERRIDE "ULTIME NOTIZIE" ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â SOLO DENTRO ARTICOLO ============ */
 #root-site {
   --promo-accent: var(--brand);
   --promo-bullet-bg: #cc013493;
@@ -2036,7 +2049,7 @@ body {
   box-shadow: none !important;
 }
 
-/* 2) Heading stile “pill” rosso */
+/* 2) Heading stile ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œpillÃƒÂ¢Ã¢â€šÂ¬Ã‚Â rosso */
 #root-site .fc-slot-section-sidebar-news .flag-heading .heading,
 #root-site .fc-slot-section-sidebar-news .flag-heading .heading * {
   background: var(--promo-accent) !important;
@@ -2062,7 +2075,7 @@ body {
   border-bottom-right-radius: var(--promo-radius);
 }
 
-/* 4) Colore testo: eredità dal contenitore */
+/* 4) Colore testo: ereditÃƒÆ’  dal contenitore */
 #root-site .fc-slot-section-sidebar-news .content,
 #root-site .fc-slot-section-sidebar-news .bullet,
 #root-site .fc-slot-section-sidebar-news .teaser .teaser-content {
@@ -2076,7 +2089,7 @@ body {
   color: inherit !important;
 }
 
-/* ============ RIVISTA / ABBONAMENTI — SOLO DENTRO ARTICOLO ============ */
+/* ============ RIVISTA / ABBONAMENTI ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â SOLO DENTRO ARTICOLO ============ */
 #root-site .fc-slot-rivista-promo .abbonati-content * {
   font-family: "Inter Tight", "Inter", system-ui, sans-serif;
   font-weight: 400;
@@ -2127,7 +2140,7 @@ body {
   background: transparent;
 }
 
-/* Ogni molecule o atom può avere un’altezza massima */
+/* Ogni molecule o atom puÃƒÆ’Ã‚Â² avere unÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢altezza massima */
 #root-site .fc-foto-e-video .molecule-5,
 #root-site .fc-foto-e-video .atom-5 {
   max-height: 350px;
@@ -2136,7 +2149,7 @@ body {
   overflow: hidden !important;
 }
 
-/* Teaser all’interno: altezza forzata a 250px */
+/* Teaser allÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢interno: altezza forzata a 250px */
 #root-site .fc-foto-e-video .teaser {
   min-height: 200px;
   border-radius: var(--fv-radius);
@@ -2155,7 +2168,7 @@ body {
   padding-top: 10px; /* come richiesto in precedenza */
 }
 
-/* Applica bg e raggio alla “scatola” della sezione */
+/* Applica bg e raggio alla ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œscatolaÃƒÂ¢Ã¢â€šÂ¬Ã‚Â della sezione */
 #root-site .fc-foto-e-video .slot-layout {
   background: var(--fv-bg);
   border-radius: var(--fv-radius);
@@ -2171,7 +2184,7 @@ body {
   padding: 8px !important;
 }
 
-/* 1) Titoli teaser più piccoli (~17px) su griglia 4-col */
+/* 1) Titoli teaser piÃƒÆ’Ã‚Â¹ piccoli (~17px) su griglia 4-col */
 #root-site .fc-foto-e-video .teaser .teaser-title:not([style*="font-size"]),
 #root-site
   .fc-foto-e-video
@@ -2266,7 +2279,7 @@ body {
 }
 
 /* =========================================================
-   SEZIONE — "Le iniziative di Famiglia Cristiana"
+   SEZIONE ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â "Le iniziative di Famiglia Cristiana"
    Stile promo pulito, senza hover
    ========================================================= */
 
@@ -2313,12 +2326,12 @@ body {
   margin-top: 10px;
 }
 
-/* Griglia interna: più compatta */
+/* Griglia interna: piÃƒÆ’Ã‚Â¹ compatta */
 #root-site .slot.fc-autopromo-hp .flex-container {
   justify-content: center;
 }
 
-/* Griglia interna: più compatta */
+/* Griglia interna: piÃƒÆ’Ã‚Â¹ compatta */
 #root-site .slot.fc-autopromo-hp .flex-container .separator {
   min-width: 5px;
   max-width: 10px;
@@ -2376,7 +2389,7 @@ body {
   max-width: 1060px !important;
 }
 
-/* Applica bg e raggio alla “scatola” della sezione */
+/* Applica bg e raggio alla ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œscatolaÃƒÂ¢Ã¢â€šÂ¬Ã‚Â della sezione */
 #root-site .fc-riflessioni .slot-layout {
   background: var(--rf-bg) !important;
   border-radius: var(--rf-radius);
@@ -2554,7 +2567,9 @@ body {
   letter-spacing: 0.06rem;
   text-transform: uppercase;
   line-height: 1.6rem;
-  transition: color 0.2s ease, border-color 0.2s ease !important;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease !important;
 }
 
 /* 2) Titolo principale (slot-heading) bianco e con underline nativa */
@@ -2568,7 +2583,7 @@ body {
 }
 
 /* ============================
-   EMBED "Leggi anche" — correzioni definitive
+   EMBED "Leggi anche" ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â correzioni definitive
    ============================ */
 
 .embed-article {
@@ -2617,7 +2632,7 @@ body {
   display: none !important;
 }
 
-/* aspetto “pill” unico, senza testi aggiunti artificialmente */
+/* aspetto ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œpillÃƒÂ¢Ã¢â€šÂ¬Ã‚Â unico, senza testi aggiunti artificialmente */
 .embed-article .teaser .teaser-keyword {
   display: inline-flex;
   align-items: center;
@@ -2660,16 +2675,16 @@ body {
 }
 
 .embed-article .teaser .teaser-byline::before {
-  /* content: none !important;  rimuove “—” se non lo desideri; lascia se lo vuoi */
+  /* content: none !important;  rimuove ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬ÂÃƒÂ¢Ã¢â€šÂ¬Ã‚Â se non lo desideri; lascia se lo vuoi */
 }
 
-/* 7) (opzionale) Se non vuoi l’immagine in questa card */
+/* 7) (opzionale) Se non vuoi lÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢immagine in questa card */
 .embed-article .teaser-image {
   /* display: none !important; */
 }
 
 /* =========================
-   MEDIA GALLERY – PATCH UI
+   MEDIA GALLERY ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ PATCH UI
    Compatibile: Swiper / Slick
    ========================= */
 
@@ -2686,7 +2701,7 @@ body {
   margin: 24px auto;
 }
 
-/* 2) “Frame” visivo: radius + shadow + overflow */
+/* 2) ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œFrameÃƒÂ¢Ã¢â€šÂ¬Ã‚Â visivo: radius + shadow + overflow */
 .media-gallery,
 .mediaGallery,
 .fc-media-gallery,
@@ -2697,7 +2712,7 @@ body {
 .slick-slider {
   border-radius: 16px;
   overflow: hidden;
-  background: #fff; /* evita “vuoti” bianchi durante il loading */
+  background: #fff; /* evita ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œvuotiÃƒÂ¢Ã¢â€šÂ¬Ã‚Â bianchi durante il loading */
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
 }
 
@@ -2708,7 +2723,7 @@ body {
   align-items: stretch;
 }
 
-/* 4) Immagini: look “editoriale” e coerente */
+/* 4) Immagini: look ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œeditorialeÃƒÂ¢Ã¢â€šÂ¬Ã‚Â e coerente */
 .media-gallery img,
 .mediaGallery img,
 .fc-media-gallery img,
@@ -2724,7 +2739,7 @@ body {
   object-fit: cover;
 }
 
-/* 5) Frecce – Swiper */
+/* 5) Frecce ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Swiper */
 .swiper-button-prev,
 .swiper-button-next {
   width: 44px;
@@ -2741,7 +2756,7 @@ body {
   color: #111;
 }
 
-/* 6) Frecce – Slick */
+/* 6) Frecce ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Slick */
 .slick-prev,
 .slick-next {
   width: 44px;
@@ -2759,7 +2774,7 @@ body {
   opacity: 1;
 }
 
-/* 7) Pagination – Swiper: NON la riga infinita di pallini */
+/* 7) Pagination ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Swiper: NON la riga infinita di pallini */
 .swiper-pagination {
   position: absolute;
   left: 0;
@@ -2782,7 +2797,7 @@ body {
   opacity: 1;
 }
 
-/* 8) Pagination – Slick: compatta e centrata */
+/* 8) Pagination ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Slick: compatta e centrata */
 .slick-dots {
   bottom: 10px;
   padding: 0 12px;
@@ -2801,7 +2816,7 @@ body {
   opacity: 1;
 }
 
-/* 9) Mobile: riduci un filo e togli “sbordi” */
+/* 9) Mobile: riduci un filo e togli ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œsbordiÃƒÂ¢Ã¢â€šÂ¬Ã‚Â */
 @media (max-width: 768px) {
   .media-gallery,
   .mediaGallery,
@@ -2847,7 +2862,7 @@ body {
   display: block;
 }
 
-/* Barra rossa solo sull’area link sezioni (desktop) */
+/* Barra rossa solo sullÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢area link sezioni (desktop) */
 #root-site .section-links-container {
   background: var(--brand);
   color: #fff;
@@ -2936,7 +2951,7 @@ body {
     background: var(--brand);
   }
 
-  /* Mantieni lo stroke dell’icona leggibile su sfondo rosso */
+  /* Mantieni lo stroke dellÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢icona leggibile su sfondo rosso */
   #root-site .navmenu-hamburger .accent {
     stroke: #fff !important;
   }
@@ -2989,7 +3004,7 @@ body {
    Logo (dimensione visuale)
    ----------------------------- */
 #root-site footer.page-footer .footer-logo-container {
-  /* niente layout, solo skin: altezza “slot” del logo */
+  /* niente layout, solo skin: altezza ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œslotÃƒÂ¢Ã¢â€šÂ¬Ã‚Â del logo */
   height: var(--ft-logo-h-m);
 }
 @media (min-width: 48em) {
@@ -3086,7 +3101,7 @@ body {
 }
 
 /* ---------------------------------------------------------
-   Vari utilità
+   Vari utilitÃƒÆ’ 
    --------------------------------------------------------- */
 #root-site footer.page-footer .footer-logos {
   color: inherit;
@@ -3120,7 +3135,7 @@ body {
 #root-site .sidebar-overlay.open .menu-submenu > .menu-item > a,        /* voci sotto-menu */
 #root-site .sidebar-overlay.open .submenu-toolbar.sidebar-buttons.top-menu-wrapper a.top-menu-item {
   text-transform: uppercase;
-  letter-spacing: 0.04em; /* migliora leggibilità del maiuscolo */
+  letter-spacing: 0.04em; /* migliora leggibilitÃƒÆ’  del maiuscolo */
 }
 
 #root-site .sidebar-overlay.open .sidebar-buttons button,
@@ -3200,7 +3215,7 @@ body {
   margin: 0 0 8px 0;
 }
 
-/* Link “Top menu” in rosso, testo bianco */
+/* Link ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œTop menuÃƒÂ¢Ã¢â€šÂ¬Ã‚Â in rosso, testo bianco */
 #root-site
   .sidebar-overlay.open
   .submenu-toolbar.sidebar-buttons.top-menu-wrapper
@@ -3233,7 +3248,7 @@ body {
   margin: 6px 8px 0 0;
 }
 
-/* (sicurezza) rimuovi eventuali gap flex residui sui <ul> già presenti */
+/* (sicurezza) rimuovi eventuali gap flex residui sui <ul> giÃƒÆ’  presenti */
 #root-site .sidebar-overlay.open nav ul {
   gap: 0 !important;
   -webkit-flex-wrap: nowrap !important;
@@ -3242,7 +3257,7 @@ body {
 }
 
 /* =========================================================
-   ARTICOLO COMPLETO — Stile coerente con Famiglia Cristiana
+   ARTICOLO COMPLETO ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Stile coerente con Famiglia Cristiana
    ========================================================= */
 
 #root-site article.article {
@@ -3336,7 +3351,9 @@ body {
   text-decoration: none;
   border-bottom: 1px solid var(--brand);
   line-height: 1.6rem;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 #root-site .article-header .article-byline a:hover {
   color: #e30613;
@@ -3420,7 +3437,9 @@ body {
   text-decoration: none;
   border-bottom: 1px solid var(--brand);
   line-height: 1.6rem;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 #root-site .article-content a:hover {
   color: #e30613;
@@ -3446,7 +3465,9 @@ body {
   letter-spacing: 0.01111rem;
   border-bottom: 1px solid var(--brand);
   line-height: inherit;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 /* Figure e immagini */
@@ -3524,7 +3545,7 @@ body {
   }
 
   #root-site .article-content p {
-    font-size: clamp(17px, 2.2vw, 18px);
+    font-size: clamp(18px, 2.2vw, 19px);
     line-height: 1.55;
   }
 
@@ -3838,7 +3859,9 @@ IMPORTANT: Changing the following values may prevent the notice from being displ
   transition: -webkit-transform 0.4s ease !important;
   -o-transition: transform 0.4s ease !important;
   transition: transform 0.4s ease !important;
-  transition: transform 0.4s ease, -webkit-transform 0.4s ease !important;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease !important;
 }
 
 #iubenda-cs-banner.iubenda-cs-slidein.iubenda-cs-top .iubenda-cs-container {
@@ -3895,7 +3918,9 @@ IMPORTANT: Changing the following values may prevent the notice from being displ
   transition: -webkit-transform 0.4s ease !important;
   -o-transition: transform 0.4s ease !important;
   transition: transform 0.4s ease !important;
-  transition: transform 0.4s ease, -webkit-transform 0.4s ease !important;
+  transition:
+    transform 0.4s ease,
+    -webkit-transform 0.4s ease !important;
 }
 
 #iubenda-cs-banner .iubenda-cs-rationale {
@@ -4611,9 +4636,18 @@ IMPORTANT: Changing the following values may prevent the notice from being displ
   display: block !important;
   padding: 0 !important;
   opacity: 0 !important;
-  -webkit-transition: max-width 0.6s ease, padding 0.6s ease, opacity 0.6s ease !important;
-  -o-transition: max-width 0.6s ease, padding 0.6s ease, opacity 0.6s ease !important;
-  transition: max-width 0.6s ease, padding 0.6s ease, opacity 0.6s ease !important;
+  -webkit-transition:
+    max-width 0.6s ease,
+    padding 0.6s ease,
+    opacity 0.6s ease !important;
+  -o-transition:
+    max-width 0.6s ease,
+    padding 0.6s ease,
+    opacity 0.6s ease !important;
+  transition:
+    max-width 0.6s ease,
+    padding 0.6s ease,
+    opacity 0.6s ease !important;
 }
 
 .iubenda-tp-btn[data-tp-float][data-tp-hover][data-tp-label]:hover:after {
@@ -4897,5 +4931,9 @@ div.prompt-to-accept {
 
 .iub-executing-accept #iubenda-iframe.iubenda-iframe-visible {
   display: none !important;
+}
+
+.fc-slot_video {
+  z-index: 5;
 }
 /*END IUBENDA PROMPT*/
