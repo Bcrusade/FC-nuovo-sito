@@ -4933,27 +4933,46 @@ div.prompt-to-accept {
 }
 /*END IUBENDA PROMPT*/
 
-/* Evidenzia Podcast nell'header FC */
-#root-site header a[title="Podcast"][href$="/podcast"] {
+/* Voci Podcast e Credere nel menu superiore: compatte e distinte per brand */
+#root-site header .topmenu-links a.sidebar-button[title="Podcast"][href$="/podcast"],
+#root-site header .topmenu-links-dropdown a.sidebar-button[title="Podcast"][href$="/podcast"],
+#root-site header .topmenu-links a.sidebar-button[title="Credere"][href="https://www.credere.it/"],
+#root-site header .topmenu-links-dropdown a.sidebar-button[title="Credere"][href="https://www.credere.it/"] {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  background: var(--brand) !important;
-  color: #fff !important;
-  border: 2px solid #fff !important;
-  border-radius: 6px !important;
-  box-shadow: 0 0 0 2px var(--brand), 0 3px 8px rgb(0 0 0 / 14%) !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.04em !important;
+  padding: 2px 8px !important;
+  border: 1px solid transparent !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
   text-decoration: none !important;
 }
 
-#root-site header a[title="Podcast"][href$="/podcast"]:hover,
-#root-site header a[title="Podcast"][href$="/podcast"]:focus-visible {
+#root-site header .topmenu-links a.sidebar-button[title="Podcast"][href$="/podcast"],
+#root-site header .topmenu-links-dropdown a.sidebar-button[title="Podcast"][href$="/podcast"] {
+  background: #1DB954 !important;
+  color: #121212 !important;
+}
+
+#root-site header .topmenu-links a.sidebar-button[title="Credere"][href="https://www.credere.it/"],
+#root-site header .topmenu-links-dropdown a.sidebar-button[title="Credere"][href="https://www.credere.it/"] {
+  background: var(--brand) !important;
+  color: #fff !important;
+}
+
+#root-site header .topmenu-links a.sidebar-button[title="Podcast"][href$="/podcast"]:hover,
+#root-site header .topmenu-links a.sidebar-button[title="Credere"][href="https://www.credere.it/"]:hover,
+#root-site header .topmenu-links-dropdown a.sidebar-button[title="Podcast"][href$="/podcast"]:hover,
+#root-site header .topmenu-links-dropdown a.sidebar-button[title="Credere"][href="https://www.credere.it/"]:hover {
   filter: brightness(0.92) !important;
 }
 
-#root-site header a[title="Podcast"][href$="/podcast"]:focus-visible {
-  outline: 2px solid var(--brand) !important;
-  outline-offset: 4px !important;
+#root-site header .topmenu-links a.sidebar-button[title="Podcast"][href$="/podcast"]:focus-visible,
+#root-site header .topmenu-links a.sidebar-button[title="Credere"][href="https://www.credere.it/"]:focus-visible,
+#root-site header .topmenu-links-dropdown a.sidebar-button[title="Podcast"][href$="/podcast"]:focus-visible,
+#root-site header .topmenu-links-dropdown a.sidebar-button[title="Credere"][href="https://www.credere.it/"]:focus-visible {
+  outline: 2px solid currentColor !important;
+  outline-offset: 2px !important;
 }
