@@ -3565,7 +3565,7 @@ body {
 
 /* Personalizzazioni menu superiore: Podcast e Credere */
 header a[href$="/podcast"],
-header a[href^="https://www.credere.it"] {
+header a[title="Credere"][href$="/credere"] {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -3585,18 +3585,18 @@ header a[href$="/podcast"] {
   color: #fff !important;
 }
 
-header a[href^="https://www.credere.it"] {
+header a[title="Credere"][href$="/credere"] {
   background: var(--brand) !important;
   color: #fff !important;
 }
 
 header a[href$="/podcast"]:hover,
-header a[href^="https://www.credere.it"]:hover {
+header a[title="Credere"][href$="/credere"]:hover {
   filter: brightness(0.92) !important;
 }
 
 header a[href$="/podcast"]:focus-visible,
-header a[href^="https://www.credere.it"]:focus-visible {
+header a[title="Credere"][href$="/credere"]:focus-visible {
   outline: 2px solid currentColor !important;
   outline-offset: 2px !important;
 }
