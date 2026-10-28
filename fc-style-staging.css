@@ -810,8 +810,8 @@ body {
   #root-site .fc-apertura-left-image-big .teaser .teaser-image > a,
   #root-site .fc-apertura-left-image-big .teaser .ace-image,
   #root-site .fc-apertura-left-image-big .teaser .ace-image * {
-    /* position: static !important; */
-    aspect-ratio: 4 / 3;
+    position: static !important;
+    aspect-ratio: 1.5 / 1;
     object-position: center top !important;
   }
 
