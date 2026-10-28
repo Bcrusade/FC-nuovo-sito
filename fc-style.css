@@ -815,8 +815,8 @@ body {
   #root-site .fc-apertura-left-image-big .teaser .teaser-image > a,
   #root-site .fc-apertura-left-image-big .teaser .ace-image,
   #root-site .fc-apertura-left-image-big .teaser .ace-image * {
-    /* position: static !important; */
-    aspect-ratio: 1.82927 / 1;
+    position: static !important;
+    aspect-ratio: 1.5 / 1;
     object-position: center top !important;
   }
 
@@ -834,6 +834,27 @@ body {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+}
+
+/* Tablet verticale: il teaser e' ancora impilato, quindi il cap desktop
+   taglierebbe il testo sotto la foto. Desktop invariato da 1024px. */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  #root-site .fc-apertura-left-image-big .flex-container,
+  #root-site .fc-apertura-left-image-big .landscape-molecule,
+  #root-site .fc-apertura-left-image-big .with-big-fonts,
+  #root-site .fc-apertura-left-image-big .with-byline {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  #root-site .fc-apertura-left-image-big .teaser .teaser-image,
+  #root-site .fc-apertura-left-image-big .teaser .teaser-image > a,
+  #root-site .fc-apertura-left-image-big .teaser .ace-image,
+  #root-site .fc-apertura-left-image-big .teaser .ace-image * {
+    position: static !important;
+    aspect-ratio: 1.5 / 1;
+    object-position: center top !important;
   }
 }
 
