@@ -41,6 +41,7 @@
   --tsr-bgw: #fff;
 
   /* === Apertura left image big ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â controllo altezza === */
+  --apertura-maxh-m: 260px; /* mobile */
   --apertura-maxh-d: 380px; /* desktop */
 
   /* === Bordo arrotondato === */
@@ -766,69 +767,54 @@ body {
   height: auto !important;
 }
 
-/* Card senza tagli nel layout verticale di smartphone e tablet. */
-#root-site .fc-apertura-left-image-big .flex-container,
+/* 2) Desktop: consenti il cap in altezza come prima */
+#root-site .fc-apertura-left-image-big .flex-container {
+  max-height: var(--apertura-maxh-m);
+  overflow: hidden;
+}
+@media (min-width: 48em) {
+  #root-site .fc-apertura-left-image-big .flex-container {
+    max-height: var(--apertura-maxh-d);
+  }
+}
+
+/* 3) Wrapper ereditano il cap solo su desktop */
 #root-site .fc-apertura-left-image-big .landscape-molecule,
 #root-site .fc-apertura-left-image-big .with-big-fonts,
 #root-site .fc-apertura-left-image-big .with-byline {
-  max-height: none;
-  overflow: visible;
+  max-height: inherit;
+  overflow: hidden;
 }
 
-/* Il limite appartiene al layout desktop affiancato, attivo da 1024px. */
-@media (min-width: 1024px) {
-  #root-site .fc-apertura-left-image-big .flex-container {
-    max-height: var(--apertura-maxh-d);
-    overflow: hidden;
-  }
+/* ===== Mobile fixes ===== */
+@media (max-width: 767.98px) {
+  /* NIENTE cap in altezza sul flusso mobile */
+  #root-site .fc-apertura-left-image-big .flex-container,
   #root-site .fc-apertura-left-image-big .landscape-molecule,
   #root-site .fc-apertura-left-image-big .with-big-fonts,
   #root-site .fc-apertura-left-image-big .with-byline {
-    max-height: inherit;
-    overflow: hidden;
+    max-height: none !important;
+    overflow: visible !important;
   }
-}
 
-/* Foto nel flusso: niente figli assoluti che azzerano la larghezza flex. */
-@media (max-width: 1023.98px) {
-  #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-image {
-    width: 100% !important;
-    flex: 0 0 auto !important;
-    height: auto !important;
-    max-height: none !important;
-    min-width: 0;
-    align-self: stretch;
-  }
-  #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-image-link {
-    display: block;
-    width: 100%;
-  }
-  #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-image .ace-image {
-    width: 100% !important;
-    height: auto !important;
-    max-height: none !important;
-    aspect-ratio: auto !important;
-    overflow: hidden;
-  }
-  /* Mantiene la visibilita' narrow/wider gestita dal CMS. */
-  #root-site .fc-apertura-left-image-big .teaser.teaser-0 .ace-image > .narrow-format,
-  #root-site .fc-apertura-left-image-big .teaser.teaser-0 .ace-image > .wider-format {
-    position: static;
-    width: 100%;
-    height: auto;
-    aspect-ratio: auto;
-  }
-  #root-site .fc-apertura-left-image-big .teaser.teaser-0 .ace-image img {
-    width: 100% !important;
-    height: auto !important;
-    max-height: none !important;
-    aspect-ratio: 4 / 3 !important;
-    object-fit: cover;
-    object-position: var(--image-object-position, 50% 50%);
-  }
-}
+  /* Isola la card: impedisce che roba ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œdi sottoÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ci si sovrapponga */
+  /* #root-site .fc-apertura-left-image-big .slot-layout,
+  #root-site .fc-apertura-left-image-big .teaser.teaser-0 {
+    position: relative;
+    isolation: isolate;
+    z-index: 0;
+  } */
 
-@media (max-width: 767.98px) {
+  /* Assicura che lÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢immagine partecipi al flusso (niente abs/sticky ereditati) */
+  #root-site .fc-apertura-left-image-big .teaser .teaser-image,
+  #root-site .fc-apertura-left-image-big .teaser .teaser-image > a,
+  #root-site .fc-apertura-left-image-big .teaser .ace-image,
+  #root-site .fc-apertura-left-image-big .teaser .ace-image * {
+    /* position: static !important; */
+    aspect-ratio: 1.82927 / 1;
+    object-position: center top !important;
+  }
+
   /* Limita verticalmente con le clamp (invece del max-height del container) */
   #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-title {
     display: -webkit-box;
