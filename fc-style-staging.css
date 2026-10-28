@@ -41,7 +41,6 @@
   --tsr-bgw: #fff;
 
   /* === Apertura left image big ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â controllo altezza === */
-  --apertura-maxh-m: 260px; /* mobile */
   --apertura-maxh-d: 380px; /* desktop */
 
   /* === Bordo arrotondato === */
@@ -767,75 +766,69 @@ body {
   height: auto !important;
 }
 
-/* 2) Desktop: consenti il cap in altezza come prima */
-#root-site .fc-apertura-left-image-big .flex-container {
-  max-height: var(--apertura-maxh-m);
-  overflow: hidden;
-}
-@media (min-width: 48em) {
-  #root-site .fc-apertura-left-image-big .flex-container {
-    max-height: var(--apertura-maxh-d);
-  }
-}
-
-/* 3) Wrapper ereditano il cap solo su desktop */
-#root-site .fc-apertura-left-image-big .landscape-molecule,
-#root-site .fc-apertura-left-image-big .with-big-fonts,
-#root-site .fc-apertura-left-image-big .with-byline {
-  max-height: inherit;
-  overflow: hidden;
-}
-
-/* Correzione altezza e ritaglio limitata al mobile. */
-@media (max-width: 767.98px) {
-/* Altezza libera per la card: il limite non deve tagliare testo o foto. */
+/* Card senza tagli nel layout verticale di smartphone e tablet. */
 #root-site .fc-apertura-left-image-big .flex-container,
 #root-site .fc-apertura-left-image-big .landscape-molecule,
 #root-site .fc-apertura-left-image-big .with-big-fonts,
 #root-site .fc-apertura-left-image-big .with-byline {
-  max-height: none !important;
-  overflow: visible !important;
+  max-height: none;
+  overflow: visible;
 }
 
-/* La sola foto definisce l'altezza, in proporzione alla larghezza disponibile.
-   4:3 offre piu' spazio verticale del precedente taglio mobile 1.82927:1.
-   Non forzare display sui formati: la loro visibilita' resta gestita dal CMS. */
-#root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-image {
-  height: auto !important;
-  max-height: none !important;
-  min-width: 0;
-  align-self: flex-start;
-}
-#root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-image-link {
-  display: block;
-  width: 100%;
-}
-#root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-image .ace-image {
-  width: 100% !important;
-  height: auto !important;
-  max-height: none !important;
-  aspect-ratio: 4 / 3 !important;
-  position: relative;
-  overflow: hidden;
-}
-#root-site .fc-apertura-left-image-big .teaser.teaser-0 .ace-image > .narrow-format,
-#root-site .fc-apertura-left-image-big .teaser.teaser-0 .ace-image > .wider-format {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  aspect-ratio: auto;
-}
-#root-site .fc-apertura-left-image-big .teaser.teaser-0 .ace-image img {
-  width: 100% !important;
-  height: 100% !important;
-  max-height: none !important;
-  aspect-ratio: auto !important;
-  object-fit: cover;
-  /* Rispetta il punto focale impostato nel CMS per entrambi i formati. */
-  object-position: var(--image-object-position, 50% 50%);
+/* Il limite appartiene al layout desktop affiancato, attivo da 1024px. */
+@media (min-width: 1024px) {
+  #root-site .fc-apertura-left-image-big .flex-container {
+    max-height: var(--apertura-maxh-d);
+    overflow: hidden;
+  }
+  #root-site .fc-apertura-left-image-big .landscape-molecule,
+  #root-site .fc-apertura-left-image-big .with-big-fonts,
+  #root-site .fc-apertura-left-image-big .with-byline {
+    max-height: inherit;
+    overflow: hidden;
+  }
 }
 
+/* Foto nel flusso: niente figli assoluti che azzerano la larghezza flex. */
+@media (max-width: 1023.98px) {
+  #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-image {
+    width: 100% !important;
+    flex: 0 0 auto !important;
+    height: auto !important;
+    max-height: none !important;
+    min-width: 0;
+    align-self: stretch;
+  }
+  #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-image-link {
+    display: block;
+    width: 100%;
+  }
+  #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-image .ace-image {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    overflow: hidden;
+  }
+  /* Mantiene la visibilita' narrow/wider gestita dal CMS. */
+  #root-site .fc-apertura-left-image-big .teaser.teaser-0 .ace-image > .narrow-format,
+  #root-site .fc-apertura-left-image-big .teaser.teaser-0 .ace-image > .wider-format {
+    position: static;
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+  }
+  #root-site .fc-apertura-left-image-big .teaser.teaser-0 .ace-image img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    aspect-ratio: 4 / 3 !important;
+    object-fit: cover;
+    object-position: var(--image-object-position, 50% 50%);
+  }
+}
+
+@media (max-width: 767.98px) {
   /* Limita verticalmente con le clamp (invece del max-height del container) */
   #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-title {
     display: -webkit-box;
