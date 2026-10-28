@@ -40,6 +40,10 @@
   /* Teaser (se servono in futuro) */
   --tsr-bgw: #fff;
 
+  /* === Apertura left image big ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â controllo altezza === */
+  --apertura-maxh-m: 260px; /* mobile */
+  --apertura-maxh-d: 380px; /* desktop */
+
   /* === Bordo arrotondato === */
   --ev-radius: 18px;
 }
@@ -763,6 +767,27 @@ body {
   height: auto !important;
 }
 
+/* 2) Desktop: consenti il cap in altezza come prima */
+#root-site .fc-apertura-left-image-big .flex-container {
+  max-height: var(--apertura-maxh-m);
+  overflow: hidden;
+}
+@media (min-width: 48em) {
+  #root-site .fc-apertura-left-image-big .flex-container {
+    max-height: var(--apertura-maxh-d);
+  }
+}
+
+/* 3) Wrapper ereditano il cap solo su desktop */
+#root-site .fc-apertura-left-image-big .landscape-molecule,
+#root-site .fc-apertura-left-image-big .with-big-fonts,
+#root-site .fc-apertura-left-image-big .with-byline {
+  max-height: inherit;
+  overflow: hidden;
+}
+
+/* Correzione altezza e ritaglio limitata al mobile. */
+@media (max-width: 767.98px) {
 /* Altezza libera per la card: il limite non deve tagliare testo o foto. */
 #root-site .fc-apertura-left-image-big .flex-container,
 #root-site .fc-apertura-left-image-big .landscape-molecule,
@@ -811,7 +836,6 @@ body {
   object-position: var(--image-object-position, 50% 50%);
 }
 
-@media (max-width: 767.98px) {
   /* Limita verticalmente con le clamp (invece del max-height del container) */
   #root-site .fc-apertura-left-image-big .teaser.teaser-0 .teaser-title {
     display: -webkit-box;
