@@ -811,7 +811,7 @@ body {
   #root-site .fc-apertura-left-image-big .teaser .ace-image,
   #root-site .fc-apertura-left-image-big .teaser .ace-image * {
     /* position: static !important; */
-    aspect-ratio: 1.82927 / 1;
+    aspect-ratio: 4 / 3;
     object-position: center top !important;
   }
 
