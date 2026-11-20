@@ -4999,10 +4999,19 @@ div.prompt-to-accept {
   z-index: 5;
 }
 /*END IUBENDA PROMPT*/
-/* Dailymotion PiP: pulsante di chiusura più visibile */
+/* Dailymotion PiP: pulsante di chiusura e icona più grandi */
 #dailymotion-pip > .dailymotion-player-close-compliant-button {
-  width: 36px !important;
-  height: 36px !important;
+  width: 40px !important;
+  height: 40px !important;
   padding: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   background-color: #fff !important;
+}
+
+#dailymotion-pip > .dailymotion-player-close-compliant-button > svg {
+  width: 24px !important;
+  height: 24px !important;
+  flex: none;
 }
