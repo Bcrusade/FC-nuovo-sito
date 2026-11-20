@@ -4999,3 +4999,10 @@ div.prompt-to-accept {
   z-index: 5;
 }
 /*END IUBENDA PROMPT*/
+/* Dailymotion PiP: pulsante di chiusura più visibile */
+#dailymotion-pip > .dailymotion-player-close-compliant-button {
+  width: 36px !important;
+  height: 36px !important;
+  padding: 8px !important;
+  background-color: #fff !important;
+}
